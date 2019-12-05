@@ -2,7 +2,9 @@
 #define CRUC
 
 #include "base_class.h"
-#include <opencv2/tracking.hpp>
+//#include <opencv2/tracking.hpp>
+#include "opencv2/tracking/tracking.hpp"
+
 #include <opencv2/core/ocl.hpp>
 
 class Cruc : public Base_class
