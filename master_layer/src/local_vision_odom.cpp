@@ -6,7 +6,6 @@
 #include <sensor_msgs/Imu.h>
 #include <geometry_msgs/Quaternion.h>
 #include <geometry_msgs/Point.h>
-
 //#include </BoundingBox.h>
 //#include <darknet_ros_msgs/BoundingBoxes.h>
 #include <master_layer/ChangeOdom.h>
@@ -192,8 +191,7 @@ int main (int argc, char** argv) {
 //    ros::Subscriber mean_coord_sub = nh.subscribe("/anahita/mean_coord", 100, &xCallback);
 
     ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("/anahita/pose_gt", 100);
-  //  ros::Subscriber ml_sub = nh.subscribe("/anahita/bounding_boxes", 1, &ml_callback);
-
+   // ros::Subscriber ml_sub = nh.subscribe("/anahita/bounding_boxes", 1, &ml_callback);
     ros::ServiceServer service = nh.advertiseService("odom_source", changeOdom);
     ros::Rate loop_rate(20);
 
