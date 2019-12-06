@@ -6,9 +6,10 @@
 #include <sensor_msgs/Imu.h>
 #include <geometry_msgs/Quaternion.h>
 #include <geometry_msgs/Point.h>
-//#include </BoundingBox.h>
+
+//#include <darknet_ros_msgs/BoundingBox.h>
 //#include <darknet_ros_msgs/BoundingBoxes.h>
-#include <master_layer/ChangeOdom.h>
+//#include <master_layer/ChangeOdom.h>
 #include <Eigen/Dense>
 
 double z, y, x;
@@ -34,7 +35,7 @@ std::string odom_source = "dvl";
 // I have not yet added anything to retrieve the current task
 std::string current_task = "vetalas";
 
-/*void ml_callback(const darknet_ros_msgs::BoundingBoxes msg)
+void ml_callback(const darknet_ros_msgs::BoundingBoxes msg)
 {
     ROS_INFO("ML CALLBACK------------------------------------------------------------------------------ %f", sizeof(msg.bounding_boxes));
     double x_len, y_len;
@@ -59,7 +60,7 @@ std::string current_task = "vetalas";
 
         }
     }
-}*/
+}
 
 bool changeOdom (master_layer::ChangeOdom::Request &req,
                 master_layer::ChangeOdom::Response &res) {
@@ -191,7 +192,8 @@ int main (int argc, char** argv) {
 //    ros::Subscriber mean_coord_sub = nh.subscribe("/anahita/mean_coord", 100, &xCallback);
 
     ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("/anahita/pose_gt", 100);
-   // ros::Subscriber ml_sub = nh.subscribe("/anahita/bounding_boxes", 1, &ml_callback);
+    ros::Subscriber ml_sub = nh.subscribe("/anahita/bounding_boxes", 1, &ml_callback);
+
     ros::ServiceServer service = nh.advertiseService("odom_source", changeOdom);
     ros::Rate loop_rate(20);
 
