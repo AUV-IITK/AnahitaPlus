@@ -27,7 +27,7 @@ git clone https://github.com/AUV-IITK/AnahitaPlus.git
 
 3. **Install all dependency packages to run the repository**
 
-The repository requires the following ROS packages to run: [usb_cam](http://wiki.ros.org/usb_cam), [geographic_msgs](http://wiki.ros.org/geometry_msgs), [rosserial_arduino](http://wiki.ros.org/rosserial_arduino), [underwater_sensor_msgs](http://wiki.ros.org/underwater_sensor_msgs). 
+The repository requires the following ROS packages to run: [usb_cam](http://wiki.ros.org/usb_cam), [geographic_msgs](http://wiki.ros.org/geometry_msgs), [rosserial_arduino](http://wiki.ros.org/rosserial_arduino), [underwater_sensor_msgs](http://wiki.ros.org/underwater_sensor_msgs), ros-melodic-grid-map.
 
 You can build and install those packages from their respective sources or you can use the following command in Ubuntu 16.04 to install them. *If you are building from source or using a different package manager, make sure you are building the melodic version of these packages to ensure maximum compatibility.*
 
@@ -35,7 +35,8 @@ You can build and install those packages from their respective sources or you ca
 sudo apt-get install ros-melodic-usb-cam \
                      ros-melodic-geographic-msgs \
                      ros-melodic-rosserial-arduino \
-                     ros-melodic-underwater-sensor-msgs
+                     ros-melodic-underwater-sensor-msgs \
+                     ros-melodic-grid-map
 ```
 
 4. **Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)**
