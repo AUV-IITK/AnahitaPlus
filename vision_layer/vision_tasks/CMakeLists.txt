@@ -42,17 +42,17 @@ add_library(base_class SHARED src/base_class.cpp include/base_class.h)
 add_dependencies(base_class ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(base_class ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} vision_commons )
 
-add_library(torpedo_task SHARED src/torpedo.cpp include/torpedo.h include/base_class.h)
-add_dependencies(torpedo_task base_class ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(torpedo_task base_class ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} vision_commons )
+# add_library(torpedo_task SHARED src/torpedo.cpp include/torpedo.h include/base_class.h)
+# add_dependencies(torpedo_task base_class ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(torpedo_task base_class ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} vision_commons )
 
 add_library(gate_task SHARED src/gate.cpp include/gate.h include/base_class.h)
 add_dependencies(gate_task base_class  ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(gate_task base_class  ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} vision_commons )
 
-add_library(cruc_task SHARED src/cruc.cpp include/cruc.h include/base_class.h)
-add_dependencies(cruc_task base_class  ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(cruc_task base_class  ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} vision_commons )
+# add_library(cruc_task SHARED src/cruc.cpp include/cruc.h include/base_class.h)
+# add_dependencies(cruc_task base_class  ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(cruc_task base_class  ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} vision_commons )
 
 add_library(path_marker SHARED src/path_marker.cpp include/path_marker.h include/base_class.h)
 add_dependencies(path_marker base_class  ${vision_tasks_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -99,10 +99,10 @@ target_link_libraries(vision_node
   gate_task 
   path_marker
   marker
-  torpedo_task
+  # torpedo_task
   triangular_buoy
   crucifix_task
   grabber_test
   startgate
-  cruc_task
+  # cruc_task
 )

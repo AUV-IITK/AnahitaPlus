@@ -3,7 +3,6 @@
 #include "marker.h"
 //#include "torpedo.h"
 #include "crucifix.h"
-#include "cruc.h"
 #include "grabber.h"
 #include "testgate.h"
 #include "triangular_buoy.h"
@@ -35,8 +34,6 @@ int main(int argc, char *argv[])
     ros::Duration(1).sleep();
 
     Gate gate;
-    Cruc cruc;
-    Torpedo torpedo;
     PathMarker path_marker;
     Marker marker;
     Crucifix crucifix;
@@ -91,13 +88,6 @@ int main(int argc, char *argv[])
             if (previous_task == "marker") {
                 marker.frontTaskHandling(false);
             }
-            if (current_task == "torpedo") {
-                ROS_INFO("torpedo task");
-                torpedo.frontTaskHandling(true);
-            }
-            if (previous_task == "torpedo") {
-                torpedo.frontTaskHandling(false);
-            }
             if (current_task == "testgate") {
                 testgate.frontTaskHandling(true);
             }
@@ -110,7 +100,7 @@ int main(int argc, char *argv[])
             if (previous_task == "triangular_buoy") {
                 triangular_buoy.frontTaskHandling(false);
             }
-	    if (current_task == "c") {
+	        if (current_task == "c") {
                 triangular_buoy.frontTaskHandling(true);
             }
             if (previous_task == "triangular_buoy") {
