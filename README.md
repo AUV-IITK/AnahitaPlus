@@ -37,7 +37,8 @@ sudo apt-get install ros-melodic-usb-cam \
                      ros-melodic-rosserial-arduino \
                      ros-melodic-underwater-sensor-msgs \
                      ros-melodic-grid-map \ 
-		     ros-melodic-image-geometry
+		     ros-melodic-image-geometry \
+		     ros-melodic-tf
 ```
 
 4. **Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)**

@@ -1,0 +1,108 @@
+<launch>
+  <!-- Vehicle namespace -->
+  <arg name="uuv_name" default="anahita"/>
+  <!-- Name of the vehicle model -->
+  <arg name="model_name" default="$(arg uuv_name)"/>
+  <!-- Thruster saturation -->
+  <arg name="saturation" default="1200"/>
+  <!-- Flag to start the trajectory visual markers publisher -->
+  <arg name="gui_on" default="true"/>
+  <!-- Flag set as true to use load controller the parameters from the file  -->
+  <arg name="use_params_file" default="false"/>
+  <!--
+    Set this flag to true to compute both reference and error vectors wrt
+    world_ned frame
+  -->
+  <arg name="use_ned_frame" default="false"/>
+  <param name="use_cascaded_pid" value="true" type="bool"/>
+
+  <!-- If the file is not used, read the parameters from the user input -->
+  <!-- Caution: no spaces between the parameter values -->
+  <!-- The following controller parameters have been optimized for the RexROV
+       vehicle using SMAC (https://github.com/automl/SMAC3)
+  -->
+
+  <!--Thruster manager configuration  -->
+  <!--arg name="thruster_manager_output_dir" default="$(find uuv_thruster_manager)/config/$(arg model_name)"/>
+  <arg name="thruster_manager_config_file" default="$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml"/-->
+  <!-- File containing the thruster allocation matrix -->
+  <!--arg name="tam_file" default="$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml"/-->
+
+  <!-- Start the thruster allocation manager -->
+  <!--include file="$(find uuv_thruster_manager)/launch/thruster_manager.launch">
+     <arg name="uuv_name" value="$(arg uuv_name)" />
+     <arg name="model_name" value="$(arg model_name)" />
+     <arg name="output_dir" value="$(arg thruster_manager_output_dir)" />
+     <arg name="config_file" value="$(arg thruster_manager_config_file)" />
+     <arg name="tam_file" value="$(arg tam_file)" />
+  </include-->
+
+  <group ns="$(arg uuv_name)">
+    <rosparam file="$(find uuv_control_cascaded_pid)/config/$(arg model_name)/inertial.yaml" command="load"/>
+    <rosparam file="$(find uuv_control_cascaded_pid)/config/$(arg model_name)/vel_pid_control.yaml" command="load"/>
+    <rosparam file="$(find uuv_control_cascaded_pid)/config/$(arg model_name)/pos_pid_control.yaml" command="load"/>
+
+    <node pkg="uuv_control_cascaded_pid" type="AccelerationControl.py" name="acceleration_control"
+          output="screen">
+      <param name="tf_prefix" type="string" value="$(arg uuv_name)/" />
+    </node>
+
+    <node pkg="uuv_control_cascaded_pid" type="VelocityControl.py" name="velocity_control"
+          output="screen">
+      <remap from="odom" to="/$(arg uuv_name)/pose_gt"/>
+      <remap from="cmd_accel" to="/$(arg uuv_name)/cmd_accel"/>
+    </node>
+
+    <node pkg="uuv_control_cascaded_pid" type="PositionControl.py" name="position_control"
+          output="screen">
+      <remap from="odom" to="/$(arg uuv_name)/pose_gt"/>
+    </node>
+  </group>
+
+  <!-- This node just reads the trajectory and waypoint topics and publishes
+       visualization markers for RViz -->
+  <group if="$(arg gui_on)">
+    <group ns="$(arg uuv_name)">
+      <node pkg="uuv_control_utils"
+            type="trajectory_marker_publisher.py"
+            name="trajectory_marker_publisher"
+            output="screen">
+        <remap from="trajectory" to="dp_controller/trajectory"/>
+        <remap from="waypoints" to="dp_controller/waypoints"/>
+      </node>
+    </group>
+  </group>
+
+  <group ns="$(arg uuv_name)">
+    <node pkg="uuv_trajectory_control"
+          type="cascaded_pid_dp_controller.py"
+          name="cascaded_pid_dp_controller"
+          output="screen"
+          if="$(arg use_ned_frame)">
+      <!-- Remap necessary topics -->
+      <remap from="odom" to="pose_gt"/>
+      <remap from="trajectory" to="dp_controller/trajectory"/>
+      <remap from="input_trajectory" to="dp_controller/input_trajectory"/>
+      <remap from="waypoints" to="dp_controller/waypoints"/>
+      <remap from="error" to="dp_controller/error"/>
+      <remap from="reference" to="dp_controller/reference"/>
+      <remap from="thruster_output" to="thruster_manager/input_stamped"/>
+    </node>
+
+    <node pkg="uuv_trajectory_control"
+          type="cascaded_pid_dp_controller.py"
+          name="cascaded_pid_dp_controller"
+          output="screen"
+          unless="$(arg use_ned_frame)">
+      <!-- Remap necessary topics -->
+      <remap from="odom" to="pose_gt"/>
+      <remap from="trajectory" to="dp_controller/trajectory"/>
+      <remap from="input_trajectory" to="dp_controller/input_trajectory"/>
+      <remap from="waypoints" to="dp_controller/waypoints"/>
+      <remap from="error" to="dp_controller/error"/>
+      <remap from="reference" to="dp_controller/reference"/>
+      <remap from="thruster_output" to="thruster_manager/input_stamped"/>
+    </node>
+  </group>
+  
+</launch>
