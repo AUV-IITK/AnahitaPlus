@@ -190,8 +190,8 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(local_vision_odom src/local_vision_odom.cpp)
-target_link_libraries(local_vision_odom ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
+# add_executable(local_vision_odom src/local_vision_odom.cpp)
+# target_link_libraries(local_vision_odom ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
