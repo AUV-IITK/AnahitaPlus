@@ -30,7 +30,7 @@ git clone https://github.com/AUV-IITK/uuv_simulator
 
 3. **Install all dependency packages to run the repository**
 
-The repository requires the following ROS packages to run: [usb_cam](http://wiki.ros.org/usb_cam), [geographic_msgs](http://wiki.ros.org/geometry_msgs), [rosserial_arduino](http://wiki.ros.org/rosserial_arduino), [underwater_sensor_msgs](http://wiki.ros.org/underwater_sensor_msgs), ros-melodic-grid-map, ros-melodic-image-geometry, ros-melodic-tf.
+The repository requires the following ROS packages to run: [usb_cam](http://wiki.ros.org/usb_cam), [geographic_msgs](http://wiki.ros.org/geometry_msgs), [rosserial_arduino](http://wiki.ros.org/rosserial_arduino), [underwater_sensor_msgs](http://wiki.ros.org/underwater_sensor_msgs), ros-melodic-grid-map, ros-melodic-image-geometry, ros-melodic-tf. To use some interpolation functions, you'll need to install scipy.
 
 You can build and install those packages from their respective sources or you can use the following command in Ubuntu 16.04 to install them. *If you are building from source or using a different package manager, make sure you are building the melodic version of these packages to ensure maximum compatibility.*
 
@@ -42,6 +42,8 @@ sudo apt-get install ros-melodic-usb-cam \
                      ros-melodic-grid-map \
                      ros-melodic-image-geometry \
                      ros-melodic-tf
+
+pip install scipy
 ```
 
 4. **Build the package using [`catkin_make`](http://wiki.ros.org/catkin/commands/catkin_make)**
