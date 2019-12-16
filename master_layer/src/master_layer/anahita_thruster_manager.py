@@ -9,9 +9,11 @@ class AnahitaThrusterManager(object):
 
     def __init__(self, *arg, **kwargs):
 
+        print 'hello1'
         self.n_thrusters = 0
         self.configuration_matrix = None
         if rospy.has_param('/anahita_thruster_allocator/tam'):
+            print 'hello2'
             tam = rospy.get_param('/anahita_thruster_allocator/tam')
             self.configuration_matrix = numpy.array(tam)
             self.n_thrusters = self.configuration_matrix.shape[1]
@@ -21,6 +23,7 @@ class AnahitaThrusterManager(object):
             rospy.loginfo(self.configuration_matrix)
 
             self.inverse_configuration_matrix = None
+            #print("\n","\n",inverse_configuration_matrix,"\n","\n")
             if self.configuration_matrix is not None:
                 self.inverse_configuration_matrix = numpy.linalg.pinv(
                     self.configuration_matrix)

@@ -55,10 +55,17 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 
 5. **Launching the vehicle in simulation**
 ```bash
-roslaunch uuv_gazebo_worlds qual_robosub_world.launch    
+roslaunch uuv_gazebo_worlds qual_robosub_world.launch 
 roslaunch anahita_description upload_anahita_default.launch
+roslaunch uuv_trajectory_control cascaded_pid_dp_controller.launch
+roslaunch odom_dvl_imu odom.launch
+roslaunch uuv_thruster_manager thruster_manager.launch model_name:=anahita (for simulation)
+master_layer/anahita_thruster_manager.py (for real navigation) 
 ```
 
 ## Contribution Guidelines
 
 To get started with contributing to this repository, look out for open issues [here](https://github.com/AUV-IITK/auv2018/issues). Kindly read the [__Developer's Guide__](https://github.com/AUV-IITK/AUVWiki/wiki/Developers-Guide) before sending a pull request! :)
+
+
+

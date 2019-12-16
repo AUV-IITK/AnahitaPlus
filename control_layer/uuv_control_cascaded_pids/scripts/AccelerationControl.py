@@ -38,14 +38,16 @@ class AccelerationControllerNode:
         self.acc_ = numpy.zeros(6)
 
         # ROS infrastructure
+        self.pub_gen_force = rospy.Publisher(
+          'thruster_manager/input', Wrench, queue_size=1)
         self.sub_accel = rospy.Subscriber(
           'cmd_accel', numpy_msg(Accel), self.accel_callback)
         self.sub_vel = rospy.Subscriber(
           '/anahita/pose_gt', numpy_msg(Odometry), self.vel_callback)
         self.sub_force = rospy.Subscriber(
           'cmd_force', numpy_msg(Accel), self.force_callback)
-        self.pub_gen_force = rospy.Publisher(
-          'thruster_manager/input', Wrench, queue_size=1)
+        """self.pub_gen_force = rospy.Publisher(
+          'thruster_manager/input', Wrench, queue_size=1)"""
 
         if not rospy.has_param("pid/mass"):
             raise rospy.ROSException("UUV's mass was not provided")
@@ -131,7 +133,7 @@ class AccelerationControllerNode:
         force_msg.torque.x = force_torque[3]
         force_msg.torque.y = force_torque[4]
         force_msg.torque.z = force_torque[5]
-
+     
         self.pub_gen_force.publish(force_msg)
 
 if __name__ == '__main__':

@@ -1,0 +1,4 @@
+<launch>
+  <!--<node pkg="master_layer" type="anahita_thruster_manager" name="anahita_thruster_manager" output="screen"/>-->
+  <rosparam command="load" file="/home/bhavy/catkin_ws/src/AnahitaPlus/master_layer/config/anahita_tam.yaml" />
+</launch>
