@@ -54,6 +54,7 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 
 5. **Launching the vehicle in simulation**
+
 in the workspace directory (catkin_ws), run the following commands
 ```bash
 source devel/setup.bash
