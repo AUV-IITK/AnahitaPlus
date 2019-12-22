@@ -54,7 +54,10 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 
 5. **Launching the vehicle in simulation**
+
+in the workspace directory (catkin_ws), run the following commands
 ```bash
+source devel/setup.bash
 roslaunch uuv_gazebo_worlds qual_robosub_world.launch 
 roslaunch anahita_description upload_anahita_default.launch
 roslaunch uuv_trajectory_control cascaded_pid_dp_controller.launch
