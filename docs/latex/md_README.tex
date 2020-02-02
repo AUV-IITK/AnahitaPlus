@@ -1,0 +1,80 @@
+This repository contains the code for our second underwater vehicle {\ttfamily Anahita}.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ S. No. }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operating System }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R\+OS Version }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Build Status  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ S. No. }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operating System }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R\+OS Version }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Build Status  }\\\cline{1-4}
+\endhead
+\PBS\centering 1. &\PBS\centering \href{http://releases.ubuntu.com/18.04/}{\texttt{ Ubuntu 18.\+04 L\+TS}} &\PBS\centering \href{http://wiki.ros.org/Melodic}{\texttt{ Melodic Morenia}} &\PBS\centering \href{https://travis-ci.org/AUV-IITK/Anahita}{\texttt{ }}  \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md_README_autotoc_md1}{}\doxysection{How to build the repository?}\label{md_README_autotoc_md1}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Create a catkin worspace following the guidelines given \href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{\texttt{ here}}}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir -\/p \string~/catkin\_ws/src}
+\DoxyCodeLine{cd \string~/catkin\_ws/src}
+\DoxyCodeLine{catkin\_init\_workspace}
+\DoxyCodeLine{cd ..}
+\DoxyCodeLine{catkin\_make}
+\end{DoxyCode}
+
+\item {\bfseries{Clone this repository to your catkin workspace}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws/src}
+\DoxyCodeLine{git clone https://github.com/AUV-\/IITK/AnahitaPlus.git}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Add the simulation repository also (uuv\_simulator)}
+\DoxyCodeLine{git clone https://github.com/AUV-\/IITK/uuv\_simulator}
+\end{DoxyCode}
+
+\item {\bfseries{Install all dependency packages to run the repository}}
+\end{DoxyEnumerate}
+
+The repository requires the following R\+OS packages to run\+: \href{http://wiki.ros.org/usb_cam}{\texttt{ usb\+\_\+cam}}, \href{http://wiki.ros.org/geometry_msgs}{\texttt{ geographic\+\_\+msgs}}, \href{http://wiki.ros.org/rosserial_arduino}{\texttt{ rosserial\+\_\+arduino}}, \href{http://wiki.ros.org/underwater_sensor_msgs}{\texttt{ underwater\+\_\+sensor\+\_\+msgs}}, ros-\/melodic-\/grid-\/map, ros-\/melodic-\/image-\/geometry, ros-\/melodic-\/tf. To use some interpolation functions, you\textquotesingle{}ll need to install scipy.
+
+You can build and install those packages from their respective sources or you can use the following command in Ubuntu 16.\+04 to install them. {\itshape If you are building from source or using a different package manager, make sure you are building the melodic version of these packages to ensure maximum compatibility.}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install ros-\/melodic-\/usb-\/cam \(\backslash\)}
+\DoxyCodeLine{                     ros-\/melodic-\/geographic-\/msgs \(\backslash\)}
+\DoxyCodeLine{                     ros-\/melodic-\/rosserial-\/arduino \(\backslash\)}
+\DoxyCodeLine{                     ros-\/melodic-\/underwater-\/sensor-\/msgs \(\backslash\)}
+\DoxyCodeLine{                     ros-\/melodic-\/grid-\/map \(\backslash\)}
+\DoxyCodeLine{                     ros-\/melodic-\/image-\/geometry \(\backslash\)}
+\DoxyCodeLine{                     ros-\/melodic-\/tf}
+\DoxyCodeLine{}
+\DoxyCodeLine{pip install scipy}
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item $\ast$$\ast$\+Build the package using \href{http://wiki.ros.org/catkin/commands/catkin_make}{\texttt{ {\ttfamily catkin\+\_\+make}}}$\ast$$\ast$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws}
+\DoxyCodeLine{\# To maximize performance, build the workspace in Release mode}
+\DoxyCodeLine{catkin\_make -\/DCMAKE\_BUILD\_TYPE=Release}
+\end{DoxyCode}
+
+\item {\bfseries{Launching the vehicle in simulation}}
+\end{DoxyEnumerate}
+
+in the workspace directory (catkin\+\_\+ws), run the following commands 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source devel/setup.bash}
+\DoxyCodeLine{roslaunch uuv\_gazebo\_worlds qual\_robosub\_world.launch }
+\DoxyCodeLine{roslaunch anahita\_description upload\_anahita\_default.launch}
+\DoxyCodeLine{roslaunch uuv\_trajectory\_control cascaded\_pid\_dp\_controller.launch}
+\DoxyCodeLine{roslaunch odom\_dvl\_imu odom.launch}
+\DoxyCodeLine{roslaunch uuv\_thruster\_manager thruster\_manager.launch model\_name:=anahita (for simulation)}
+\DoxyCodeLine{master\_layer/anahita\_thruster\_manager.py (for real navigation) }
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{Contribution Guidelines}\label{md_README_autotoc_md2}
+To get started with contributing to this repository, look out for open issues \href{https://github.com/AUV-IITK/auv2018/issues}{\texttt{ here}}. Kindly read the \href{https://github.com/AUV-IITK/AUVWiki/wiki/Developers-Guide}{\texttt{ {\bfseries{Developer\textquotesingle{}s Guide}}}} before sending a pull request! \+:) 
