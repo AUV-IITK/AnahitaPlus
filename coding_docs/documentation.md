@@ -8,6 +8,7 @@ Setting Up Doxygen:-
   INPUT:- Set the directories where doxygen should be looking for files.
   GENERATE HTML:- Set this to yes.
   PROJECT NAME:- Sets the project name
+  RECURSIVE:- To search the subdirectories recursively
 
 3.Comment the code in doxygen format.
 
