@@ -1,0 +1,42 @@
+\hypertarget{classTriangularBuoy}{}\section{Triangular\+Buoy Class Reference}
+\label{classTriangularBuoy}\index{Triangular\+Buoy@{Triangular\+Buoy}}
+Inheritance diagram for Triangular\+Buoy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTriangularBuoy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_a828edf15be63e5aa4268963eb9f80c2e}\label{classTriangularBuoy_a828edf15be63e5aa4268963eb9f80c2e}} 
+void {\bfseries load\+Params} () override
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_a68fcbd32c061db9674e7dd8e3e21052c}\label{classTriangularBuoy_a68fcbd32c061db9674e7dd8e3e21052c}} 
+void {\bfseries spin\+Thread\+Front} () override
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_af6afe6c2e359ab2d211826144325095a}\label{classTriangularBuoy_af6afe6c2e359ab2d211826144325095a}} 
+void {\bfseries pre\+Process} (cv\+::\+Mat \&temp\+\_\+src)
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_a58ce109b094f08f2d5dadc0e6e8071a1}\label{classTriangularBuoy_a58ce109b094f08f2d5dadc0e6e8071a1}} 
+cv\+::\+Point {\bfseries find\+Center} ()
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_a6679005a7fa78c4e76bebc5f78b8cb90}\label{classTriangularBuoy_a6679005a7fa78c4e76bebc5f78b8cb90}} 
+void {\bfseries depth\+Callback} (const geometry\+\_\+msgs\+::\+Point msg)
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_ab73d1e3ef0a1c9d217cc7ebef20b966f}\label{classTriangularBuoy_ab73d1e3ef0a1c9d217cc7ebef20b966f}} 
+bool {\bfseries depth\+Request} (master\+\_\+layer\+::\+Get\+Max\+Depth\+::\+Request \&req, master\+\_\+layer\+::\+Get\+Max\+Depth\+::\+Response \&res)
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_abfa97d165629a27ed4af44553b53aceb}\label{classTriangularBuoy_abfa97d165629a27ed4af44553b53aceb}} 
+bool {\bfseries blackout\+CB} (master\+\_\+layer\+::\+Get\+Blackout\+Time\+::\+Request \&req, master\+\_\+layer\+::\+Get\+Blackout\+Time\+::\+Response \&res)
+\item 
+\mbox{\Hypertarget{classTriangularBuoy_aba45313f809b8bd27b2ad46dfbd35cb7}\label{classTriangularBuoy_aba45313f809b8bd27b2ad46dfbd35cb7}} 
+void {\bfseries rect\+CB} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/triangular\+\_\+buoy.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/triangular\+\_\+buoy.\+cpp\end{DoxyCompactItemize}

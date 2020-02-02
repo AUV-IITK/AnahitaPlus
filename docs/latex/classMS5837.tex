@@ -1,0 +1,91 @@
+\hypertarget{classMS5837}{}\section{M\+S5837 Class Reference}
+\label{classMS5837}\index{M\+S5837@{M\+S5837}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMS5837_accd5fa071ae977c796e4fb0648954499}\label{classMS5837_accd5fa071ae977c796e4fb0648954499}} 
+bool {\bfseries init} ()
+\item 
+void \hyperlink{classMS5837_af8b0b1e168f39a9b99fa5918a6ef8f04}{set\+Model} (uint8\+\_\+t model)
+\item 
+void \hyperlink{classMS5837_a40ad0394fa84d49afa62ae63c411aa8f}{set\+Fluid\+Density} (float density)
+\item 
+void \hyperlink{classMS5837_a69b945b55b93c96173e8369fec1d9100}{read} ()
+\item 
+float \hyperlink{classMS5837_a14b4dd5598dc65e2d3f7c185e940af88}{pressure} (float conversion=1.\+0f)
+\item 
+float \hyperlink{classMS5837_a554d181ffc4329c1e292ca87e0a810f0}{temperature} ()
+\item 
+float \hyperlink{classMS5837_af5ec680e29a8cdaed429b9fb91d813e6}{depth} ()
+\item 
+float \hyperlink{classMS5837_af3c24ba068ed52a2918c784b3d608c8a}{altitude} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMS5837_ae54d04a637682f68502e79d221bf00e3}\label{classMS5837_ae54d04a637682f68502e79d221bf00e3}} 
+static const float {\bfseries Pa} = 100.\+0f
+\item 
+\mbox{\Hypertarget{classMS5837_afaf021ab4e8b402a642c383f35ff4258}\label{classMS5837_afaf021ab4e8b402a642c383f35ff4258}} 
+static const float {\bfseries bar} = 0.\+001f
+\item 
+\mbox{\Hypertarget{classMS5837_a300724fab62674ab5e32a8b1861d3bba}\label{classMS5837_a300724fab62674ab5e32a8b1861d3bba}} 
+static const float {\bfseries mbar} = 1.\+0f
+\item 
+\mbox{\Hypertarget{classMS5837_abc4a4367230b5ee53fbaf8060231a4bb}\label{classMS5837_abc4a4367230b5ee53fbaf8060231a4bb}} 
+static const uint8\+\_\+t {\bfseries M\+S5837\+\_\+30\+BA} = 0
+\item 
+\mbox{\Hypertarget{classMS5837_a5b94f94735c695d94882f689fc55e853}\label{classMS5837_a5b94f94735c695d94882f689fc55e853}} 
+static const uint8\+\_\+t {\bfseries M\+S5837\+\_\+02\+BA} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMS5837_af3c24ba068ed52a2918c784b3d608c8a}\label{classMS5837_af3c24ba068ed52a2918c784b3d608c8a}} 
+\index{M\+S5837@{M\+S5837}!altitude@{altitude}}
+\index{altitude@{altitude}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{altitude()}{altitude()}}
+{\footnotesize\ttfamily float M\+S5837\+::altitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Altitude returned in meters (valid for operation in air only). \mbox{\Hypertarget{classMS5837_af5ec680e29a8cdaed429b9fb91d813e6}\label{classMS5837_af5ec680e29a8cdaed429b9fb91d813e6}} 
+\index{M\+S5837@{M\+S5837}!depth@{depth}}
+\index{depth@{depth}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{depth()}{depth()}}
+{\footnotesize\ttfamily float M\+S5837\+::depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Depth returned in meters (valid for operation in incompressible liquids only. Uses density that is set for fresh or seawater. \mbox{\Hypertarget{classMS5837_a14b4dd5598dc65e2d3f7c185e940af88}\label{classMS5837_a14b4dd5598dc65e2d3f7c185e940af88}} 
+\index{M\+S5837@{M\+S5837}!pressure@{pressure}}
+\index{pressure@{pressure}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{pressure()}{pressure()}}
+{\footnotesize\ttfamily float M\+S5837\+::pressure (\begin{DoxyParamCaption}\item[{float}]{conversion = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+Pressure returned in mbar or mbar$\ast$conversion rate. \mbox{\Hypertarget{classMS5837_a69b945b55b93c96173e8369fec1d9100}\label{classMS5837_a69b945b55b93c96173e8369fec1d9100}} 
+\index{M\+S5837@{M\+S5837}!read@{read}}
+\index{read@{read}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void M\+S5837\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The read from I2C takes up to 40 ms, so use sparingly is possible. \mbox{\Hypertarget{classMS5837_a40ad0394fa84d49afa62ae63c411aa8f}\label{classMS5837_a40ad0394fa84d49afa62ae63c411aa8f}} 
+\index{M\+S5837@{M\+S5837}!set\+Fluid\+Density@{set\+Fluid\+Density}}
+\index{set\+Fluid\+Density@{set\+Fluid\+Density}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{set\+Fluid\+Density()}{setFluidDensity()}}
+{\footnotesize\ttfamily void M\+S5837\+::set\+Fluid\+Density (\begin{DoxyParamCaption}\item[{float}]{density }\end{DoxyParamCaption})}
+
+Provide the density of the working fluid in kg/m$^\wedge$3. Default is for seawater. Should be 997 for freshwater. \mbox{\Hypertarget{classMS5837_af8b0b1e168f39a9b99fa5918a6ef8f04}\label{classMS5837_af8b0b1e168f39a9b99fa5918a6ef8f04}} 
+\index{M\+S5837@{M\+S5837}!set\+Model@{set\+Model}}
+\index{set\+Model@{set\+Model}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{set\+Model()}{setModel()}}
+{\footnotesize\ttfamily void M\+S5837\+::set\+Model (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{model }\end{DoxyParamCaption})}
+
+Set model of \hyperlink{classMS5837}{M\+S5837} sensor. Valid options are M\+S5837\+::\+M\+S5837\+\_\+30\+BA (default) and M\+S5837\+::\+M\+S5837\+\_\+02\+BA. \mbox{\Hypertarget{classMS5837_a554d181ffc4329c1e292ca87e0a810f0}\label{classMS5837_a554d181ffc4329c1e292ca87e0a810f0}} 
+\index{M\+S5837@{M\+S5837}!temperature@{temperature}}
+\index{temperature@{temperature}!M\+S5837@{M\+S5837}}
+\subsubsection{\texorpdfstring{temperature()}{temperature()}}
+{\footnotesize\ttfamily float M\+S5837\+::temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Temperature returned in deg C. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+hardware\+\_\+layer/hardware\+\_\+arduino/include/M\+S5837.\+h\item 
+hardware\+\_\+layer/hardware\+\_\+arduino/src/M\+S5837.\+cpp\end{DoxyCompactItemize}

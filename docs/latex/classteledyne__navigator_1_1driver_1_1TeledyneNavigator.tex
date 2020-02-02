@@ -1,0 +1,170 @@
+\hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator}{}\section{teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator Class Reference}
+\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator}\index{teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator@{teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator}}
+Inheritance diagram for teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteledyne__navigator_1_1driver_1_1TeledyneNavigator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a1ebe1cad172dbc3b1e4daad75375b816}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, port, baudrate, frame\+\_\+id, timeout)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_ad32b886ab3f18b15ddde6efa3244a0fe}{\+\_\+\+\_\+enter\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_ab9932856f685cb31f49c88b8ee881033}{\+\_\+\+\_\+exit\+\_\+\+\_\+} (self, args, kwargs)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a12f45b50bc236f1616f639601e8ee60d}{open} (self)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a5731ac2e23b7abdc46158f0c7895a4cd}{close} (self)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_aab52bb45e1e056cae53c8cd284bb7dd8}{write} (self, message)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_acf8e95e94208852726b9d31d6d515283}{read} (self, size=1)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a9597a73bb812d291b034c081e6320dc4}{read\+\_\+all} (self)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a4f109176c15e3cb9ef80d337fb9b507b}{preempt} (self)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a8ba38b5d0ea4f9befed369fd150ab991}{set\+\_\+rtc} (self, date)
+\item 
+def \hyperlink{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a1158a9934cf94577e581e35ad562a5e1}{scan} (self, callback)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a03b3777201d4950726bad14aaa77928e}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a03b3777201d4950726bad14aaa77928e}} 
+int {\bfseries D\+A\+T\+A\+\_\+\+ID} = 0x7D
+\item 
+\mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a598d8b2cb6e165f3ce5be384d6da00f2}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a598d8b2cb6e165f3ce5be384d6da00f2}} 
+int {\bfseries O\+U\+T\+P\+U\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE} = 88
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Teledyne Navigator driver.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a1ebe1cad172dbc3b1e4daad75375b816}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a1ebe1cad172dbc3b1e4daad75375b816}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{port,  }\item[{}]{baudrate,  }\item[{}]{frame\+\_\+id,  }\item[{}]{timeout }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Constructs a TeledyneNavigator instance.
+
+Args:
+    port (str): Serial port path.
+    baudrate (int): Serial baudrate.
+    frame_id (str): Frame ID.
+    timeout (float): Serial read timeout in seconds.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_ad32b886ab3f18b15ddde6efa3244a0fe}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_ad32b886ab3f18b15ddde6efa3244a0fe}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!\+\_\+\+\_\+enter\+\_\+\+\_\+@{\+\_\+\+\_\+enter\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+enter\+\_\+\+\_\+@{\+\_\+\+\_\+enter\+\_\+\+\_\+}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+enter\+\_\+\+\_\+()}{\_\_enter\_\_()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+\_\+\+\_\+enter\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initializes the DVL for first use.\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_ab9932856f685cb31f49c88b8ee881033}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_ab9932856f685cb31f49c88b8ee881033}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!\+\_\+\+\_\+exit\+\_\+\+\_\+@{\+\_\+\+\_\+exit\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+exit\+\_\+\+\_\+@{\+\_\+\+\_\+exit\+\_\+\+\_\+}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+exit\+\_\+\+\_\+()}{\_\_exit\_\_()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+\_\+\+\_\+exit\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{args,  }\item[{}]{kwargs }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Cleans up.\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a5731ac2e23b7abdc46158f0c7895a4cd}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a5731ac2e23b7abdc46158f0c7895a4cd}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!close@{close}}
+\index{close@{close}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+close (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Closes serial connection.\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a12f45b50bc236f1616f639601e8ee60d}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a12f45b50bc236f1616f639601e8ee60d}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!open@{open}}
+\index{open@{open}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+open (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Opens serial connection.\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a4f109176c15e3cb9ef80d337fb9b507b}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a4f109176c15e3cb9ef80d337fb9b507b}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!preempt@{preempt}}
+\index{preempt@{preempt}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{preempt()}{preempt()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+preempt (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Preempts a scan.\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_acf8e95e94208852726b9d31d6d515283}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_acf8e95e94208852726b9d31d6d515283}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!read@{read}}
+\index{read@{read}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+read (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{size = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reads serial data.
+
+Args:
+    size (int): Number of bytes to read, default: 1.
+
+Returns:
+    Bytes (str).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a9597a73bb812d291b034c081e6320dc4}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a9597a73bb812d291b034c081e6320dc4}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!read\+\_\+all@{read\+\_\+all}}
+\index{read\+\_\+all@{read\+\_\+all}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{read\+\_\+all()}{read\_all()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+read\+\_\+all (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reads all serial data in the buffer.
+
+Returns:
+    Bytes (str).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a1158a9934cf94577e581e35ad562a5e1}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a1158a9934cf94577e581e35ad562a5e1}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!scan@{scan}}
+\index{scan@{scan}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+scan (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{callback }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Starts the DVL data collection.
+
+This method is blocking, but calls callback at every ensemble.
+
+To stop a scan, simply call the preempt() method. Otherwise, the scan
+will run forever.
+
+Args:
+    callback: Callback for feedback.
+Called with args=(TeledyneNavigator, Ensemble).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a8ba38b5d0ea4f9befed369fd150ab991}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_a8ba38b5d0ea4f9befed369fd150ab991}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!set\+\_\+rtc@{set\+\_\+rtc}}
+\index{set\+\_\+rtc@{set\+\_\+rtc}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{set\+\_\+rtc()}{set\_rtc()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+set\+\_\+rtc (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{date }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sets the DVL's real-time clock (RTC).
+
+Args:
+    date (Datetime): Datetime to set.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_aab52bb45e1e056cae53c8cd284bb7dd8}\label{classteledyne__navigator_1_1driver_1_1TeledyneNavigator_aab52bb45e1e056cae53c8cd284bb7dd8}} 
+\index{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}!write@{write}}
+\index{write@{write}!teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator@{teledyne\+\_\+navigator\+::driver\+::\+Teledyne\+Navigator}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily def teledyne\+\_\+navigator.\+driver.\+Teledyne\+Navigator.\+write (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Writes to .
+
+Args:
+    message (str): Message.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hardware\+\_\+layer/teledyne\+\_\+navigator/src/teledyne\+\_\+navigator/driver.\+py\end{DoxyCompactItemize}

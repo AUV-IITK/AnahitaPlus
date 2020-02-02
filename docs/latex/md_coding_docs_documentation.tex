@@ -1,0 +1,23 @@
+Doxygen Documentation Generator
+
+Setting Up Doxygen\+:-\/ 1.\+In directory structure, make a document folder in root directory then run the command doxygen -\/g to generate the dconfig file.
+
+2.\+Edit the configuration file to fit the project. The config file contains detailed description of all the fields. However the following are important. I\+N\+P\+UT\+:-\/ Set the directories where doxygen should be looking for files. G\+E\+N\+E\+R\+A\+TE H\+T\+ML\+:-\/ Set this to yes. P\+R\+O\+J\+E\+CT N\+A\+ME\+:-\/ Sets the project name R\+E\+C\+U\+R\+S\+I\+VE\+:-\/ To search the subdirectories recursively
+
+3.\+Comment the code in doxygen format.
+
+If you place comments before functions or variables use /$\ast$$\ast$ comment line1
+\begin{DoxyItemize}
+\item comment line2
+\item comment line3 $\ast$/
+\end{DoxyItemize}
+
+If you place comments after functions or variables use /$\ast$$\ast$$<$ comment line1
+\begin{DoxyItemize}
+\item comment line2
+\item comment line3 $\ast$/
+
+@ or \textbackslash{} preceeded text are considered as doxygen commands
+
+Important commands are\+:-\/ 
+\end{DoxyItemize}

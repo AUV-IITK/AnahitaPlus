@@ -1,0 +1,175 @@
+This is a R\+OS package for processing video feed provided by \href{https://github.com/AUV-IITK/Hyperion-Software/tree/master/hardware_layer/hardware_camera}{\tt {\ttfamily hardware\+\_\+camera}} and publishing the coordinates of the object of interest in the camera\textquotesingle{}s frame as a \href{http://docs.ros.org/kinetic/api/geometry_msgs/html/msg/PointStamped.html}{\tt geometry\+\_\+msgs/\+Point\+Stamped} or \href{http://docs.ros.org/api/geometry_msgs/html/msg/Pose2D.html}{\tt geometry\+\_\+msgs/\+Pose2D} to the other layers.
+
+The {\ttfamily vision\+\_\+tasks} package has been tested under \href{http://www.ros.org}{\tt R\+OS} Kinetic and Ubuntu 16.\+04 L\+TS. The source code is released under a \href{../../LICENSE}{\tt B\+SD 3-\/\+Clause license}.
+
+The hardware used are as follows\+:
+\begin{DoxyItemize}
+\item Front-\/facing Camera\+: \href{https://www.logitech.com/en-in/product/c930e-webcam}{\tt Logitech C930e}
+\item Bottom-\/facing Camera\+: \href{https://www.logitech.com/en-in/product/c930e-webcam}{\tt Logitech C930e}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \href{http://wiki.ros.org}{\tt Robot Operating System (R\+OS)} (middleware for robotics),
+\item Following R\+OS Packages\+: \href{http://wiki.ros.org/cv_bridge}{\tt cv\+\_\+bridge} \href{http://wiki.ros.org/sensor_msgs}{\tt sensor\+\_\+msgs} \href{http://wiki.ros.org/std_msgs}{\tt std\+\_\+msgs} \href{http://wiki.ros.org/dynamic_reconfigure}{\tt dynamic\+\_\+reconfigure} \href{http://wiki.ros.org/image_transport}{\tt image\+\_\+transport}
+\end{DoxyItemize}
+
+Run the following command\+: 
+\begin{DoxyCode}
+cd ~/catkin\_ws
+catkin\_make --pkg vision\_tasks
+\end{DoxyCode}
+
+
+To run any vision task named {\ttfamily $<$name$>$}, run\+: 
+\begin{DoxyCode}
+rosrun vision\_tasks <name>
+\end{DoxyCode}
+
+
+This task pre-\/processes (blue-\/filters) the raw image, applies thresholding on the image, draws a minimum enclosing circle on the main blob and returns the coordinates of the buoy in the camera\textquotesingle{}s reference frame. The distance of the buoy from the camera is calculated using an exponential mapping of the radius of the minimum enclosing circle and the actual distance.
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /buoy\+\_\+task/blue\+\_\+filtered}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /buoy\+\_\+task/thresholded}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /buoy\+\_\+task/marked}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /buoy\+\_\+task/buoy\+\_\+coordinates}$\ast$$\ast$ (\href{http://docs.ros.org/kinetic/api/geometry_msgs/html/msg/PointStamped.html}{\tt geometry\+\_\+msgs/\+Point\+Stamped})
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$clahe\+\_\+clip} (double, default\+: 0.\+15, range\+: 0.\+0 -\/ 40.\+0) Clip limit for C\+L\+A\+HE
+\item {\ttfamily $\sim$clahe\+\_\+grid\+\_\+size} (integer, default\+: 3, range\+: 1 -\/ 16) Grid size of the C\+L\+A\+HE operator
+\item {\ttfamily $\sim$clahe\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 16) Number of iterations of bilateral filter after C\+L\+A\+HE is applied
+\item {\ttfamily $\sim$balanced\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 8) Number of iterations of bilateral filter after white balancing is applied
+\item {\ttfamily $\sim$denoise\+\_\+h} (double, default\+: 10.\+0, range\+: 0.\+0 -\/ 20.\+0) h value for fast non-\/local means denoising applied on the final blue-\/filtered image
+\item {\ttfamily $\sim$low\+\_\+h} (int, default\+: 0, range\+: 0 -\/ 255) Lower Bound of H
+\item {\ttfamily $\sim$high\+\_\+h} (int, default\+: 10, range\+: 0 -\/ 255) Higher Bound of H
+\item {\ttfamily $\sim$low\+\_\+s} (int, default\+: 251, range\+: 0 -\/ 255) Lower Bound of S
+\item {\ttfamily $\sim$high\+\_\+s} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of S
+\item {\ttfamily $\sim$low\+\_\+v} (int, default\+: 160, range\+: 0 -\/ 255) Lower Bound of V
+\item {\ttfamily $\sim$high\+\_\+v} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of V
+\item {\ttfamily $\sim$opening\+\_\+mat\+\_\+point} (int, default\+: 1, range\+: 1 -\/ 7) Center of the matrix for the opening operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$opening\+\_\+iter} (int, default\+: 0, range\+: 0 -\/ 10) Iterations of opening applied on the thresholded image
+\item {\ttfamily $\sim$closing\+\_\+mat\+\_\+point} (int, default\+: 1, range\+: 1 -\/ 7) Center of the matrix for the closing operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$closing\+\_\+iter} (int, default\+: 0, range\+: 0 -\/ 10) Iterations of closing applied on the opened thresholded image
+\end{DoxyItemize}
+
+This task applies pre-\/processes (blue-\/filters) the raw image, applies thresholding on the image, draws a minimum enclosing rectangle on the main blob and publishes the coordinates of the gate\textquotesingle{}s horizontal arm in the camera\textquotesingle{}s reference frame and also publishes whether the task is done or not.
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/bottom/thresholded}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/bottom/marked}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/bottom/pipe\+\_\+coordinates}$\ast$$\ast$ (\href{http://docs.ros.org/kinetic/api/geometry_msgs/html/msg/PointStamped.html}{\tt geometry\+\_\+msgs/\+Point\+Stamped})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/done}$\ast$$\ast$ (\href{http://docs.ros.org/kinetic/api/std_msgs/html/msg/Bool.html}{\tt std\+\_\+msgs/\+Bool})
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$clahe\+\_\+clip} (double, default\+: 4.\+0, range\+: 0.\+0 -\/ 40.\+0) Clip limit for C\+L\+A\+HE
+\item {\ttfamily $\sim$clahe\+\_\+grid\+\_\+size} (integer, default\+: 8, range\+: 1 -\/ 16) Grid size of the C\+L\+A\+HE operator
+\item {\ttfamily $\sim$clahe\+\_\+bilateral\+\_\+iter} (integer, default\+: 4, range\+: 0 -\/ 16) Number of iterations of bilateral filter after C\+L\+A\+HE is applied
+\item {\ttfamily $\sim$balanced\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 8) Number of iterations of bilateral filter after white balancing is applied
+\item {\ttfamily $\sim$denoise\+\_\+h} (double, default\+: 10.\+0, range\+: 0.\+0 -\/ 20.\+0) h value for fast non-\/local means denoising applied on the final blue-\/filtered image
+\item {\ttfamily $\sim$low\+\_\+h} (int, default\+: 0, range\+: 0 -\/ 255) Lower Bound of H
+\item {\ttfamily $\sim$high\+\_\+h} (int, default\+: 130, range\+: 0 -\/ 255) Higher Bound of H
+\item {\ttfamily $\sim$low\+\_\+s} (int, default\+: 0, range\+: 0 -\/ 255) Lower Bound of S
+\item {\ttfamily $\sim$high\+\_\+s} (int, default\+: 123, range\+: 0 -\/ 255) Higher Bound of S
+\item {\ttfamily $\sim$low\+\_\+v} (int, default\+: 95, range\+: 0 -\/ 255) Lower Bound of V
+\item {\ttfamily $\sim$high\+\_\+v} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of V
+\item {\ttfamily $\sim$closing\+\_\+mat\+\_\+point} (int, default\+: 2, range\+: 1 -\/ 7) Center of the matrix for the closing operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$closing\+\_\+iter} (int, default\+: 2, range\+: 0 -\/ 10) Iterations of closing applied on the thresholded image
+\end{DoxyItemize}
+
+This task applies pre-\/processes (blue-\/filters) the raw image, applies thresholding on the image, detects edges using Canny edge detection,detects straight lines using Probabilistic Hough \hyperlink{classLine}{Line} Transform, filters all the vertical and horizontal lines and detects which pair of these lines are perpendicular and close enough to be a gate. If multiple such pairs are found, the pair with longer lines is taken into considerations. This returns the coordinates of the gate in the camera\textquotesingle{}s frame. The distance of the gate from the camera is calculated using an exponential mapping of the diagonal of the rectangle formed by the two arms and the actual distance. If both arms of the gate are not detected and only one of the arms is detected, the rectangle is extrapolated and the distance of the gate from the camera is also calculated based on this extrapolated rectangle.
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/front/blue\+\_\+filtered}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/front/thresholded}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/front/canny}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/front/lines}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/front/marked}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /gate\+\_\+task/front/gate\+\_\+coordinates}$\ast$$\ast$ (\href{http://docs.ros.org/kinetic/api/geometry_msgs/html/msg/PointStamped.html}{\tt geometry\+\_\+msgs/\+Point\+Stamped})
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$clahe\+\_\+clip} (double, default\+: 0.\+15, range\+: 0.\+0 -\/ 40.\+0) Clip limit for C\+L\+A\+HE
+\item {\ttfamily $\sim$clahe\+\_\+grid\+\_\+size} (integer, default\+: 3, range\+: 1 -\/ 16) Grid size of the C\+L\+A\+HE operator
+\item {\ttfamily $\sim$clahe\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 16) Number of iterations of bilateral filter after C\+L\+A\+HE is applied
+\item {\ttfamily $\sim$balanced\+\_\+bilateral\+\_\+iter} (integer, default\+: 4, range\+: 0 -\/ 8) Number of iterations of bilateral filter after white balancing is applied
+\item {\ttfamily $\sim$denoise\+\_\+h} (double, default\+: 10.\+0, range\+: 0.\+0 -\/ 20.\+0) h value for fast non-\/local means denoising applied on the final blue-\/filtered image
+\item {\ttfamily $\sim$low\+\_\+h} (int, default\+: 0, range\+: 0 -\/ 255) Lower Bound of H
+\item {\ttfamily $\sim$high\+\_\+h} (int, default\+: 10, range\+: 0 -\/ 255) Higher Bound of H
+\item {\ttfamily $\sim$low\+\_\+s} (int, default\+: 156, range\+: 0 -\/ 255) Lower Bound of S
+\item {\ttfamily $\sim$high\+\_\+s} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of S
+\item {\ttfamily $\sim$low\+\_\+v} (int, default\+: 88, range\+: 0 -\/ 255) Lower Bound of V
+\item {\ttfamily $\sim$high\+\_\+v} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of V
+\item {\ttfamily $\sim$closing\+\_\+mat\+\_\+point} (int, default\+: 1, range\+: 1 -\/ 7) Center of the matrix for the closing operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$closing\+\_\+iter} (int, default\+: 0, range\+: 0 -\/ 10) Iterations of closing applied on the thresholded image
+\item {\ttfamily $\sim$canny\+\_\+threshold\+\_\+low} (int, default\+: 0, range\+: 0 -\/ 1000) Lower threshold for the pixel intensity gradient
+\item {\ttfamily $\sim$canny\+\_\+threshold\+\_\+high} (int, default\+: 1000, range\+: 0 -\/ 1000) Higher threshold for the pixel intensity gradient
+\item {\ttfamily $\sim$canny\+\_\+kernel\+\_\+size} (int, default\+: 3, range\+: 3 -\/ 7) Kernel size of the operator
+\item {\ttfamily $\sim$hough\+\_\+minline} (int, default\+: 200, range\+: 0 -\/ 500) Minimum length of the detected lines
+\item {\ttfamily $\sim$hough\+\_\+threshold} (int, default\+: 105, range\+: 0 -\/ 500) Minimum number of intersections to be considered as part of one line
+\item {\ttfamily $\sim$hough\+\_\+maxgap} (int, default\+: 61, range\+: 0 -\/ 500) Maximum gap between two points to be considered the same line
+\item {\ttfamily $\sim$hough\+\_\+angle\+\_\+tolerance} (double, default\+: 20.\+0, range\+: 0.\+0 -\/ 45.\+0) Tolerance angle with respect to 0, 90 and 180 degrees to be considered as a probable line
+\item {\ttfamily $\sim$gate\+\_\+distance\+\_\+tolerance} (double, default\+: 50.\+0, range\+: 0.\+0 -\/ 500.\+0) Maximum distance between atleast one pair of points to be considered close to each other
+\item {\ttfamily $\sim$gate\+\_\+angle\+\_\+tolerance} (double, default\+: 20.\+0, range\+: 0.\+0 -\/ 45.\+0) Tolerance angle with respect to 90 to be considered as perpendicular
+\end{DoxyItemize}
+
+This task applies thresholding on the raw image, draws contours around the blob, finds straight lines using Probabilistic Hough \hyperlink{classLine}{Line} Transform and draws a tilted bounding rectangle around the contour. This returns the coordinates in the camera\textquotesingle{}s reference frame using the bounding rectangle and returns the vehicle\textquotesingle{}s angle with this line using the lines detected.
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /line\+\_\+task/thresholded}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /line\+\_\+task/marked}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /line\+\_\+task/gate\+\_\+coordinates}$\ast$$\ast$ (\href{http://docs.ros.org/api/geometry_msgs/html/msg/Pose2D.html}{\tt geometry\+\_\+msgs/\+Pose2D})
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$low\+\_\+h} (int, default\+: 31, range\+: 0 -\/ 255) Lower Bound of H
+\item {\ttfamily $\sim$high\+\_\+h} (int, default\+: 47, range\+: 0 -\/ 255) Higher Bound of H
+\item {\ttfamily $\sim$low\+\_\+s} (int, default\+: 0, range\+: 0 -\/ 255) Lower Bound of S
+\item {\ttfamily $\sim$high\+\_\+s} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of S
+\item {\ttfamily $\sim$low\+\_\+v} (int, default\+: 0, range\+: 0 -\/ 255) Lower Bound of V
+\item {\ttfamily $\sim$high\+\_\+v} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of V
+\item {\ttfamily $\sim$opening\+\_\+mat\+\_\+point} (int, default\+: 1, range\+: 1 -\/ 7) Center of the matrix for the opening operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$opening\+\_\+iter} (int, default\+: 0, range\+: 0 -\/ 10) Iterations of opening applied on the thresholded image
+\item {\ttfamily $\sim$closing\+\_\+mat\+\_\+point} (int, default\+: 2, range\+: 1 -\/ 7) Center of the matrix for the closing operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$closing\+\_\+iter} (int, default\+: 1, range\+: 0 -\/ 10) Iterations of closing applied on the opened thresholded image
+\end{DoxyItemize}
+
+This task applies pre-\/processes (blue-\/filters) the raw image, applies thresholding on the image, draws a minimum enclosing rectangle on all the detected contours. Based on the number of contours and their areas, an algorithm decides which of the contours is actually the heart and publishes the coordinates of the target in the camera\textquotesingle{}s reference frame. The distance of the target from the camera is calculated using an exponential mapping of the width of the bounding rectangle and the actual distance.
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /torpedo\+\_\+task/thresholded}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /torpedo\+\_\+task/marked}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\tt sensor\+\_\+msgs/\+Image})
+\item $\ast$$\ast${\ttfamily /torpedo\+\_\+task/gate\+\_\+coordinates}$\ast$$\ast$ (\href{http://docs.ros.org/api/geometry_msgs/html/msg/Pose2D.html}{\tt geometry\+\_\+msgs/\+Pose2D})
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$clahe\+\_\+clip} (double, default\+: 0.\+15, range\+: 0.\+0 -\/ 40.\+0) Clip limit for C\+L\+A\+HE
+\item {\ttfamily $\sim$clahe\+\_\+grid\+\_\+size} (integer, default\+: 3, range\+: 1 -\/ 16) Grid size of the C\+L\+A\+HE operator
+\item {\ttfamily $\sim$clahe\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 16) Number of iterations of bilateral filter after C\+L\+A\+HE is applied
+\item {\ttfamily $\sim$balanced\+\_\+bilateral\+\_\+iter} (integer, default\+: 4, range\+: 0 -\/ 8) Number of iterations of bilateral filter after white balancing is applied
+\item {\ttfamily $\sim$denoise\+\_\+h} (double, default\+: 5.\+6, range\+: 0.\+0 -\/ 20.\+0) h value for fast non-\/local means denoising applied on the final blue-\/filtered image
+\item {\ttfamily $\sim$low\+\_\+h} (int, default\+: 53, range\+: 0 -\/ 255) Lower Bound of H
+\item {\ttfamily $\sim$high\+\_\+h} (int, default\+: 86, range\+: 0 -\/ 255) Higher Bound of H
+\item {\ttfamily $\sim$low\+\_\+s} (int, default\+: 128, range\+: 0 -\/ 255) Lower Bound of S
+\item {\ttfamily $\sim$high\+\_\+s} (int, default\+: 255, range\+: 0 -\/ 255) Higher Bound of S
+\item {\ttfamily $\sim$low\+\_\+v} (int, default\+: 104, range\+: 0 -\/ 255) Lower Bound of V
+\item {\ttfamily $\sim$high\+\_\+v} (int, default\+: 202, range\+: 0 -\/ 255) Higher Bound of V
+\item {\ttfamily $\sim$opening\+\_\+mat\+\_\+point} (int, default\+: 2, range\+: 1 -\/ 7) Center of the matrix for the opening operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$opening\+\_\+iter} (int, default\+: 1, range\+: 0 -\/ 10) Iterations of opening applied on the thresholded image
+\item {\ttfamily $\sim$closing\+\_\+mat\+\_\+point} (int, default\+: 2, range\+: 1 -\/ 7) Center of the matrix for the closing operation (size extrapolated 2x+1)
+\item {\ttfamily $\sim$closing\+\_\+iter} (int, default\+: 3, range\+: 0 -\/ 10) Iterations of closing applied on the opened thresholded image
+\end{DoxyItemize}
+
+Please report bugs and request features using the \href{https://github.com/AUV-IITK/auv2018/issues}{\tt Issue Tracker}. 

@@ -1,0 +1,54 @@
+\hypertarget{classLine}{}\section{Line Class Reference}
+\label{classLine}\index{Line@{Line}}
+Inheritance diagram for Line\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLine}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLine_ae0baab0d7e417e7debb04ca7f1f3d0bd}\label{classLine_ae0baab0d7e417e7debb04ca7f1f3d0bd}} 
+void {\bfseries spin\+Thread\+Bottom} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLine_adaec4c36ed87a85ef20dedae0dc64e3a}\label{classLine_adaec4c36ed87a85ef20dedae0dc64e3a}} 
+void {\bfseries callback} (vision\+\_\+tasks\+::line\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classLine_a4fd089a81700282003dc3b4f3a9c6ac4}\label{classLine_a4fd089a81700282003dc3b4f3a9c6ac4}} 
+void {\bfseries image\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\item 
+\mbox{\Hypertarget{classLine_a23aae96dede860bd33b5e57221701bfa}\label{classLine_a23aae96dede860bd33b5e57221701bfa}} 
+double {\bfseries compute\+Mean} (std\+::vector$<$ double $>$ \&new\+Angles)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLine_a7baec58f43b0596a630e086591e4e072}\label{classLine_a7baec58f43b0596a630e086591e4e072}} 
+image\+\_\+transport\+::\+Subscriber {\bfseries image\+\_\+raw\+\_\+sub}
+\item 
+\mbox{\Hypertarget{classLine_ae41bf70d070b2abcca4e8d289a86b85a}\label{classLine_ae41bf70d070b2abcca4e8d289a86b85a}} 
+ros\+::\+Publisher {\bfseries detection\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classLine_adecc2f839c1de6c5e6f5baff29951db9}\label{classLine_adecc2f839c1de6c5e6f5baff29951db9}} 
+ros\+::\+Publisher {\bfseries coordinates\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classLine_a61ee6db6c19464de515c754cf8a99731}\label{classLine_a61ee6db6c19464de515c754cf8a99731}} 
+std\+::string {\bfseries camera\+\_\+frame\+\_\+}
+\item 
+\mbox{\Hypertarget{classLine_a6139a8ba5889f7e4384dddf05b5f83d2}\label{classLine_a6139a8ba5889f7e4384dddf05b5f83d2}} 
+bool {\bfseries task\+\_\+done} = false
+\item 
+\mbox{\Hypertarget{classLine_a6f522c0976cbe9b76bfbe89fa423ce25}\label{classLine_a6f522c0976cbe9b76bfbe89fa423ce25}} 
+ros\+::\+Publisher {\bfseries ang\+\_\+pub}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/line.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/line.\+cpp\end{DoxyCompactItemize}

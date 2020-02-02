@@ -1,0 +1,53 @@
+\hypertarget{classcolor__correction_1_1gray__world}{}\section{color\+\_\+correction\+:\+:gray\+\_\+world Class Reference}
+\label{classcolor__correction_1_1gray__world}\index{color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}}
+
+
+{\ttfamily \#include $<$color\+\_\+constancy.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcolor__correction_1_1gray__world_a5d5afd72d6d11a1ea1e396b9a71da767}{process} (Mat src1, int p, float $\ast$ml, float $\ast$ma, float $\ast$mb)
+\item 
+void \hyperlink{classcolor__correction_1_1gray__world_a4a0d5ba6b9e4ae8d15a664f6e60b4a24}{process} (Mat src1, float $\ast$ml, float $\ast$ma, float $\ast$mb, int p, int m)
+\item 
+Mat \hyperlink{classcolor__correction_1_1gray__world_afe9a7e290fa94f8b0c5d67e88b4f206e}{run2} (Mat, int p, int m)
+\item 
+Mat \hyperlink{classcolor__correction_1_1gray__world_a5d522f9b4cbc22b417463e8542164364}{run1} (Mat, int p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class containing methods to perform gray world and shades of gray color correction in R\+GB and Lab Color space 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcolor__correction_1_1gray__world_a5d5afd72d6d11a1ea1e396b9a71da767}\label{classcolor__correction_1_1gray__world_a5d5afd72d6d11a1ea1e396b9a71da767}} 
+\index{color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}!process@{process}}
+\index{process@{process}!color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}}
+\subsubsection{\texorpdfstring{process()}{process()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void color\+\_\+correction\+::gray\+\_\+world\+::process (\begin{DoxyParamCaption}\item[{Mat}]{src1,  }\item[{int}]{p,  }\item[{float $\ast$}]{ml,  }\item[{float $\ast$}]{ma,  }\item[{float $\ast$}]{mb }\end{DoxyParamCaption})}
+
+The method to compute the estimate of illumination vector. Inputs are image and norm and outputs are ml, ma, mb the estimate of illumination vector/scaling factors \mbox{\Hypertarget{classcolor__correction_1_1gray__world_a4a0d5ba6b9e4ae8d15a664f6e60b4a24}\label{classcolor__correction_1_1gray__world_a4a0d5ba6b9e4ae8d15a664f6e60b4a24}} 
+\index{color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}!process@{process}}
+\index{process@{process}!color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}}
+\subsubsection{\texorpdfstring{process()}{process()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void color\+\_\+correction\+::gray\+\_\+world\+::process (\begin{DoxyParamCaption}\item[{Mat}]{src1,  }\item[{float $\ast$}]{ml,  }\item[{float $\ast$}]{ma,  }\item[{float $\ast$}]{mb,  }\item[{int}]{p,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+function to estimate the illumination vector or scaling factor for R\+GB color space computation inputs are the sourc image, minkownski norm factor (p), and three normalization defined by (m = 0, 1, 2) the outputs are the factor ml,ma,mb for each of the color channel \mbox{\Hypertarget{classcolor__correction_1_1gray__world_a5d522f9b4cbc22b417463e8542164364}\label{classcolor__correction_1_1gray__world_a5d522f9b4cbc22b417463e8542164364}} 
+\index{color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}!run1@{run1}}
+\index{run1@{run1}!color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}}
+\subsubsection{\texorpdfstring{run1()}{run1()}}
+{\footnotesize\ttfamily Mat color\+\_\+correction\+::gray\+\_\+world\+::run1 (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{p }\end{DoxyParamCaption})}
+
+This is the main method which to call for color correction in Lab Color space.\+This performs basic pre-\/processing and calls the gray world function \mbox{\Hypertarget{classcolor__correction_1_1gray__world_afe9a7e290fa94f8b0c5d67e88b4f206e}\label{classcolor__correction_1_1gray__world_afe9a7e290fa94f8b0c5d67e88b4f206e}} 
+\index{color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}!run2@{run2}}
+\index{run2@{run2}!color\+\_\+correction\+::gray\+\_\+world@{color\+\_\+correction\+::gray\+\_\+world}}
+\subsubsection{\texorpdfstring{run2()}{run2()}}
+{\footnotesize\ttfamily Mat color\+\_\+correction\+::gray\+\_\+world\+::run2 (\begin{DoxyParamCaption}\item[{Mat}]{src,  }\item[{int}]{p,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+this is a main function to call to perform color correction in R\+GB color space 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+fusion/include/fusion/color\+\_\+constancy.\+hpp\item 
+vision\+\_\+layer/vision\+\_\+fusion/src/color\+\_\+constancy.\+cpp\end{DoxyCompactItemize}

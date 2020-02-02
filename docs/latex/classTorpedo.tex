@@ -1,0 +1,46 @@
+\hypertarget{classTorpedo}{}\section{Torpedo Class Reference}
+\label{classTorpedo}\index{Torpedo@{Torpedo}}
+Inheritance diagram for Torpedo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTorpedo}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTorpedo_aa7080c7f22c85dc381eb83b547b619e5}\label{classTorpedo_aa7080c7f22c85dc381eb83b547b619e5}} 
+virtual void {\bfseries load\+Params} () override
+\item 
+\mbox{\Hypertarget{classTorpedo_a0b9be299d42d31a8eda90f0322fc1325}\label{classTorpedo_a0b9be299d42d31a8eda90f0322fc1325}} 
+virtual void {\bfseries spin\+Thread\+Front} () override
+\item 
+\mbox{\Hypertarget{classTorpedo_a034e99a1d14fd16b174f15d12c579075}\label{classTorpedo_a034e99a1d14fd16b174f15d12c579075}} 
+void {\bfseries find\+Circles} (cv\+::\+Mat \&src\+\_\+img, cv\+::\+Mat \&thres\+\_\+img, double circle\+\_\+threshold)
+\item 
+\mbox{\Hypertarget{classTorpedo_a2010f06ca24b6ebfcd10b05346a889da}\label{classTorpedo_a2010f06ca24b6ebfcd10b05346a889da}} 
+void {\bfseries Init\+Tracker} (cv\+::\+Mat \&src\+\_\+img, cv\+::\+Mat \&thres\+\_\+img, double circle\+\_\+threshold)
+\item 
+\mbox{\Hypertarget{classTorpedo_a7f0bdf8a23ae27e30177ce27fbd1488d}\label{classTorpedo_a7f0bdf8a23ae27e30177ce27fbd1488d}} 
+void {\bfseries update\+Tracker} (cv\+::\+Mat \&src\+\_\+img)
+\item 
+\mbox{\Hypertarget{classTorpedo_ad5e92180089075ecb42f3cea1bd79e4c}\label{classTorpedo_ad5e92180089075ecb42f3cea1bd79e4c}} 
+cv\+::\+Point2f {\bfseries thresh\+R\+OI} (const cv\+::\+Rect2d \&bounding\+\_\+rect, const cv\+::\+Mat \&img, int padding)
+\item 
+\mbox{\Hypertarget{classTorpedo_a12ba525a4852334b7216f497e2cc0582}\label{classTorpedo_a12ba525a4852334b7216f497e2cc0582}} 
+void {\bfseries recognise\+Holes} (cv\+::\+Mat \&thres\+\_\+img)
+\item 
+\mbox{\Hypertarget{classTorpedo_a3b398b866dc7f1de82e88104bc02279a}\label{classTorpedo_a3b398b866dc7f1de82e88104bc02279a}} 
+void {\bfseries update\+Coordinates} (std\+::vector$<$ cv\+::\+Point $>$ points)
+\item 
+\mbox{\Hypertarget{classTorpedo_a1ba524abe3d67879957236006b7dd026}\label{classTorpedo_a1ba524abe3d67879957236006b7dd026}} 
+bool {\bfseries change\+Torpedo\+Hole} (master\+\_\+layer\+::\+Change\+Torpedo\+Hole\+::\+Request \&req, master\+\_\+layer\+::\+Change\+Torpedo\+Hole\+::\+Response \&resp)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/torpedo.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/torpedo.\+cpp\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/torpedo\+\_\+niot.\+cpp\end{DoxyCompactItemize}

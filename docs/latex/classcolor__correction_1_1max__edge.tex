@@ -1,0 +1,55 @@
+\hypertarget{classcolor__correction_1_1max__edge}{}\section{color\+\_\+correction\+:\+:max\+\_\+edge Class Reference}
+\label{classcolor__correction_1_1max__edge}\index{color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classcolor__correction_1_1max__edge_af83c7bb6554486a755ba5133a427acc0}{Convolution\+Type} \{ {\bfseries C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+\_\+\+F\+U\+LL}, 
+{\bfseries C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+\_\+\+S\+A\+ME}, 
+{\bfseries C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+\_\+\+V\+A\+L\+ID}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Mat \hyperlink{classcolor__correction_1_1max__edge_ab986a6eeda0ae54621f48b1a3acde38d}{run} (Mat, int p, int m)
+\item 
+void \hyperlink{classcolor__correction_1_1max__edge_af9ab5e0868c8e3d667ed63c03f6cf850}{conv2} (const Mat \&img, const Mat \&kernel, \hyperlink{classcolor__correction_1_1max__edge_af83c7bb6554486a755ba5133a427acc0}{Convolution\+Type} type, Mat \&dest)
+\item 
+void \hyperlink{classcolor__correction_1_1max__edge_a1d72dd0a81e84d809dd2da19342f42a8}{process} (Mat src1, float $\ast$ml, float $\ast$ma, float $\ast$mb, int p, int m)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classcolor__correction_1_1max__edge_af83c7bb6554486a755ba5133a427acc0}\label{classcolor__correction_1_1max__edge_af83c7bb6554486a755ba5133a427acc0}} 
+\index{color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}!Convolution\+Type@{Convolution\+Type}}
+\index{Convolution\+Type@{Convolution\+Type}!color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}}
+\subsubsection{\texorpdfstring{Convolution\+Type}{ConvolutionType}}
+{\footnotesize\ttfamily enum \hyperlink{classcolor__correction_1_1max__edge_af83c7bb6554486a755ba5133a427acc0}{color\+\_\+correction\+::max\+\_\+edge\+::\+Convolution\+Type}}
+
+defines convolution type 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcolor__correction_1_1max__edge_af9ab5e0868c8e3d667ed63c03f6cf850}\label{classcolor__correction_1_1max__edge_af9ab5e0868c8e3d667ed63c03f6cf850}} 
+\index{color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}!conv2@{conv2}}
+\index{conv2@{conv2}!color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}}
+\subsubsection{\texorpdfstring{conv2()}{conv2()}}
+{\footnotesize\ttfamily void color\+\_\+correction\+::max\+\_\+edge\+::conv2 (\begin{DoxyParamCaption}\item[{const Mat \&}]{img,  }\item[{const Mat \&}]{kernel,  }\item[{\hyperlink{classcolor__correction_1_1max__edge_af83c7bb6554486a755ba5133a427acc0}{Convolution\+Type}}]{type,  }\item[{Mat \&}]{dest }\end{DoxyParamCaption})}
+
+method to perform 2D convolution \mbox{\Hypertarget{classcolor__correction_1_1max__edge_a1d72dd0a81e84d809dd2da19342f42a8}\label{classcolor__correction_1_1max__edge_a1d72dd0a81e84d809dd2da19342f42a8}} 
+\index{color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}!process@{process}}
+\index{process@{process}!color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}}
+\subsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void color\+\_\+correction\+::max\+\_\+edge\+::process (\begin{DoxyParamCaption}\item[{Mat}]{src1,  }\item[{float $\ast$}]{ml,  }\item[{float $\ast$}]{ma,  }\item[{float $\ast$}]{mb,  }\item[{int}]{p,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+function that computes illumination vector for \hyperlink{classcolor__correction_1_1max__edge}{max\+\_\+edge} algorithm \mbox{\Hypertarget{classcolor__correction_1_1max__edge_ab986a6eeda0ae54621f48b1a3acde38d}\label{classcolor__correction_1_1max__edge_ab986a6eeda0ae54621f48b1a3acde38d}} 
+\index{color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}!run@{run}}
+\index{run@{run}!color\+\_\+correction\+::max\+\_\+edge@{color\+\_\+correction\+::max\+\_\+edge}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily Mat color\+\_\+correction\+::max\+\_\+edge\+::run (\begin{DoxyParamCaption}\item[{Mat}]{src1,  }\item[{int}]{p,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+main function to call to perform max-\/edge color correction 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+fusion/include/fusion/color\+\_\+constancy.\+hpp\item 
+vision\+\_\+layer/vision\+\_\+fusion/src/color\+\_\+constancy.\+cpp\end{DoxyCompactItemize}

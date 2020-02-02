@@ -1,0 +1,83 @@
+\href{https://dev.mcgillrobotics.com/job/ros-teledyne-navigator/job/master}{\tt !\mbox{[}status\mbox{]}}
+
+This R\+OS package configures and communicates with the Teledyne Navigator Doppler Velocity Log (D\+VL). {\bfseries This has only been tested on R\+OS Kinetic and Melodic over R\+S232.}
+
+You must clone this repository as {\ttfamily teledyne\+\_\+navigator} into your {\ttfamily catkin} workspace\textquotesingle{}s {\ttfamily src} directory\+:
+
+
+\begin{DoxyCode}
+roscd
+cd src
+git clone https://github.com/mcgill-robotics/ros-teledyne-navigator.git teledyne\_navigator
+\end{DoxyCode}
+
+
+Before proceeding, make sure to install all the dependencies by running\+:
+
+
+\begin{DoxyCode}
+rosdep update
+rosdep install teledyne\_navigator
+\end{DoxyCode}
+
+
+You {\bfseries must} compile this package before being able to run it. You can do so by running\+:
+
+
+\begin{DoxyCode}
+catkin\_make
+\end{DoxyCode}
+
+
+from the root of your workspace.
+
+To run, simply connect the D\+VL over R\+S232 and launch the package with\+:
+
+
+\begin{DoxyCode}
+roslaunch teledyne\_navigator teledyne\_navigator.launch port:=</path/to/dvl>
+\end{DoxyCode}
+
+
+The following run-\/time R\+OS launch arguments are available\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily port}\+: Serial port to read from, default\+: {\ttfamily /dev/dvl}.
+\item {\ttfamily baudrate}\+: Serial baud rate, default\+: {\ttfamily 9600}.
+\item {\ttfamily timeout}\+: Serial read timeout in seconds, default\+: {\ttfamily 1.\+0}.
+\item {\ttfamily frame}\+: {\ttfamily tf} frame to stamp the messages with, default\+: {\ttfamily dvl}.
+\end{DoxyItemize}
+
+The package will keep trying to connect to the D\+VL until it is successful.
+
+The {\ttfamily teledyne\+\_\+navigator} node will output to the following R\+OS topic\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$ensemble}\+: D\+VL scan data as an {\ttfamily Ensemble} message.
+\end{DoxyItemize}
+
+This driver is limited to the P\+D5 output format and the earth-\/coordinate frame (E\+NU). You may change other parameters as you please using T\+R\+DI Toolz and save them with {\ttfamily CK}, but the {\ttfamily PD} and {\ttfamily EX} commands will be overridden.
+
+Contributions are welcome. Simply open an issue or pull request on the matter, and it will be accepted as long as it does not complicate the code base too much.
+
+As for style guides, we follow the R\+OS Python Style Guide for R\+O\+S-\/specifics and the Google Python Style Guide for everything else.
+
+We use \href{https://github.com/google/yapf}{\tt Y\+A\+PF} for all Python formatting needs. You can auto-\/format your changes with the following command\+:
+
+
+\begin{DoxyCode}
+yapf --recursive --in-place --parallel .
+\end{DoxyCode}
+
+
+We also use \href{https://github.com/fkie/catkin_lint}{\tt catkin\+\_\+lint} for all {\ttfamily catkin} specifics. You can lint your changes as follows\+:
+
+
+\begin{DoxyCode}
+catkin lint --explain -W2 .
+\end{DoxyCode}
+
+
+See \mbox{[}L\+I\+C\+E\+N\+SE\mbox{]}(L\+I\+C\+E\+N\+SE). 

@@ -1,0 +1,82 @@
+This repository contains the code for our second underwater vehicle {\ttfamily Anahita}.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering \textbf{ S. No. }&\PBS\centering \textbf{ Operating System }&\PBS\centering \textbf{ R\+OS Version }&\PBS\centering \textbf{ Build Status  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering \textbf{ S. No. }&\PBS\centering \textbf{ Operating System }&\PBS\centering \textbf{ R\+OS Version }&\PBS\centering \textbf{ Build Status  }\\\cline{1-4}
+\endhead
+\PBS\centering 1. &\PBS\centering \href{http://releases.ubuntu.com/18.04/}{\tt Ubuntu 18.\+04 L\+TS} &\PBS\centering \href{http://wiki.ros.org/Melodic}{\tt Melodic Morenia} &\PBS\centering \href{https://travis-ci.org/AUV-IITK/Anahita}{\tt } \\\cline{1-4}
+\end{longtabu}
+
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries Create a catkin worspace following the guidelines given \href{http://wiki.ros.org/catkin/Tutorials/create_a_workspace}{\tt here}} 
+\begin{DoxyCode}
+mkdir -p ~/catkin\_ws/src
+cd ~/catkin\_ws/src
+catkin\_init\_workspace
+cd ..
+catkin\_make
+\end{DoxyCode}
+
+\item {\bfseries Clone this repository to your catkin workspace} 
+\begin{DoxyCode}
+cd ~/catkin\_ws/src
+git clone https://github.com/AUV-IITK/AnahitaPlus.git
+
+# Add the simulation repository also (uuv\_simulator)
+git clone https://github.com/AUV-IITK/uuv\_simulator
+\end{DoxyCode}
+
+\item {\bfseries Install all dependency packages to run the repository}
+\end{DoxyEnumerate}
+
+The repository requires the following R\+OS packages to run\+: \href{http://wiki.ros.org/usb_cam}{\tt usb\+\_\+cam}, \href{http://wiki.ros.org/geometry_msgs}{\tt geographic\+\_\+msgs}, \href{http://wiki.ros.org/rosserial_arduino}{\tt rosserial\+\_\+arduino}, \href{http://wiki.ros.org/underwater_sensor_msgs}{\tt underwater\+\_\+sensor\+\_\+msgs}, ros-\/melodic-\/grid-\/map, ros-\/melodic-\/image-\/geometry, ros-\/melodic-\/tf. To use some interpolation functions, you\textquotesingle{}ll need to install scipy.
+
+You can build and install those packages from their respective sources or you can use the following command in Ubuntu 16.\+04 to install them. {\itshape If you are building from source or using a different package manager, make sure you are building the melodic version of these packages to ensure maximum compatibility.}
+
+
+\begin{DoxyCode}
+sudo apt-get install ros-melodic-usb-cam \(\backslash\)
+                     ros-melodic-geographic-msgs \(\backslash\)
+                     ros-melodic-rosserial-arduino \(\backslash\)
+                     ros-melodic-underwater-sensor-msgs \(\backslash\)
+                     ros-melodic-grid-map \(\backslash\)
+                     ros-melodic-image-geometry \(\backslash\)
+                     ros-melodic-tf
+
+pip install scipy
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item $\ast$$\ast$\+Build the package using \href{http://wiki.ros.org/catkin/commands/catkin_make}{\tt {\ttfamily catkin\+\_\+make}}$\ast$$\ast$ 
+\begin{DoxyCode}
+cd ~/catkin\_ws
+# To maximize performance, build the workspace in Release mode
+catkin\_make -DCMAKE\_BUILD\_TYPE=Release
+\end{DoxyCode}
+
+\item {\bfseries Launching the vehicle in simulation}
+\end{DoxyEnumerate}
+
+in the workspace directory (catkin\+\_\+ws), run the following commands 
+\begin{DoxyCode}
+source devel/setup.bash
+roslaunch uuv\_gazebo\_worlds qual\_robosub\_world.launch 
+roslaunch anahita\_description upload\_anahita\_default.launch
+roslaunch uuv\_trajectory\_control cascaded\_pid\_dp\_controller.launch
+roslaunch odom\_dvl\_imu odom.launch
+roslaunch uuv\_thruster\_manager thruster\_manager.launch model\_name:=anahita (for simulation)
+master\_layer/anahita\_thruster\_manager.py (for real navigation) 
+\end{DoxyCode}
+
+
+To get started with contributing to this repository, look out for open issues \href{https://github.com/AUV-IITK/auv2018/issues}{\tt here}. Kindly read the \href{https://github.com/AUV-IITK/AUVWiki/wiki/Developers-Guide}{\tt {\bfseries Developer\textquotesingle{}s Guide}} before sending a pull request! \+:) 

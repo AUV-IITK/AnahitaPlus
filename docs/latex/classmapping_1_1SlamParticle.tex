@@ -1,0 +1,59 @@
+\hypertarget{classmapping_1_1SlamParticle}{}\section{mapping\+:\+:Slam\+Particle Class Reference}
+\label{classmapping_1_1SlamParticle}\index{mapping\+::\+Slam\+Particle@{mapping\+::\+Slam\+Particle}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a90815e29fd2a5825beab1822f65658f9}\label{classmapping_1_1SlamParticle_a90815e29fd2a5825beab1822f65658f9}} 
+{\bfseries Slam\+Particle} (float weight, const vec3 \&pos, const vec3 \&ori)
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_ae9663a3fc8981eb7241867afba9a67ce}\label{classmapping_1_1SlamParticle_ae9663a3fc8981eb7241867afba9a67ce}} 
+void {\bfseries Add\+Landmark} (std\+::string id, const vec3 \&relpos, const mat3 \&conv)
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a70500368a754b3afb951e7c3563c76d4}\label{classmapping_1_1SlamParticle_a70500368a754b3afb951e7c3563c76d4}} 
+void {\bfseries Update\+Landmark} (std\+::string id, const vec3 \&relpos)
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_aef4d4f875d436217e66cc5f4ce2c0e13}\label{classmapping_1_1SlamParticle_aef4d4f875d436217e66cc5f4ce2c0e13}} 
+void {\bfseries Update\+Particle} (const vec6 \&u, float weight)
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a5bd8b563af659480a63d4175af486c7b}\label{classmapping_1_1SlamParticle_a5bd8b563af659480a63d4175af486c7b}} 
+float {\bfseries Update\+Weight} (std\+::string id, const vec3 \&relpos, float certainty)
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a8ca7aa70e97f28c7073355c6188209a3}\label{classmapping_1_1SlamParticle_a8ca7aa70e97f28c7073355c6188209a3}} 
+void {\bfseries Reinit\+Random} ()
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a679d26cbc4759ba01dd6225dfad3d73f}\label{classmapping_1_1SlamParticle_a679d26cbc4759ba01dd6225dfad3d73f}} 
+vec3 {\bfseries Get\+State} ()
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a32efb059738483df144287a171aa1c2f}\label{classmapping_1_1SlamParticle_a32efb059738483df144287a171aa1c2f}} 
+vec6 {\bfseries Get\+State} (std\+::string id)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_aae4caa21a4aa9866bb63bddde3e16bb2}\label{classmapping_1_1SlamParticle_aae4caa21a4aa9866bb63bddde3e16bb2}} 
+float {\bfseries weight\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a04c48dccf2bf33aa6761a38d9d289cef}\label{classmapping_1_1SlamParticle_a04c48dccf2bf33aa6761a38d9d289cef}} 
+vec3 {\bfseries position\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a989e2db13f8532c795ec423e70bd5133}\label{classmapping_1_1SlamParticle_a989e2db13f8532c795ec423e70bd5133}} 
+vec3 {\bfseries orientation\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a498c90169a53f012cc2018bd6e2472f3}\label{classmapping_1_1SlamParticle_a498c90169a53f012cc2018bd6e2472f3}} 
+std\+::default\+\_\+random\+\_\+engine {\bfseries gen\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a8dd5b4d4a029b82c4e4277b76b49f625}\label{classmapping_1_1SlamParticle_a8dd5b4d4a029b82c4e4277b76b49f625}} 
+std\+::normal\+\_\+distribution$<$ float $>$ {\bfseries uniform\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a89ab84cbc0100244aee0317dc62696a4}\label{classmapping_1_1SlamParticle_a89ab84cbc0100244aee0317dc62696a4}} 
+std\+::normal\+\_\+distribution$<$ float $>$ {\bfseries gaussian\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1SlamParticle_a0ca237f4f457d3b61b824c7912530502}\label{classmapping_1_1SlamParticle_a0ca237f4f457d3b61b824c7912530502}} 
+std\+::unordered\+\_\+map$<$ std\+::string, \hyperlink{classmapping_1_1SlamEKF}{Slam\+E\+KF} $>$ {\bfseries landmark\+\_\+filters\+\_\+}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+navigation\+\_\+layer/mapping/include/slam\+\_\+filter.\+h\item 
+navigation\+\_\+layer/mapping/src/slam\+\_\+filter.\+cpp\end{DoxyCompactItemize}

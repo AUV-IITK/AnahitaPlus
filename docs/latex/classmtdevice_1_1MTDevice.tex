@@ -1,0 +1,635 @@
+\hypertarget{classmtdevice_1_1MTDevice}{}\section{mtdevice.\+M\+T\+Device Class Reference}
+\label{classmtdevice_1_1MTDevice}\index{mtdevice.\+M\+T\+Device@{mtdevice.\+M\+T\+Device}}
+
+
+\hyperlink{classmtdevice_1_1MTDevice}{M\+T\+Device} class.  
+
+
+Inheritance diagram for mtdevice.\+M\+T\+Device\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmtdevice_1_1MTDevice}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a9a93b603a3c9ab6a7ad9027e436799d4}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, port, baudrate=115200, timeout=0.\+002, autoconf=True, config\+\_\+mode=False, verbose=False, initial\+\_\+wait=0.\+1)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a8b4e4d222ab28dd708a4ecc220af343c}{write\+\_\+msg} (self, mid, data=b\textquotesingle{}\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Low-\/level communication. \end{DoxyCompactList}\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a072aad4573d20a44ac7d18fcbf985546}{waitfor} (self, size=1)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a86a979700d1d0f891943e7275d470f1f}{read\+\_\+data\+\_\+msg} (self, buf=bytearray())
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ac5598d36cd10ab80e28d41c60281addd}{read\+\_\+msg} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_aecbd2a94d3e4b6dd67193549d3668d2f}{write\+\_\+ack} (self, mid, data=b\textquotesingle{}\textquotesingle{}, n\+\_\+retries=500)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_aa3a48c919b8a17d421468faba4b7045f}{Reset} (self, go\+\_\+to\+\_\+config=False)
+\begin{DoxyCompactList}\small\item\em High-\/level functions. \end{DoxyCompactList}\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a61464532dbf30f237794801053ef89e1}{Go\+To\+Config} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ab6e5df72a835897e8e376e574e07376e}{Go\+To\+Measurement} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_aa634cb80bc49f34e4a41fd9214f20d9a}{Get\+Device\+ID} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a80f12839fe7f3ebe2e94a8c21641f2ae}{Get\+Product\+Code} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a1f31e322a4232994ac49fb641f3d3cc0}{Get\+Firmware\+Rev} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a259fb7d60c601ebe00e539c9a96ec9f7}{Run\+Self\+Test} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a815cba09b30c67bec0c1405dc916cf96}{Get\+Baudrate} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ac964b061548751f4885b12dc01a0a0f7}{Set\+Baudrate} (self, brid)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_af7939b8d550d4016f3078a5e8ea80020}{Get\+Error\+Mode} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a9f8b2a581a49333421f371ea1403b953}{Set\+Error\+Mode} (self, error\+\_\+mode)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ad4de7b6d2e4e8e033e2ac7f998554537}{Get\+Option\+Flags} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_adf0f4d946d65c78dcf641d9b7dd2c9e0}{Set\+Option\+Flags} (self, set\+\_\+flags, clear\+\_\+flags)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_abc9c9bc4f9e83745b2d34df960050efa}{Get\+Location\+ID} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a82701d9577a6bf7323b9a5649bebe4e0}{Set\+Location\+ID} (self, location\+\_\+id)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a1b86412ad2c180bcfd6bbf4ea62f76a4}{Restore\+Factory\+Defaults} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a7e0df33d903e96c8beaf7f136075cff1}{Get\+Transmit\+Delay} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a439b399cd20ca95cfad6225f368651f2}{Set\+Transmit\+Delay} (self, transmit\+\_\+delay)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_af518193ff364835d40017be2a0fdde45}{Get\+Sync\+Settings} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a339cd8bc34b6fa9c1f4dc7b8c8751576}{Set\+Sync\+Settings} (self, sync\+\_\+settings)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a2d75ac2afb3feded6ca6ac0fabb54aef}{Get\+Configuration} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a14e52089e2cc376e2ac1c77283a348d1}{Get\+Output\+Configuration} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a53c95416ed262990d70b667497a44d71}{Set\+Output\+Configuration} (self, output\+\_\+configuration)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ab265cda5a90f2089720c4028a6d64d45}{Get\+String\+Output\+Type} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a7ef3bdc62f343cb2ba1b7b497c83cda3}{Set\+String\+Output\+Type} (self, string\+\_\+output\+\_\+type)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a9964a8f360efe414c9bd84d173cff963}{Get\+Period} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a7421eafc5d4d03fc6e7d419dd5d687e4}{Set\+Period} (self, period)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a4473bb21765c708b18803fc26d8cc4d2}{Get\+Alignment\+Rotation} (self, parameter)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ad7f11554fdb3d2ce24d2ca081ca972c6}{Set\+Alignment\+Rotation} (self, parameter, quaternion)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_af193eb2f64536239389fb4ba83a21d86}{Get\+Output\+Mode} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a1e990d315750492fa1afbd49990959cc}{Set\+Output\+Mode} (self, mode)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a66e75cf601b0a7cfef3f456300d7520d}{Get\+Ext\+Output\+Mode} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a5cd787accdbf2aec47fc0edf2835df40}{Set\+Ext\+Output\+Mode} (self, ext\+\_\+mode)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a782fd0b3a63007569b8c009ae7c1d8cc}{Get\+Output\+Settings} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ac8f77a2d1d393aea71a7790929791cc0}{Set\+Output\+Settings} (self, settings)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a00ae63328881e07081d07a385ecfe858}{Set\+Output\+Skip\+Factor} (self, skipfactor)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a948beab4131a0748c8943d5abce96394}{Req\+Data\+Length} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a80fa3cd0b6bf97a2ba46771e891d3fd1}{Get\+Lat\+Lon\+Alt} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_adb65653ac4a1509c3fbd9122b63365da}{Set\+Lat\+Lon\+Alt} (self, lat, lon, alt)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ad55a649988c828b49bc2af507c39da93}{Get\+Available\+Scenarios} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_ac63944270e1c85c2c4c9fcc500474ab5}{Get\+Current\+Scenario} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a94eaa1bb8de52ed69bb20c9ffa404fe8}{Set\+Current\+Scenario} (self, scenario\+\_\+id)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a29424b8cc73d27252ed151075735c0e5}{Reset\+Orientation} (self, code)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_aec52bfabf3122d033b56d7e596d3c036}{Set\+No\+Rotation} (self, duration)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_aa5a60e82059880b43492ea174ac36d6c}{Get\+U\+T\+C\+Time} (self)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a8e431e7cfdf17e72d9bdc1eddcf80d43}{Set\+U\+T\+C\+Time} (self, ns, year, month, day, hour, minute, second, flag)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_af18ecf9cbdca13076b655a6b83f8fab2}{Adjust\+U\+T\+C\+Time} (self, ticks)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a487b8703cde676cd0877e0b07a40ed0c}{configure\+\_\+legacy} (self, mode, settings, period=None, skipfactor=None)
+\begin{DoxyCompactList}\small\item\em High-\/level utility functions. \end{DoxyCompactList}\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a2f6e1f0e3ca9c5459b97dc1007050c7b}{auto\+\_\+config\+\_\+legacy} (self)
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_ac8b5e65c0dbc76a21ce0d783fad0e622}\label{classmtdevice_1_1MTDevice_ac8b5e65c0dbc76a21ce0d783fad0e622}} 
+def {\bfseries read\+\_\+measurement} (self, mode=None, settings=None)
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a6e34005b0463c21c75ddc0986600d36d}\label{classmtdevice_1_1MTDevice_a6e34005b0463c21c75ddc0986600d36d}} 
+def {\bfseries parse\+\_\+\+M\+T\+Data2} (self, data)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a797870c42c7c882a20806279dc984355}{parse\+\_\+\+M\+T\+Data} (self, data, mode=None, settings=None)
+\item 
+def \hyperlink{classmtdevice_1_1MTDevice_a065580ecd5e3906b8f49c46c1b1510e7}{Change\+Baudrate} (self, baudrate)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a6dcc0bc56086e927423db95656856d10}\label{classmtdevice_1_1MTDevice_a6dcc0bc56086e927423db95656856d10}} 
+{\bfseries verbose}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_af9445fdb0f702410f2bf23d69c92efa5}\label{classmtdevice_1_1MTDevice_af9445fdb0f702410f2bf23d69c92efa5}} 
+{\bfseries device}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a91c1ae6fa1d5d15044bba922e42ceafb}\label{classmtdevice_1_1MTDevice_a91c1ae6fa1d5d15044bba922e42ceafb}} 
+{\bfseries timeout}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_ac50a29b63d176b4261060d50d1758e32}\label{classmtdevice_1_1MTDevice_ac50a29b63d176b4261060d50d1758e32}} 
+{\bfseries state}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_ab24f4baabcc6525727f9f4c5dee1e226}\label{classmtdevice_1_1MTDevice_ab24f4baabcc6525727f9f4c5dee1e226}} 
+{\bfseries mode}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a11283b18b5ced9424dc73efe03a49fd8}\label{classmtdevice_1_1MTDevice_a11283b18b5ced9424dc73efe03a49fd8}} 
+{\bfseries settings}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a9b8218f5a01b92e698ac428ea481c948}\label{classmtdevice_1_1MTDevice_a9b8218f5a01b92e698ac428ea481c948}} 
+{\bfseries length}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_aeced4192f195e40e5c3d2bee968f0fd7}\label{classmtdevice_1_1MTDevice_aeced4192f195e40e5c3d2bee968f0fd7}} 
+{\bfseries header}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a194a8ba29c60bf12b87b5927b0aed098}\label{classmtdevice_1_1MTDevice_a194a8ba29c60bf12b87b5927b0aed098}} 
+{\bfseries scenarios}
+\item 
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a4bab15bccdddcdf12e08c34926b2c03c}\label{classmtdevice_1_1MTDevice_a4bab15bccdddcdf12e08c34926b2c03c}} 
+{\bfseries scenario\+\_\+id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classmtdevice_1_1MTDevice}{M\+T\+Device} class. 
+
+\begin{DoxyVerb}XSens MT device communication object.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_a9a93b603a3c9ab6a7ad9027e436799d4}\label{classmtdevice_1_1MTDevice_a9a93b603a3c9ab6a7ad9027e436799d4}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{port,  }\item[{}]{baudrate = {\ttfamily 115200},  }\item[{}]{timeout = {\ttfamily 0.002},  }\item[{}]{autoconf = {\ttfamily True},  }\item[{}]{config\+\_\+mode = {\ttfamily False},  }\item[{}]{verbose = {\ttfamily False},  }\item[{}]{initial\+\_\+wait = {\ttfamily 0.1} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Open device.\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmtdevice_1_1MTDevice_af18ecf9cbdca13076b655a6b83f8fab2}\label{classmtdevice_1_1MTDevice_af18ecf9cbdca13076b655a6b83f8fab2}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Adjust\+U\+T\+C\+Time@{Adjust\+U\+T\+C\+Time}}
+\index{Adjust\+U\+T\+C\+Time@{Adjust\+U\+T\+C\+Time}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Adjust\+U\+T\+C\+Time()}{AdjustUTCTime()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Adjust\+U\+T\+C\+Time (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ticks }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Adjust UTC Time of device using correction ticks (0.1 ms).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a2f6e1f0e3ca9c5459b97dc1007050c7b}\label{classmtdevice_1_1MTDevice_a2f6e1f0e3ca9c5459b97dc1007050c7b}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!auto\+\_\+config\+\_\+legacy@{auto\+\_\+config\+\_\+legacy}}
+\index{auto\+\_\+config\+\_\+legacy@{auto\+\_\+config\+\_\+legacy}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{auto\+\_\+config\+\_\+legacy()}{auto\_config\_legacy()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+auto\+\_\+config\+\_\+legacy (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Read configuration from device in legacy mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a065580ecd5e3906b8f49c46c1b1510e7}\label{classmtdevice_1_1MTDevice_a065580ecd5e3906b8f49c46c1b1510e7}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Change\+Baudrate@{Change\+Baudrate}}
+\index{Change\+Baudrate@{Change\+Baudrate}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Change\+Baudrate()}{ChangeBaudrate()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Change\+Baudrate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{baudrate }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Change the baudrate, reset the device and reopen communication.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a487b8703cde676cd0877e0b07a40ed0c}\label{classmtdevice_1_1MTDevice_a487b8703cde676cd0877e0b07a40ed0c}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!configure\+\_\+legacy@{configure\+\_\+legacy}}
+\index{configure\+\_\+legacy@{configure\+\_\+legacy}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{configure\+\_\+legacy()}{configure\_legacy()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+configure\+\_\+legacy (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mode,  }\item[{}]{settings,  }\item[{}]{period = {\ttfamily None},  }\item[{}]{skipfactor = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+High-\/level utility functions. 
+
+\begin{DoxyVerb}Configure the mode and settings of the MT device in legacy mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a4473bb21765c708b18803fc26d8cc4d2}\label{classmtdevice_1_1MTDevice_a4473bb21765c708b18803fc26d8cc4d2}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Alignment\+Rotation@{Get\+Alignment\+Rotation}}
+\index{Get\+Alignment\+Rotation@{Get\+Alignment\+Rotation}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Alignment\+Rotation()}{GetAlignmentRotation()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Alignment\+Rotation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameter }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the object alignment.
+
+parameter indicates the desired alignment quaternion:
+    0 for sensor alignment (RotSensor),
+    1 for local alignment (RotLocal).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ad55a649988c828b49bc2af507c39da93}\label{classmtdevice_1_1MTDevice_ad55a649988c828b49bc2af507c39da93}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Available\+Scenarios@{Get\+Available\+Scenarios}}
+\index{Get\+Available\+Scenarios@{Get\+Available\+Scenarios}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Available\+Scenarios()}{GetAvailableScenarios()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Available\+Scenarios (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the available XKF scenarios on the device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a815cba09b30c67bec0c1405dc916cf96}\label{classmtdevice_1_1MTDevice_a815cba09b30c67bec0c1405dc916cf96}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Baudrate@{Get\+Baudrate}}
+\index{Get\+Baudrate@{Get\+Baudrate}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Baudrate()}{GetBaudrate()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Baudrate (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the current baudrate id of the device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a2d75ac2afb3feded6ca6ac0fabb54aef}\label{classmtdevice_1_1MTDevice_a2d75ac2afb3feded6ca6ac0fabb54aef}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Configuration@{Get\+Configuration}}
+\index{Get\+Configuration@{Get\+Configuration}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Configuration()}{GetConfiguration()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Configuration (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Ask for the current configuration of the MT device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ac63944270e1c85c2c4c9fcc500474ab5}\label{classmtdevice_1_1MTDevice_ac63944270e1c85c2c4c9fcc500474ab5}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Current\+Scenario@{Get\+Current\+Scenario}}
+\index{Get\+Current\+Scenario@{Get\+Current\+Scenario}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Current\+Scenario()}{GetCurrentScenario()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Current\+Scenario (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the ID of the currently used XKF scenario.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_aa634cb80bc49f34e4a41fd9214f20d9a}\label{classmtdevice_1_1MTDevice_aa634cb80bc49f34e4a41fd9214f20d9a}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Device\+ID@{Get\+Device\+ID}}
+\index{Get\+Device\+ID@{Get\+Device\+ID}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Device\+I\+D()}{GetDeviceID()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Device\+ID (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the device identifier.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_af7939b8d550d4016f3078a5e8ea80020}\label{classmtdevice_1_1MTDevice_af7939b8d550d4016f3078a5e8ea80020}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Error\+Mode@{Get\+Error\+Mode}}
+\index{Get\+Error\+Mode@{Get\+Error\+Mode}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Error\+Mode()}{GetErrorMode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Error\+Mode (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the current error mode of the device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a66e75cf601b0a7cfef3f456300d7520d}\label{classmtdevice_1_1MTDevice_a66e75cf601b0a7cfef3f456300d7520d}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Ext\+Output\+Mode@{Get\+Ext\+Output\+Mode}}
+\index{Get\+Ext\+Output\+Mode@{Get\+Ext\+Output\+Mode}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Ext\+Output\+Mode()}{GetExtOutputMode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Ext\+Output\+Mode (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get current extended output mode (for alternative UART).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a1f31e322a4232994ac49fb641f3d3cc0}\label{classmtdevice_1_1MTDevice_a1f31e322a4232994ac49fb641f3d3cc0}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Firmware\+Rev@{Get\+Firmware\+Rev}}
+\index{Get\+Firmware\+Rev@{Get\+Firmware\+Rev}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Firmware\+Rev()}{GetFirmwareRev()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Firmware\+Rev (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the firmware version.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a80fa3cd0b6bf97a2ba46771e891d3fd1}\label{classmtdevice_1_1MTDevice_a80fa3cd0b6bf97a2ba46771e891d3fd1}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Lat\+Lon\+Alt@{Get\+Lat\+Lon\+Alt}}
+\index{Get\+Lat\+Lon\+Alt@{Get\+Lat\+Lon\+Alt}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Lat\+Lon\+Alt()}{GetLatLonAlt()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Lat\+Lon\+Alt (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the stored position of the device.
+It is used internally for local magnetic declination and local gravity.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_abc9c9bc4f9e83745b2d34df960050efa}\label{classmtdevice_1_1MTDevice_abc9c9bc4f9e83745b2d34df960050efa}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Location\+ID@{Get\+Location\+ID}}
+\index{Get\+Location\+ID@{Get\+Location\+ID}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Location\+I\+D()}{GetLocationID()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Location\+ID (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the location ID of the device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ad4de7b6d2e4e8e033e2ac7f998554537}\label{classmtdevice_1_1MTDevice_ad4de7b6d2e4e8e033e2ac7f998554537}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Option\+Flags@{Get\+Option\+Flags}}
+\index{Get\+Option\+Flags@{Get\+Option\+Flags}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Option\+Flags()}{GetOptionFlags()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Option\+Flags (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the option flags (MTi-1 series).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a14e52089e2cc376e2ac1c77283a348d1}\label{classmtdevice_1_1MTDevice_a14e52089e2cc376e2ac1c77283a348d1}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Output\+Configuration@{Get\+Output\+Configuration}}
+\index{Get\+Output\+Configuration@{Get\+Output\+Configuration}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Output\+Configuration()}{GetOutputConfiguration()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Output\+Configuration (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the output configuration of the device (mark IV).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_af193eb2f64536239389fb4ba83a21d86}\label{classmtdevice_1_1MTDevice_af193eb2f64536239389fb4ba83a21d86}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Output\+Mode@{Get\+Output\+Mode}}
+\index{Get\+Output\+Mode@{Get\+Output\+Mode}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Output\+Mode()}{GetOutputMode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Output\+Mode (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get current output mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a782fd0b3a63007569b8c009ae7c1d8cc}\label{classmtdevice_1_1MTDevice_a782fd0b3a63007569b8c009ae7c1d8cc}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Output\+Settings@{Get\+Output\+Settings}}
+\index{Get\+Output\+Settings@{Get\+Output\+Settings}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Output\+Settings()}{GetOutputSettings()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Output\+Settings (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get current output mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a9964a8f360efe414c9bd84d173cff963}\label{classmtdevice_1_1MTDevice_a9964a8f360efe414c9bd84d173cff963}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Period@{Get\+Period}}
+\index{Get\+Period@{Get\+Period}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Period()}{GetPeriod()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Period (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the sampling period.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a80f12839fe7f3ebe2e94a8c21641f2ae}\label{classmtdevice_1_1MTDevice_a80f12839fe7f3ebe2e94a8c21641f2ae}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Product\+Code@{Get\+Product\+Code}}
+\index{Get\+Product\+Code@{Get\+Product\+Code}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Product\+Code()}{GetProductCode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Product\+Code (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the product code.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ab265cda5a90f2089720c4028a6d64d45}\label{classmtdevice_1_1MTDevice_ab265cda5a90f2089720c4028a6d64d45}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+String\+Output\+Type@{Get\+String\+Output\+Type}}
+\index{Get\+String\+Output\+Type@{Get\+String\+Output\+Type}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+String\+Output\+Type()}{GetStringOutputType()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+String\+Output\+Type (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the NMEA data output configuration.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_af518193ff364835d40017be2a0fdde45}\label{classmtdevice_1_1MTDevice_af518193ff364835d40017be2a0fdde45}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Sync\+Settings@{Get\+Sync\+Settings}}
+\index{Get\+Sync\+Settings@{Get\+Sync\+Settings}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Sync\+Settings()}{GetSyncSettings()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Sync\+Settings (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the synchronisation settings.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a7e0df33d903e96c8beaf7f136075cff1}\label{classmtdevice_1_1MTDevice_a7e0df33d903e96c8beaf7f136075cff1}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+Transmit\+Delay@{Get\+Transmit\+Delay}}
+\index{Get\+Transmit\+Delay@{Get\+Transmit\+Delay}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+Transmit\+Delay()}{GetTransmitDelay()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+Transmit\+Delay (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get the transmission delay (only RS485).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_aa5a60e82059880b43492ea174ac36d6c}\label{classmtdevice_1_1MTDevice_aa5a60e82059880b43492ea174ac36d6c}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Get\+U\+T\+C\+Time@{Get\+U\+T\+C\+Time}}
+\index{Get\+U\+T\+C\+Time@{Get\+U\+T\+C\+Time}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Get\+U\+T\+C\+Time()}{GetUTCTime()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Get\+U\+T\+C\+Time (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get UTC time from device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a61464532dbf30f237794801053ef89e1}\label{classmtdevice_1_1MTDevice_a61464532dbf30f237794801053ef89e1}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Go\+To\+Config@{Go\+To\+Config}}
+\index{Go\+To\+Config@{Go\+To\+Config}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Go\+To\+Config()}{GoToConfig()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Go\+To\+Config (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Place MT device in configuration mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ab6e5df72a835897e8e376e574e07376e}\label{classmtdevice_1_1MTDevice_ab6e5df72a835897e8e376e574e07376e}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Go\+To\+Measurement@{Go\+To\+Measurement}}
+\index{Go\+To\+Measurement@{Go\+To\+Measurement}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Go\+To\+Measurement()}{GoToMeasurement()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Go\+To\+Measurement (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Place MT device in measurement mode.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a797870c42c7c882a20806279dc984355}\label{classmtdevice_1_1MTDevice_a797870c42c7c882a20806279dc984355}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!parse\+\_\+\+M\+T\+Data@{parse\+\_\+\+M\+T\+Data}}
+\index{parse\+\_\+\+M\+T\+Data@{parse\+\_\+\+M\+T\+Data}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{parse\+\_\+\+M\+T\+Data()}{parse\_MTData()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+parse\+\_\+\+M\+T\+Data (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data,  }\item[{}]{mode = {\ttfamily None},  }\item[{}]{settings = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Read and parse a legacy measurement packet.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a86a979700d1d0f891943e7275d470f1f}\label{classmtdevice_1_1MTDevice_a86a979700d1d0f891943e7275d470f1f}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!read\+\_\+data\+\_\+msg@{read\+\_\+data\+\_\+msg}}
+\index{read\+\_\+data\+\_\+msg@{read\+\_\+data\+\_\+msg}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{read\+\_\+data\+\_\+msg()}{read\_data\_msg()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+read\+\_\+data\+\_\+msg (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{buf = {\ttfamily bytearray()} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Low-level MTData receiving function.
+Take advantage of known message length.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ac5598d36cd10ab80e28d41c60281addd}\label{classmtdevice_1_1MTDevice_ac5598d36cd10ab80e28d41c60281addd}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!read\+\_\+msg@{read\+\_\+msg}}
+\index{read\+\_\+msg@{read\+\_\+msg}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{read\+\_\+msg()}{read\_msg()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+read\+\_\+msg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Low-level message receiving function.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a948beab4131a0748c8943d5abce96394}\label{classmtdevice_1_1MTDevice_a948beab4131a0748c8943d5abce96394}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Req\+Data\+Length@{Req\+Data\+Length}}
+\index{Req\+Data\+Length@{Req\+Data\+Length}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Req\+Data\+Length()}{ReqDataLength()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Req\+Data\+Length (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get data length for mark III devices.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_aa3a48c919b8a17d421468faba4b7045f}\label{classmtdevice_1_1MTDevice_aa3a48c919b8a17d421468faba4b7045f}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Reset@{Reset}}
+\index{Reset@{Reset}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Reset (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{go\+\_\+to\+\_\+config = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+High-\/level functions. 
+
+\begin{DoxyVerb}Reset MT device.
+
+If go_to_config then send WakeUpAck in order to leave the device in
+config mode.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a29424b8cc73d27252ed151075735c0e5}\label{classmtdevice_1_1MTDevice_a29424b8cc73d27252ed151075735c0e5}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Reset\+Orientation@{Reset\+Orientation}}
+\index{Reset\+Orientation@{Reset\+Orientation}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Reset\+Orientation()}{ResetOrientation()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Reset\+Orientation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{code }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reset the orientation.
+
+Code can take several values:
+    0x0000: store current settings (only in config mode),
+    0x0001: heading reset (NOT supported by MTi-G),
+    0x0003: object reset.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a1b86412ad2c180bcfd6bbf4ea62f76a4}\label{classmtdevice_1_1MTDevice_a1b86412ad2c180bcfd6bbf4ea62f76a4}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Restore\+Factory\+Defaults@{Restore\+Factory\+Defaults}}
+\index{Restore\+Factory\+Defaults@{Restore\+Factory\+Defaults}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Restore\+Factory\+Defaults()}{RestoreFactoryDefaults()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Restore\+Factory\+Defaults (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Restore MT device configuration to factory defaults (soft version).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a259fb7d60c601ebe00e539c9a96ec9f7}\label{classmtdevice_1_1MTDevice_a259fb7d60c601ebe00e539c9a96ec9f7}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Run\+Self\+Test@{Run\+Self\+Test}}
+\index{Run\+Self\+Test@{Run\+Self\+Test}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Run\+Self\+Test()}{RunSelfTest()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Run\+Self\+Test (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Run the built-in self test.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ad7f11554fdb3d2ce24d2ca081ca972c6}\label{classmtdevice_1_1MTDevice_ad7f11554fdb3d2ce24d2ca081ca972c6}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Alignment\+Rotation@{Set\+Alignment\+Rotation}}
+\index{Set\+Alignment\+Rotation@{Set\+Alignment\+Rotation}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Alignment\+Rotation()}{SetAlignmentRotation()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Alignment\+Rotation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameter,  }\item[{}]{quaternion }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the object alignment.
+
+parameter indicates the desired alignment quaternion:
+    0 for sensor alignment (RotSensor),
+    1 for local alignment (RotLocal).
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ac964b061548751f4885b12dc01a0a0f7}\label{classmtdevice_1_1MTDevice_ac964b061548751f4885b12dc01a0a0f7}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Baudrate@{Set\+Baudrate}}
+\index{Set\+Baudrate@{Set\+Baudrate}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Baudrate()}{SetBaudrate()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Baudrate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{brid }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the baudrate of the device using the baudrate id.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a94eaa1bb8de52ed69bb20c9ffa404fe8}\label{classmtdevice_1_1MTDevice_a94eaa1bb8de52ed69bb20c9ffa404fe8}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Current\+Scenario@{Set\+Current\+Scenario}}
+\index{Set\+Current\+Scenario@{Set\+Current\+Scenario}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Current\+Scenario()}{SetCurrentScenario()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Current\+Scenario (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{scenario\+\_\+id }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sets the XKF scenario to use.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a9f8b2a581a49333421f371ea1403b953}\label{classmtdevice_1_1MTDevice_a9f8b2a581a49333421f371ea1403b953}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Error\+Mode@{Set\+Error\+Mode}}
+\index{Set\+Error\+Mode@{Set\+Error\+Mode}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Error\+Mode()}{SetErrorMode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Error\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{error\+\_\+mode }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the error mode of the device.
+
+The error mode defines the way the device deals with errors (expect
+message errors):
+    0x0000: ignore any errors except message handling errors,
+    0x0001: in case of missing sampling instance: increase sample
+counter and do not send error message,
+    0x0002: in case of missing sampling instance: increase sample
+counter and send error message,
+    0x0003: in case of non-message handling error, an error message is
+sent and the device will go into Config State.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a5cd787accdbf2aec47fc0edf2835df40}\label{classmtdevice_1_1MTDevice_a5cd787accdbf2aec47fc0edf2835df40}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Ext\+Output\+Mode@{Set\+Ext\+Output\+Mode}}
+\index{Set\+Ext\+Output\+Mode@{Set\+Ext\+Output\+Mode}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Ext\+Output\+Mode()}{SetExtOutputMode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Ext\+Output\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ext\+\_\+mode }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set extended output mode (for alternative UART).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_adb65653ac4a1509c3fbd9122b63365da}\label{classmtdevice_1_1MTDevice_adb65653ac4a1509c3fbd9122b63365da}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Lat\+Lon\+Alt@{Set\+Lat\+Lon\+Alt}}
+\index{Set\+Lat\+Lon\+Alt@{Set\+Lat\+Lon\+Alt}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Lat\+Lon\+Alt()}{SetLatLonAlt()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Lat\+Lon\+Alt (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{lat,  }\item[{}]{lon,  }\item[{}]{alt }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the position of the device.
+It is used internally for local magnetic declination and local gravity.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a82701d9577a6bf7323b9a5649bebe4e0}\label{classmtdevice_1_1MTDevice_a82701d9577a6bf7323b9a5649bebe4e0}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Location\+ID@{Set\+Location\+ID}}
+\index{Set\+Location\+ID@{Set\+Location\+ID}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Location\+I\+D()}{SetLocationID()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Location\+ID (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{location\+\_\+id }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the location ID of the device (arbitrary).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_aec52bfabf3122d033b56d7e596d3c036}\label{classmtdevice_1_1MTDevice_aec52bfabf3122d033b56d7e596d3c036}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+No\+Rotation@{Set\+No\+Rotation}}
+\index{Set\+No\+Rotation@{Set\+No\+Rotation}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+No\+Rotation()}{SetNoRotation()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+No\+Rotation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{duration }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initiate the "no rotation" procedure to estimate gyro biases.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_adf0f4d946d65c78dcf641d9b7dd2c9e0}\label{classmtdevice_1_1MTDevice_adf0f4d946d65c78dcf641d9b7dd2c9e0}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Option\+Flags@{Set\+Option\+Flags}}
+\index{Set\+Option\+Flags@{Set\+Option\+Flags}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Option\+Flags()}{SetOptionFlags()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Option\+Flags (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{set\+\_\+flags,  }\item[{}]{clear\+\_\+flags }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the option flags (MTi-1 series).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a53c95416ed262990d70b667497a44d71}\label{classmtdevice_1_1MTDevice_a53c95416ed262990d70b667497a44d71}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Output\+Configuration@{Set\+Output\+Configuration}}
+\index{Set\+Output\+Configuration@{Set\+Output\+Configuration}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Output\+Configuration()}{SetOutputConfiguration()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Output\+Configuration (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{output\+\_\+configuration }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the output configuration of the device (mark IV).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a1e990d315750492fa1afbd49990959cc}\label{classmtdevice_1_1MTDevice_a1e990d315750492fa1afbd49990959cc}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Output\+Mode@{Set\+Output\+Mode}}
+\index{Set\+Output\+Mode@{Set\+Output\+Mode}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Output\+Mode()}{SetOutputMode()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Output\+Mode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mode }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Select which information to output.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_ac8f77a2d1d393aea71a7790929791cc0}\label{classmtdevice_1_1MTDevice_ac8f77a2d1d393aea71a7790929791cc0}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Output\+Settings@{Set\+Output\+Settings}}
+\index{Set\+Output\+Settings@{Set\+Output\+Settings}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Output\+Settings()}{SetOutputSettings()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Output\+Settings (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Select how to output the information.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a00ae63328881e07081d07a385ecfe858}\label{classmtdevice_1_1MTDevice_a00ae63328881e07081d07a385ecfe858}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Output\+Skip\+Factor@{Set\+Output\+Skip\+Factor}}
+\index{Set\+Output\+Skip\+Factor@{Set\+Output\+Skip\+Factor}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Output\+Skip\+Factor()}{SetOutputSkipFactor()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Output\+Skip\+Factor (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{skipfactor }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the output skip factor.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a7421eafc5d4d03fc6e7d419dd5d687e4}\label{classmtdevice_1_1MTDevice_a7421eafc5d4d03fc6e7d419dd5d687e4}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Period@{Set\+Period}}
+\index{Set\+Period@{Set\+Period}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Period()}{SetPeriod()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Period (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{period }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the sampling period.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a7ef3bdc62f343cb2ba1b7b497c83cda3}\label{classmtdevice_1_1MTDevice_a7ef3bdc62f343cb2ba1b7b497c83cda3}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+String\+Output\+Type@{Set\+String\+Output\+Type}}
+\index{Set\+String\+Output\+Type@{Set\+String\+Output\+Type}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+String\+Output\+Type()}{SetStringOutputType()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+String\+Output\+Type (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{string\+\_\+output\+\_\+type }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the configuration of the NMEA data output.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a339cd8bc34b6fa9c1f4dc7b8c8751576}\label{classmtdevice_1_1MTDevice_a339cd8bc34b6fa9c1f4dc7b8c8751576}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Sync\+Settings@{Set\+Sync\+Settings}}
+\index{Set\+Sync\+Settings@{Set\+Sync\+Settings}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Sync\+Settings()}{SetSyncSettings()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Sync\+Settings (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sync\+\_\+settings }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the synchronisation settings (mark IV)\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a439b399cd20ca95cfad6225f368651f2}\label{classmtdevice_1_1MTDevice_a439b399cd20ca95cfad6225f368651f2}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+Transmit\+Delay@{Set\+Transmit\+Delay}}
+\index{Set\+Transmit\+Delay@{Set\+Transmit\+Delay}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+Transmit\+Delay()}{SetTransmitDelay()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+Transmit\+Delay (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{transmit\+\_\+delay }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set the transmission delay (only RS485).\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a8e431e7cfdf17e72d9bdc1eddcf80d43}\label{classmtdevice_1_1MTDevice_a8e431e7cfdf17e72d9bdc1eddcf80d43}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!Set\+U\+T\+C\+Time@{Set\+U\+T\+C\+Time}}
+\index{Set\+U\+T\+C\+Time@{Set\+U\+T\+C\+Time}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{Set\+U\+T\+C\+Time()}{SetUTCTime()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+Set\+U\+T\+C\+Time (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ns,  }\item[{}]{year,  }\item[{}]{month,  }\item[{}]{day,  }\item[{}]{hour,  }\item[{}]{minute,  }\item[{}]{second,  }\item[{}]{flag }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set UTC time on the device.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a072aad4573d20a44ac7d18fcbf985546}\label{classmtdevice_1_1MTDevice_a072aad4573d20a44ac7d18fcbf985546}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!waitfor@{waitfor}}
+\index{waitfor@{waitfor}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{waitfor()}{waitfor()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+waitfor (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{size = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get a given amount of data.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_aecbd2a94d3e4b6dd67193549d3668d2f}\label{classmtdevice_1_1MTDevice_aecbd2a94d3e4b6dd67193549d3668d2f}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!write\+\_\+ack@{write\+\_\+ack}}
+\index{write\+\_\+ack@{write\+\_\+ack}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{write\+\_\+ack()}{write\_ack()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+write\+\_\+ack (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mid,  }\item[{}]{data = {\ttfamily b\textquotesingle{}\textquotesingle{}},  }\item[{}]{n\+\_\+retries = {\ttfamily 500} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Send a message and read confirmation.\end{DoxyVerb}
+ \mbox{\Hypertarget{classmtdevice_1_1MTDevice_a8b4e4d222ab28dd708a4ecc220af343c}\label{classmtdevice_1_1MTDevice_a8b4e4d222ab28dd708a4ecc220af343c}} 
+\index{mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}!write\+\_\+msg@{write\+\_\+msg}}
+\index{write\+\_\+msg@{write\+\_\+msg}!mtdevice\+::\+M\+T\+Device@{mtdevice\+::\+M\+T\+Device}}
+\subsubsection{\texorpdfstring{write\+\_\+msg()}{write\_msg()}}
+{\footnotesize\ttfamily def mtdevice.\+M\+T\+Device.\+write\+\_\+msg (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mid,  }\item[{}]{data = {\ttfamily b\textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Low-\/level communication. 
+
+\begin{DoxyVerb}Low-level message sending function.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hardware\+\_\+layer/xsens\+\_\+driver/nodes/mtdevice.\+py\end{DoxyCompactItemize}

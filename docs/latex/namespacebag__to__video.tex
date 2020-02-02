@@ -1,0 +1,83 @@
+\hypertarget{namespacebag__to__video}{}\section{bag\+\_\+to\+\_\+video Namespace Reference}
+\label{namespacebag__to__video}\index{bag\+\_\+to\+\_\+video@{bag\+\_\+to\+\_\+video}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_aaf2f98950e921f6af2c2bc92ea3465a5}\label{namespacebag__to__video_aaf2f98950e921f6af2c2bc92ea3465a5}} 
+def {\bfseries print\+\_\+help} ()
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_ac09610df8376d449905ebc07d3062cf6}\label{namespacebag__to__video_ac09610df8376d449905ebc07d3062cf6}} 
+def {\bfseries filter\+\_\+image\+\_\+msgs} (topic, datatype, md5sum, msg\+\_\+def, header)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a7f7c2f5f21a504cf2e63a3388809a38f}\label{namespacebag__to__video_a7f7c2f5f21a504cf2e63a3388809a38f}} 
+float {\bfseries opt\+\_\+fps} = 15.\+0
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a214ce88412fc760371470af4abcbf7d3}\label{namespacebag__to__video_a214ce88412fc760371470af4abcbf7d3}} 
+int {\bfseries opt\+\_\+rate} = 1
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a9c2e03e64296627f35003c36f842c48e}\label{namespacebag__to__video_a9c2e03e64296627f35003c36f842c48e}} 
+string {\bfseries opt\+\_\+out\+\_\+file} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a1d548231c6a81abe5dbca64b175ba0bc}\label{namespacebag__to__video_a1d548231c6a81abe5dbca64b175ba0bc}} 
+string {\bfseries opt\+\_\+fourcc} = \char`\"{}X\+V\+ID\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a1db7558b1e0268140b74c9d3b0a25ad2}\label{namespacebag__to__video_a1db7558b1e0268140b74c9d3b0a25ad2}} 
+string {\bfseries opt\+\_\+topic} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a759b700a67fa200ba034c05c3309f32d}\label{namespacebag__to__video_a759b700a67fa200ba034c05c3309f32d}} 
+list {\bfseries opt\+\_\+files} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a87e023c736ca90238b04b4f0bb0d27d3}\label{namespacebag__to__video_a87e023c736ca90238b04b4f0bb0d27d3}} 
+bool {\bfseries opt\+\_\+display\+\_\+images} = False;
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a10cec79a21e7983346309c1f08482a5b}\label{namespacebag__to__video_a10cec79a21e7983346309c1f08482a5b}} 
+{\bfseries opts}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a6c0c089ee87cc24bff0d191298ef49e0}\label{namespacebag__to__video_a6c0c089ee87cc24bff0d191298ef49e0}} 
+list {\bfseries cv\+\_\+image} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a49c3e0ece1adec2e89396e07de468db5}\label{namespacebag__to__video_a49c3e0ece1adec2e89396e07de468db5}} 
+list {\bfseries np\+\_\+arr} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_af7c982e8b4b670b7eb874895a9ee834e}\label{namespacebag__to__video_af7c982e8b4b670b7eb874895a9ee834e}} 
+dictionary {\bfseries p\+\_\+avconv} = \{\}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_aaaa3b65de0a4966740e9d4c2864786a5}\label{namespacebag__to__video_aaaa3b65de0a4966740e9d4c2864786a5}} 
+{\bfseries bridge} = Cv\+Bridge()
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a115d9287326df23fbaa1d5c4becb4816}\label{namespacebag__to__video_a115d9287326df23fbaa1d5c4becb4816}} 
+list {\bfseries bagfile} = opt\+\_\+files\mbox{[}files\mbox{]}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_aaca30213537774dc75d31e56fda12b3b}\label{namespacebag__to__video_aaca30213537774dc75d31e56fda12b3b}} 
+{\bfseries bag} = rosbag.\+Bag(bagfile)
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a45a9d8e744d4fe563f6e84be993aff2a}\label{namespacebag__to__video_a45a9d8e744d4fe563f6e84be993aff2a}} 
+{\bfseries connection\+\_\+filter}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_ae4a4ef18ecbd9301cfb6db22037da58f}\label{namespacebag__to__video_ae4a4ef18ecbd9301cfb6db22037da58f}} 
+string {\bfseries out\+\_\+file} = str(topic).replace(\char`\"{}/\char`\"{}, \char`\"{}\char`\"{})+\char`\"{}.mp4\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_ab4bc8ce1bfa04207257f94d275d306a5}\label{namespacebag__to__video_ab4bc8ce1bfa04207257f94d275d306a5}} 
+{\bfseries stdin}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_a2e9d7171c2576f6d3baf4d4b6fec7d24}\label{namespacebag__to__video_a2e9d7171c2576f6d3baf4d4b6fec7d24}} 
+{\bfseries key} = cv2.\+wait\+Key(1)
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_aa5763ed546b242118a22ddc431a6f1c1}\label{namespacebag__to__video_aa5763ed546b242118a22ddc431a6f1c1}} 
+string {\bfseries pix\+\_\+fmt} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacebag__to__video_abba256d37543afe245324570c660f155}\label{namespacebag__to__video_abba256d37543afe245324570c660f155}} 
+string {\bfseries size} = str(msg.\+width)+\char`\"{}x\char`\"{}+str(msg.\+height)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}rosbag2video.py
+rosbag to video file conversion tool
+by Maximilian Laiacker 2016
+post@mlaiacker.de
+\end{DoxyVerb}
+ 

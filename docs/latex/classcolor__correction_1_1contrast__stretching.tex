@@ -1,0 +1,44 @@
+\hypertarget{classcolor__correction_1_1contrast__stretching}{}\section{color\+\_\+correction\+:\+:contrast\+\_\+stretching Class Reference}
+\label{classcolor__correction_1_1contrast__stretching}\index{color\+\_\+correction\+::contrast\+\_\+stretching@{color\+\_\+correction\+::contrast\+\_\+stretching}}
+
+
+class defining methods to perform color correction using modified contrast stretching  
+
+
+
+
+{\ttfamily \#include $<$color\+\_\+constancy.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Mat \hyperlink{classcolor__correction_1_1contrast__stretching_a034f45ac1d117193c70e87104a2ee82c}{run} (Mat)
+\item 
+Mat \hyperlink{classcolor__correction_1_1contrast__stretching_a059efe3142744d161a0022ffeff5b79c}{run1} (Mat src)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class defining methods to perform color correction using modified contrast stretching 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcolor__correction_1_1contrast__stretching_a034f45ac1d117193c70e87104a2ee82c}\label{classcolor__correction_1_1contrast__stretching_a034f45ac1d117193c70e87104a2ee82c}} 
+\index{color\+\_\+correction\+::contrast\+\_\+stretching@{color\+\_\+correction\+::contrast\+\_\+stretching}!run@{run}}
+\index{run@{run}!color\+\_\+correction\+::contrast\+\_\+stretching@{color\+\_\+correction\+::contrast\+\_\+stretching}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily Mat color\+\_\+correction\+::contrast\+\_\+stretching\+::run (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+The main method called to perform color correction using modified contrast stretching The only input required is the input image The method computes the lower and higher threshold pixel values and then calls the \hyperlink{classcolor__correction_1_1contrast__stretching}{contrast\+\_\+stretching} method \mbox{\Hypertarget{classcolor__correction_1_1contrast__stretching_a059efe3142744d161a0022ffeff5b79c}\label{classcolor__correction_1_1contrast__stretching_a059efe3142744d161a0022ffeff5b79c}} 
+\index{color\+\_\+correction\+::contrast\+\_\+stretching@{color\+\_\+correction\+::contrast\+\_\+stretching}!run1@{run1}}
+\index{run1@{run1}!color\+\_\+correction\+::contrast\+\_\+stretching@{color\+\_\+correction\+::contrast\+\_\+stretching}}
+\subsubsection{\texorpdfstring{run1()}{run1()}}
+{\footnotesize\ttfamily Mat color\+\_\+correction\+::contrast\+\_\+stretching\+::run1 (\begin{DoxyParamCaption}\item[{Mat}]{src }\end{DoxyParamCaption})}
+
+Establish the number of bins
+
+Set the ranges ( for B,G,R) ) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+fusion/include/fusion/color\+\_\+constancy.\+hpp\item 
+vision\+\_\+layer/vision\+\_\+fusion/src/color\+\_\+constancy.\+cpp\end{DoxyCompactItemize}
