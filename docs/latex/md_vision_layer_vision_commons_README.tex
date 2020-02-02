@@ -1,0 +1,95 @@
+\hypertarget{md_vision_layer_vision_commons_README_autotoc_md116}{}\doxysection{Overview}\label{md_vision_layer_vision_commons_README_autotoc_md116}
+This is a R\+OS package that abstracts common image processing operations and serves as a library for \href{https://github.com/AUV-IITK/Hyperion-Software/tree/master/vision_layer/vision_tasks}{\texttt{ {\ttfamily vision\+\_\+tasks}}}.
+
+The {\ttfamily vision\+\_\+commons} package has been tested under \href{http://www.ros.org}{\texttt{ R\+OS}} Kinetic and Ubuntu 16.\+04 L\+TS. The source code is released under a \href{../../LICENSE}{\texttt{ B\+SD 3-\/Clause license}}.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md117}{}\doxysection{Setting up vision\+\_\+commons}\label{md_vision_layer_vision_commons_README_autotoc_md117}
+\hypertarget{md_vision_layer_vision_commons_README_autotoc_md118}{}\doxysubsection{Dependencies}\label{md_vision_layer_vision_commons_README_autotoc_md118}
+
+\begin{DoxyItemize}
+\item \href{http://wiki.ros.org}{\texttt{ Robot Operating System (R\+OS)}} (middleware for robotics),
+\item Following R\+OS Packages\+: \href{http://wiki.ros.org/cv_bridge}{\texttt{ cv\+\_\+bridge}} \href{http://wiki.ros.org/sensor_msgs}{\texttt{ sensor\+\_\+msgs}} \href{http://wiki.ros.org/std_msgs}{\texttt{ std\+\_\+msgs}} \href{http://wiki.ros.org/dynamic_reconfigure}{\texttt{ dynamic\+\_\+reconfigure}} \href{http://wiki.ros.org/image_transport}{\texttt{ image\+\_\+transport}} 
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md119}{}\doxysubsection{Building}\label{md_vision_layer_vision_commons_README_autotoc_md119}
+Run the following command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws}
+\DoxyCodeLine{catkin\_make -\/-\/pkg vision\_commons}
+\end{DoxyCode}
+\hypertarget{md_vision_layer_vision_commons_README_autotoc_md120}{}\doxysection{Usage}\label{md_vision_layer_vision_commons_README_autotoc_md120}
+To run the blue filter demo, run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{rosrun vision\_commons blue\_filter\_demo}
+\end{DoxyCode}
+
+
+All other files are libraries and hence cannot be executed.
+
+To use the filtering library, add this line to your C++ source file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <vision\_commons/filter.h>}
+\end{DoxyCode}
+
+
+To use the geometry library, add this line to your C++ source file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <vision\_commons/geometry.h>}
+\end{DoxyCode}
+
+
+To use the morphing library, add this line to your C++ source file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <vision\_commons/morph.h>}
+\end{DoxyCode}
+
+
+To use the thresholding library, add this line to your C++ source file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#include <vision\_commons/threshold.h>}
+\end{DoxyCode}
+\hypertarget{md_vision_layer_vision_commons_README_autotoc_md121}{}\doxysection{Libraries}\label{md_vision_layer_vision_commons_README_autotoc_md121}
+\hypertarget{md_vision_layer_vision_commons_README_autotoc_md122}{}\doxysubsection{contour}\label{md_vision_layer_vision_commons_README_autotoc_md122}
+This module contains all the functions related to forming a contour around a thresholded region.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md123}{}\doxysubsubsection{Functions}\label{md_vision_layer_vision_commons_README_autotoc_md123}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily std\+::vector$<$std\+::vector$<$cv\+::\+Point$>$$>$ get\+Best\+X(cv\+::\+Mat\& raw, int x)}$\ast$$\ast$ Returns best x (passed as int) contours from the passed binary image in the descending order of area
+\item $\ast$$\ast${\ttfamily std\+::vector$<$std\+::vector$<$cv\+::\+Point$>$$>$ get\+Best\+X\+Convex\+Hulled(cv\+::\+Mat\& raw, int x)}$\ast$$\ast$ Returns best x (passed as int) contours using convex hull from the passed binary image in the descending order of area
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md124}{}\doxysubsection{filter}\label{md_vision_layer_vision_commons_README_autotoc_md124}
+This module contains all the functions related to filtering the image to enhance it.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md125}{}\doxysubsubsection{Functions}\label{md_vision_layer_vision_commons_README_autotoc_md125}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily cv\+::\+Mat clahe(cv\+::\+Mat\& image, double clahe\+\_\+clip, int clahe\+\_\+grid\+\_\+size)}$\ast$$\ast$ Applies C\+L\+A\+HE to {\ttfamily image} with clip limit {\ttfamily clahe\+\_\+clip} and the grid size of the operator {\ttfamily clahe\+\_\+grid\+\_\+size} and returns the resultant image
+\item $\ast$$\ast${\ttfamily cv\+::\+Mat balance\+\_\+white(cv\+::\+Mat\& image)}$\ast$$\ast$ Applies white balance to {\ttfamily image} with Gray World assumption and returns the resultant image
+\item $\ast$$\ast${\ttfamily cv\+::\+Mat blue\+\_\+filter(cv\+::\+Mat\& image, double clahe\+\_\+clip, int clahe\+\_\+grid\+\_\+size, int clahe\+\_\+bilateral\+\_\+iter, int balanced\+\_\+bilateral\+\_\+iter, double denoise\+\_\+h)}$\ast$$\ast$ \char`\"{}\+Blue filters\char`\"{} {\ttfamily image}. Applies C\+L\+A\+HE on {\ttfamily image} followed by {\ttfamily clahe\+\_\+bilateral\+\_\+iter} number of bilateral filter iterations followed by white balancing followed by {\ttfamily balanced\+\_\+bilateral\+\_\+iter} number of bilateral filter iterations followed by fast non-\/local means denoising with h value of {\ttfamily denoise\+\_\+h}
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md126}{}\doxysubsection{geometry}\label{md_vision_layer_vision_commons_README_autotoc_md126}
+This module contains all the functions related to geometrical operations on points.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md127}{}\doxysubsubsection{Functions}\label{md_vision_layer_vision_commons_README_autotoc_md127}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily double distance(cv\+::\+Point \&p1, cv\+::\+Point \&p2)}$\ast$$\ast$ Calculates distance between {\ttfamily p1} and {\ttfamily p2} using Pythagoras\textquotesingle{} Theorem
+\item $\ast$$\ast${\ttfamily double angle\+Wrt\+Y(cv\+::\+Point \&p1, cv\+::\+Point \&p2)}$\ast$$\ast$ Calculates angle of the line joining {\ttfamily p1} and {\ttfamily p2} with respect to the y-\/axis (vertical).
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md128}{}\doxysubsection{morph}\label{md_vision_layer_vision_commons_README_autotoc_md128}
+This module contains all the functions related to morphological operations.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md129}{}\doxysubsubsection{Functions}\label{md_vision_layer_vision_commons_README_autotoc_md129}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily cv\+::\+Mat open(cv\+::\+Mat\& raw, int element\+\_\+size, int element\+\_\+center\+X, int element\+\_\+center\+Y, int iterations)}$\ast$$\ast$ Applies \char`\"{}opening\char`\"{} operation on the image using a matrix of size {\ttfamily element\+\_\+size}, center ar ({\ttfamily element\+\_\+centerX}, {\ttfamily element\+\_\+centerY}) {\ttfamily iterations} times
+\item $\ast$$\ast${\ttfamily cv\+::\+Mat close(cv\+::\+Mat \&raw, int element\+\_\+size, int element\+\_\+center\+X, int element\+\_\+center\+Y, int iterations)}$\ast$$\ast$ Applies \char`\"{}closing\char`\"{} operation on the image using a matrix of size {\ttfamily element\+\_\+size}, center ar ({\ttfamily element\+\_\+centerX}, {\ttfamily element\+\_\+centerY}) {\ttfamily iterations} times
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md130}{}\doxysubsection{threshold}\label{md_vision_layer_vision_commons_README_autotoc_md130}
+This module contains all the functions related to thresholding operations.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md131}{}\doxysubsubsection{Functions}\label{md_vision_layer_vision_commons_README_autotoc_md131}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily cv\+::\+Mat threshold(cv\+::\+Mat \&raw, int low\+\_\+a, int high\+\_\+a, int low\+\_\+b, int high\+\_\+b, int low\+\_\+c, int high\+\_\+c)}$\ast$$\ast$ Thresholds {\ttfamily raw} between ({\ttfamily low\+\_\+a}, {\ttfamily low\+\_\+b}, {\ttfamily low\+\_\+c}) and ({\ttfamily high\+\_\+a}, {\ttfamily high\+\_\+b}, {\ttfamily high\+\_\+c}) and returns the resultant binary image
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md132}{}\doxysection{Nodes}\label{md_vision_layer_vision_commons_README_autotoc_md132}
+\hypertarget{md_vision_layer_vision_commons_README_autotoc_md133}{}\doxysubsection{blue\+\_\+filter\+\_\+demo}\label{md_vision_layer_vision_commons_README_autotoc_md133}
+This node serves for demonstration purposes of our pre-\/processing pipeline.\hypertarget{md_vision_layer_vision_commons_README_autotoc_md134}{}\doxysubsubsection{Published Topics}\label{md_vision_layer_vision_commons_README_autotoc_md134}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /blue\+\_\+filter\+\_\+demo/clahe}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\texttt{ sensor\+\_\+msgs/\+Image}})
+\item $\ast$$\ast${\ttfamily /blue\+\_\+filter\+\_\+demo/white\+\_\+balanced}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\texttt{ sensor\+\_\+msgs/\+Image}})
+\item $\ast$$\ast${\ttfamily /blue\+\_\+filter\+\_\+demo/blue\+\_\+filtered}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\texttt{ sensor\+\_\+msgs/\+Image}})
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md135}{}\doxysubsubsection{Parameters}\label{md_vision_layer_vision_commons_README_autotoc_md135}
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$clahe\+\_\+clip} (double, default\+: 0.\+15, range\+: 0.\+0 -\/ 40.\+0) Clip limit for C\+L\+A\+HE
+\item {\ttfamily $\sim$clahe\+\_\+grid\+\_\+size} (integer, default\+: 3, range\+: 1 -\/ 16) Grid size of the C\+L\+A\+HE operator
+\item {\ttfamily $\sim$clahe\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 16) Number of iterations of bilateral filter after C\+L\+A\+HE is applied
+\item {\ttfamily $\sim$balanced\+\_\+bilateral\+\_\+iter} (integer, default\+: 2, range\+: 0 -\/ 8) Number of iterations of bilateral filter after white balancing is applied
+\item {\ttfamily $\sim$denoise\+\_\+h} (double, default\+: 10.\+0, range\+: 0.\+0 -\/ 20.\+0) h value for fast non-\/local means denoising applied on the final blue-\/filtered image
+\end{DoxyItemize}\hypertarget{md_vision_layer_vision_commons_README_autotoc_md136}{}\doxysection{Bugs \& Feature Requests}\label{md_vision_layer_vision_commons_README_autotoc_md136}
+Please report bugs and request features using the \href{https://github.com/AUV-IITK/auv2018/issues}{\texttt{ Issue Tracker}}. 

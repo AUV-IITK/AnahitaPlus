@@ -1,0 +1,111 @@
+\hypertarget{classOctagon}{}\doxysection{Octagon Class Reference}
+\label{classOctagon}\index{Octagon@{Octagon}}
+Inheritance diagram for Octagon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classOctagon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOctagon_ae6a83e650bae938f9ab63abcfd58a398}\label{classOctagon_ae6a83e650bae938f9ab63abcfd58a398}} 
+void {\bfseries spin\+Thread\+Bottom} ()
+\item 
+\mbox{\Hypertarget{classOctagon_a4a7d77e22163d6ee6c1f11210ed2a61d}\label{classOctagon_a4a7d77e22163d6ee6c1f11210ed2a61d}} 
+void {\bfseries spin\+Thread\+Front} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOctagon_a7a1450a53ab430cbdf013159e837c848}\label{classOctagon_a7a1450a53ab430cbdf013159e837c848}} 
+void {\bfseries front\+Callback} (vision\+\_\+tasks\+::octagon\+Front\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classOctagon_ad953bf1ace4c8a2d09f364a096030df4}\label{classOctagon_ad953bf1ace4c8a2d09f364a096030df4}} 
+void {\bfseries bottom\+Callback} (vision\+\_\+tasks\+::octagon\+Bottom\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classOctagon_a3840f97fdb1c59d6a9015e7502a94a4d}\label{classOctagon_a3840f97fdb1c59d6a9015e7502a94a4d}} 
+void {\bfseries image\+Front\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\item 
+\mbox{\Hypertarget{classOctagon_a4c98afeabdf2d48a7a794cf58dba3e93}\label{classOctagon_a4c98afeabdf2d48a7a794cf58dba3e93}} 
+void {\bfseries image\+Bottom\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOctagon_ad81ad65b8cfd994d4c8e9ff920cbbc72}\label{classOctagon_ad81ad65b8cfd994d4c8e9ff920cbbc72}} 
+image\+\_\+transport\+::\+Publisher {\bfseries blue\+\_\+filtered\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classOctagon_ac730f845f82658b1cad679699d492878}\label{classOctagon_ac730f845f82658b1cad679699d492878}} 
+image\+\_\+transport\+::\+Subscriber {\bfseries image\+\_\+raw\+\_\+sub}
+\item 
+\mbox{\Hypertarget{classOctagon_a134b4a5d27fa1f771c928a2cf2441eac}\label{classOctagon_a134b4a5d27fa1f771c928a2cf2441eac}} 
+std\+::string {\bfseries camera\+\_\+frame\+\_\+}
+\item 
+\mbox{\Hypertarget{classOctagon_a18101d0809a701a880a71da13a867c32}\label{classOctagon_a18101d0809a701a880a71da13a867c32}} 
+double {\bfseries front\+\_\+clahe\+\_\+clip\+\_\+} = 4.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_a7ac3f3216b3b65a631e2966d9fe947d6}\label{classOctagon_a7ac3f3216b3b65a631e2966d9fe947d6}} 
+int {\bfseries front\+\_\+clahe\+\_\+grid\+\_\+size\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classOctagon_a37e874f2b6b0defbadf34637e655d462}\label{classOctagon_a37e874f2b6b0defbadf34637e655d462}} 
+int {\bfseries front\+\_\+clahe\+\_\+bilateral\+\_\+iter\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classOctagon_a6526833743c9afd65cbed7e5b2f54168}\label{classOctagon_a6526833743c9afd65cbed7e5b2f54168}} 
+int {\bfseries front\+\_\+balanced\+\_\+bilateral\+\_\+iter\+\_\+} = 4
+\item 
+\mbox{\Hypertarget{classOctagon_a71822dfc8d160896ff4193935ec78a0e}\label{classOctagon_a71822dfc8d160896ff4193935ec78a0e}} 
+double {\bfseries front\+\_\+denoise\+\_\+h\+\_\+} = 10.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_a65a3ea1eb703a5c45abcac586e190bbc}\label{classOctagon_a65a3ea1eb703a5c45abcac586e190bbc}} 
+int {\bfseries front\+\_\+canny\+\_\+threshold\+\_\+low\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classOctagon_a588fd8490c6e59ba0c59b8c0c0def6dc}\label{classOctagon_a588fd8490c6e59ba0c59b8c0c0def6dc}} 
+int {\bfseries front\+\_\+canny\+\_\+threshold\+\_\+high\+\_\+} = 1000
+\item 
+\mbox{\Hypertarget{classOctagon_ae20ae84d732e1d108b9f9ebef17a15e0}\label{classOctagon_ae20ae84d732e1d108b9f9ebef17a15e0}} 
+int {\bfseries front\+\_\+canny\+\_\+kernel\+\_\+size\+\_\+} = 3
+\item 
+\mbox{\Hypertarget{classOctagon_a38dc6d16117d852010885329488f2c22}\label{classOctagon_a38dc6d16117d852010885329488f2c22}} 
+int {\bfseries front\+\_\+hough\+\_\+threshold\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classOctagon_afd0747af826ceb68845a97e5845c6474}\label{classOctagon_afd0747af826ceb68845a97e5845c6474}} 
+int {\bfseries front\+\_\+hough\+\_\+minline\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classOctagon_a5784640d78bd54b9d3f804e6971485bb}\label{classOctagon_a5784640d78bd54b9d3f804e6971485bb}} 
+int {\bfseries front\+\_\+hough\+\_\+maxgap\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classOctagon_af676c0a43e9a80e80e6594afbefca004}\label{classOctagon_af676c0a43e9a80e80e6594afbefca004}} 
+double {\bfseries front\+\_\+hough\+\_\+angle\+\_\+tolerance\+\_\+} = 0.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_a06d4848d0fa2f540bcebb40af1d96dda}\label{classOctagon_a06d4848d0fa2f540bcebb40af1d96dda}} 
+double {\bfseries front\+\_\+gate\+\_\+distance\+\_\+tolerance\+\_\+} = 50.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_a8603b04b031ae06fb38e51306a05e8ba}\label{classOctagon_a8603b04b031ae06fb38e51306a05e8ba}} 
+double {\bfseries front\+\_\+gate\+\_\+angle\+\_\+tolerance\+\_\+} = 0.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_a7bfa15dbbdf5f98fecc84d32ea88ab6c}\label{classOctagon_a7bfa15dbbdf5f98fecc84d32ea88ab6c}} 
+double {\bfseries bottom\+\_\+clahe\+\_\+clip\+\_\+} = 4.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_a8a4311d54b59371229c84ce0b30fb9eb}\label{classOctagon_a8a4311d54b59371229c84ce0b30fb9eb}} 
+int {\bfseries bottom\+\_\+clahe\+\_\+grid\+\_\+size\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classOctagon_aa393f9dec40f6f21d4a49db75d0d30aa}\label{classOctagon_aa393f9dec40f6f21d4a49db75d0d30aa}} 
+int {\bfseries bottom\+\_\+clahe\+\_\+bilateral\+\_\+iter\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classOctagon_ae61cbe0134eed2dac3ef1ac66ebb919b}\label{classOctagon_ae61cbe0134eed2dac3ef1ac66ebb919b}} 
+int {\bfseries bottom\+\_\+balanced\+\_\+bilateral\+\_\+iter\+\_\+} = 4
+\item 
+\mbox{\Hypertarget{classOctagon_a359e6996f9cf84c6938d36f96fa12ded}\label{classOctagon_a359e6996f9cf84c6938d36f96fa12ded}} 
+double {\bfseries bottom\+\_\+denoise\+\_\+h\+\_\+} = 10.\+0
+\item 
+\mbox{\Hypertarget{classOctagon_ad9021e5849858697ae198c657ea268ae}\label{classOctagon_ad9021e5849858697ae198c657ea268ae}} 
+bool {\bfseries task\+\_\+done} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/octagon.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/octagon.\+cpp\end{DoxyCompactItemize}

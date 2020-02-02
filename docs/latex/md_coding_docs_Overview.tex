@@ -1,0 +1,53 @@
+\hypertarget{md_coding_docs_Overview_autotoc_md18}{}\doxysubsection{This document contains a basic overview of the entire software stack that exists in this repository.}\label{md_coding_docs_Overview_autotoc_md18}
+Updated\+: 24th December, 2019\hypertarget{md_coding_docs_Overview_autotoc_md19}{}\doxysection{Control Layer}\label{md_coding_docs_Overview_autotoc_md19}
+This layer is basically concerned with the low-\/level controller of the vehicle. Previously we used a simple P\+ID controller each of the D\+OF of Anahita. This was implemented in a decoupled manner, i.\+e. we ran the controllers independently for each of the axes, and according to what we intend to do, we pass the desired position, and just apply the P\+ID formula. The parameters for P\+ID are tuned during the time of testing the vehicle in the pool.
+
+The current repository contains an implementation of the Cascaded P\+ID Controller, which basically consists of two P\+ID controllers on top of each other, one for position control and one for velocity control. This controller worked well, but since our localisation was heavily dependent on the readings from the D\+VL, the position controller failed to perform well in depths of water less than 1 metre. This controller was implemented w.\+r.\+t positions and velocities in all directions simultaneously (Euclidean distances) in contrast to the previous method.
+
+We intend to study some new techniques in Controls, and implement them in due course of time. They are\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Thruster Allocation Matrix}}\+: This is implemented in the code, but I doubt whether it works correctly. Need to check and fix this.
+\item {\bfseries{L\+QR controller}}\+: Used by some teams coming to Robosub, performs well according to them
+\item {\bfseries{Reinforcement Learning based Controller}}\+: This would be very advanced, we\textquotesingle{}ll need to setup a simulation environment with A\+P\+Is according to the RL literature.
+\end{DoxyItemize}\hypertarget{md_coding_docs_Overview_autotoc_md20}{}\doxysection{Navigation Layer}\label{md_coding_docs_Overview_autotoc_md20}
+This layer was mostly written considering the D\+VL in mind. The Doppler Velocity Log provides us with the velocity information of the water profile near the vehicle. Using that along with the I\+MU, we have created a basic structure for odometry for Anahita. Odometry message tell us about the state of the vehicle in the pool, and is therefore necessary for navigation.
+
+The mapping package is untested. We wrote down the code for an implementation of the Fast\+S\+L\+AM paper, which is basically a landmark-\/based S\+L\+AM. S\+L\+AM stands for Simultaneous Localisation and Mapping, which is the process by which a robot creates a map for the obstacles and landmarks around itself, and further localises itself in the map, by estimating a position with the concerned error in the position.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Vehicle Dynamics Model}}\+: We are currently looking at methods concerning Vehicle Dynamic Model based localisation. This would incorporate the dynamics of our vehicle while estimating its position.
+\item {\bfseries{Visual S\+L\+AM}}\+: This is something we are going to implement surely over the next semester. In this, features on images such as corners are located and the change in their positions are processed to calculate your change in state. O\+RB S\+L\+AM is a well-\/known implementation of this technique.
+\item {\bfseries{Disparity Map Generation}}\+: With the procurement of new i\+DS cameras, we hope to setup a stereo mapping system, which would allow us to get depth maps, and find how far the objects are from the vehicle.
+\end{DoxyItemize}\hypertarget{md_coding_docs_Overview_autotoc_md21}{}\doxysection{Master Layer}\label{md_coding_docs_Overview_autotoc_md21}
+This layer basically works as the highest most-\/layer authority for autonomy. Previously, we have used a complex set of {\ttfamily if-\/else} statements combined with timeouts to create this system. This is the basis of intelligent behaviour for the vehicle, and has scope for the most drastic change in all of the stack.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{S\+M\+A\+CH}}\+: This is a general-\/purpose library for creating heirarichal state machines, where each behaviour is a state, and we have to code the transitions between them.
+\item {\bfseries{Behaviour Trees}}\+: Bascially this is a system of trees, where we would setup a non-\/binary tree-\/like structure for performing tasks.
+\item {\bfseries{End-\/\+To-\/\+End Deep Reinforcement Learning for Task Completion}}
+\end{DoxyItemize}\hypertarget{md_coding_docs_Overview_autotoc_md22}{}\doxysection{Hardware Layer}\label{md_coding_docs_Overview_autotoc_md22}
+Pretty simple to explain, but one of the toughest challenges lie here. Multiple hardware driver packages are present here, such as\+: {\itshape I\+MU, Cameras, D\+VL, Arduino}.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Hydrophones}}\+: Currently we use a Virtual Machine for running the Lab\+View software on our Ubuntu system. This is very unreliable, and has not been tested for longer durations. We need to reverse-\/engineer drivers made available for other Linux-\/distros and configure them to obtain data from the NI D\+AQ board directly to our system. Pure brainstorming and hacking stuff here.
+\item {\bfseries{i\+DS Cameras}}\+: Would be pretty easy to implement depending upon the support for the cameras available online.
+\end{DoxyItemize}\hypertarget{md_coding_docs_Overview_autotoc_md23}{}\doxysection{Vision Layer}\label{md_coding_docs_Overview_autotoc_md23}
+Currently has a pre-\/processing timeline implemented (Fusion Framework). Open\+CV nodes for most tasks have been written following a object-\/oriented structure for changing the current tasks. Along with this, a machine-\/learning based approach is also implemented. We have trained Y\+O\+LO with the data collected from the swimming pool and tested it on the Jetson T\+X2.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Tracking and Filtering}}\+: Would implement tracking for all the tasks and better filtering of random values during object detection
+\item {\bfseries{C\+N\+Ns and Style Transfer for Data Generation}}\+: Basically work on the computer vision part of the vision team.
+\end{DoxyItemize}\hypertarget{md_coding_docs_Overview_autotoc_md24}{}\doxysection{Debug Layer}\label{md_coding_docs_Overview_autotoc_md24}
+Mostly used in the competition and testing time.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{G\+UI}}\+: We have developed a basic version of the G\+UI, which works on the local network using {\ttfamily ros-\/bridge}. We need to extend this to have more functionality.
+\item {\bfseries{Color Calibration}}\+: Using static values for thresholding makes it suspectible to changing brightness in the pool, and color variations. We need to setup a very abstracted and simplified method for doing this. 
+\end{DoxyItemize}

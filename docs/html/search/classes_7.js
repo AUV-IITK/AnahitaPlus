@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['octagontask_27',['OctagonTask',['../classmaster__layer_1_1state__mach_1_1OctagonTask.html',1,'master_layer.state_mach.OctagonTask'],['../classmaster__layer_1_1state__mach__gate__torpedo_1_1OctagonTask.html',1,'master_layer.state_mach_gate_torpedo.OctagonTask']]]
+  ['helicalsegment_360',['HelicalSegment',['../classuuv__trajectory__generator_1_1path__generator_1_1helical__segment_1_1HelicalSegment.html',1,'uuv_trajectory_generator::path_generator::helical_segment']]]
 ];

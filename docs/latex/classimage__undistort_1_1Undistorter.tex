@@ -1,0 +1,26 @@
+\hypertarget{classimage__undistort_1_1Undistorter}{}\doxysection{image\+\_\+undistort\+::Undistorter Class Reference}
+\label{classimage__undistort_1_1Undistorter}\index{image\_undistort::Undistorter@{image\_undistort::Undistorter}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1Undistorter_a9a53098324f417c918d1fcd8bcaa7baf}\label{classimage__undistort_1_1Undistorter_a9a53098324f417c918d1fcd8bcaa7baf}} 
+{\bfseries Undistorter} (const \mbox{\hyperlink{classimage__undistort_1_1CameraParametersPair}{Camera\+Parameters\+Pair}} \&input\+\_\+camera\+\_\+parameters\+\_\+pair)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1Undistorter_a22e36d3e5dd830a3e634b8f2e1a7c5eb}\label{classimage__undistort_1_1Undistorter_a22e36d3e5dd830a3e634b8f2e1a7c5eb}} 
+void {\bfseries undistort\+Image} (const cv\+::\+Mat \&image, cv\+::\+Mat $\ast$undistored\+\_\+image)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1Undistorter_a5848d83f7009609fb88ff79492d57781}\label{classimage__undistort_1_1Undistorter_a5848d83f7009609fb88ff79492d57781}} 
+const \mbox{\hyperlink{classimage__undistort_1_1CameraParametersPair}{Camera\+Parameters\+Pair}} \& {\bfseries get\+Camera\+Parameters\+Pair} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1Undistorter_a370f6ac944bfee99f3736d7e3fbb9ba9}\label{classimage__undistort_1_1Undistorter_a370f6ac944bfee99f3736d7e3fbb9ba9}} 
+static void {\bfseries distort\+Pixel} (const Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \&K\+\_\+in, const Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \&R\+\_\+in, const Eigen\+::\+Matrix$<$ double, 3, 4 $>$ \&P\+\_\+out, const Distortion\+Model \&distortion\+\_\+model, const std\+::vector$<$ double $>$ \&D, const Eigen\+::\+Vector2d \&pixel\+\_\+location, Eigen\+::\+Vector2d $\ast$distorted\+\_\+pixel\+\_\+location)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/image\+\_\+undistort/include/image\+\_\+undistort/undistorter.\+h\item 
+vision\+\_\+layer/image\+\_\+undistort/src/undistorter.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\hypertarget{classmapping_1_1EKF}{}\doxysection{mapping\+::E\+KF$<$ n, m, b $>$ Class Template Reference}
+\label{classmapping_1_1EKF}\index{mapping::EKF$<$ n, m, b $>$@{mapping::EKF$<$ n, m, b $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a7cd0997810543b9bcd1b7507c394141a}\label{classmapping_1_1EKF_a7cd0997810543b9bcd1b7507c394141a}} 
+{\bfseries E\+KF} (const Eigen\+::\+Matrix$<$ float, n, b $>$ \&B, const Eigen\+::\+Matrix$<$ float, m, m $>$ \&R, const Eigen\+::\+Matrix$<$ float, n, n $>$ \&Q, const Eigen\+::\+Matrix$<$ float, n, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ float, n, n $>$ \&p)
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_afd006c8edcaec96df002a017d7088709}\label{classmapping_1_1EKF_afd006c8edcaec96df002a017d7088709}} 
+void {\bfseries Predict} (const Eigen\+::\+Matrix$<$ float, b, 1 $>$ \&u, const Eigen\+::\+Matrix$<$ float, n, 1 $>$ \&xhat, const Eigen\+::\+Matrix$<$ float, n, n $>$ \&F)
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a890e40b9407dbd02acbdea2a9d520060}\label{classmapping_1_1EKF_a890e40b9407dbd02acbdea2a9d520060}} 
+void {\bfseries Update} (const Eigen\+::\+Matrix$<$ float, m, 1 $>$ \&y, const Eigen\+::\+Matrix$<$ float, m, n $>$ \&H)
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a7cd0997810543b9bcd1b7507c394141a}\label{classmapping_1_1EKF_a7cd0997810543b9bcd1b7507c394141a}} 
+{\bfseries E\+KF} (const Eigen\+::\+Matrix$<$ float, n, b $>$ \&B, const Eigen\+::\+Matrix$<$ float, m, m $>$ \&R, const Eigen\+::\+Matrix$<$ float, n, n $>$ \&Q, const Eigen\+::\+Matrix$<$ float, n, 1 $>$ \&x, const Eigen\+::\+Matrix$<$ float, n, n $>$ \&p)
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_afd006c8edcaec96df002a017d7088709}\label{classmapping_1_1EKF_afd006c8edcaec96df002a017d7088709}} 
+void {\bfseries Predict} (const Eigen\+::\+Matrix$<$ float, b, 1 $>$ \&u, const Eigen\+::\+Matrix$<$ float, n, 1 $>$ \&xhat, const Eigen\+::\+Matrix$<$ float, n, n $>$ \&F)
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a890e40b9407dbd02acbdea2a9d520060}\label{classmapping_1_1EKF_a890e40b9407dbd02acbdea2a9d520060}} 
+void {\bfseries Update} (const Eigen\+::\+Matrix$<$ float, m, 1 $>$ \&y, const Eigen\+::\+Matrix$<$ float, m, n $>$ \&H)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_af953a8e0f00fb0afd7ea402e47748c66}\label{classmapping_1_1EKF_af953a8e0f00fb0afd7ea402e47748c66}} 
+Eigen\+::\+Matrix$<$ float, n, 1 $>$ {\bfseries xhat\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_ad782328cf17a9ef5cae9028802603b9f}\label{classmapping_1_1EKF_ad782328cf17a9ef5cae9028802603b9f}} 
+Eigen\+::\+Matrix$<$ float, n, n $>$ {\bfseries covs\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a1c2cf3acfc47603a2c89b18079ea958a}\label{classmapping_1_1EKF_a1c2cf3acfc47603a2c89b18079ea958a}} 
+Eigen\+::\+Matrix$<$ float, n, b $>$ {\bfseries B\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a5e9f13b5188a461f973518b398d6bd52}\label{classmapping_1_1EKF_a5e9f13b5188a461f973518b398d6bd52}} 
+Eigen\+::\+Matrix$<$ float, m, m $>$ {\bfseries R\+\_\+}
+\item 
+\mbox{\Hypertarget{classmapping_1_1EKF_a276acb331f3fd0c5aeeb2d6b0711d4eb}\label{classmapping_1_1EKF_a276acb331f3fd0c5aeeb2d6b0711d4eb}} 
+Eigen\+::\+Matrix$<$ float, n, n $>$ {\bfseries Q\+\_\+}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+navigation\+\_\+layer/mapping/include/ekf.\+h\item 
+navigation\+\_\+layer/mapping/include/slam\+\_\+ekf.\+h\item 
+navigation\+\_\+layer/mapping/src/ekf.\+cpp\end{DoxyCompactItemize}

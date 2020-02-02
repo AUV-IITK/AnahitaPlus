@@ -1,0 +1,143 @@
+Use \href{https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/}{\texttt{ usual steps}} to make changes into the project just like other Git\+Hub projects.\hypertarget{md_coding_docs_coding_guidelines_autotoc_md0}{}\doxysection{Code style}\label{md_coding_docs_coding_guidelines_autotoc_md0}
+
+\begin{DoxyItemize}
+\item {\itshape Cpp} follow R\+OS \href{http://wiki.ros.org/CppStyleGuide}{\texttt{ Cpp Style Guide}} rigorously. ~\newline
+
+\item {\itshape C\+Make} follow Caktin \href{http://docs.ros.org/jade/api/catkin/html/user_guide/standards.html}{\texttt{ C\+Make Style Guide}}. ~\newline
+
+\item {\itshape Python} code should follow \href{http://www.python.org/dev/peps/pep-0008/}{\texttt{ pep8}}. Please see \href{http://wiki.ros.org/PyStyleGuide}{\texttt{ R\+OS Py\+Style\+Guide}} for details. Use {\ttfamily Anaconda} plugin for sublime text editor for style check. ~\newline
+
+\item {\itshape Bash} Use this \href{http://arachnoid.com/python/beautify_bash_program.html}{\texttt{ python script}}. ~\newline
+
+\item {\itshape Roslint} All pkgs (except {\ttfamily commons} pkgs which don\textquotesingle{}t have cpp or py code) depend on \href{http://wiki.ros.org/roslint}{\texttt{ roslint}} for static code analysis. ~\newline
+
+\end{DoxyItemize}
+
+{\bfseries{Note\+:}} \href{https://github.com/AUV-IITK/auv2017/tree/master/utils}{\texttt{ Utils}} contains scripts for formatting {\ttfamily cpp}, {\ttfamily python}, {\ttfamily xml}, {\ttfamily C\+Make\+Lists} files. Since these are bash scripts, there is a formatting script for {\ttfamily bash}.
+
+\DoxyHorRuler{0}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md1}{}\doxysection{Documentation}\label{md_coding_docs_coding_guidelines_autotoc_md1}
+We maintain two forms of online documentation for R\+OS packages\+: ~\newline
+
+\begin{DoxyItemize}
+\item {\itshape wiki pages} / External docs\+: This is the A\+U\+V\+Wiki repo. Home for tutorials, design documents and other sorts of information. This is mainly for people running your code. In general anything that people need to know outside source i.\+e. while only running auv code goes in the auv-\/wiki, anything else goes to package doc.
+\item {\itshape auto-\/generated code documentation} Internal docs\+: This is mainly for people integrating with or editing your code. There are auto generated from source code comments using doxygen. Travis CI generated and auto deploys to gh-\/pages branch. Located at \href{http://auv-iitk.github.io/auv/}{\texttt{ http\+://auv-\/iitk.\+github.\+io/auv/}} . Look at \href{https://github.com/AUV-IITK/auv/pull/103/commits/c23d7efdadbfd611276e20509f98e6b39328fa20}{\texttt{ sample commit}} to see how to add documentation. Also \href{https://www.stack.nl/~dimitri/doxygen/manual/docblocks.html}{\texttt{ Doxygen manual}} is good for quick start.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md2}{}\doxysection{Source control}\label{md_coding_docs_coding_guidelines_autotoc_md2}
+We use Git. Read the wiki page on git.
+
+\DoxyHorRuler{0}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md3}{}\doxysection{Bug tracking}\label{md_coding_docs_coding_guidelines_autotoc_md3}
+We use github issues on auv repo for tracking bugs.
+
+\DoxyHorRuler{0}
+ \hypertarget{md_coding_docs_coding_guidelines_autotoc_md4}{}\doxysection{($<$em$>$\+Still missing$<$/em$>$)  Testing}\label{md_coding_docs_coding_guidelines_autotoc_md4}
+We use two level of testing\+: ~\newline
+
+\begin{DoxyItemize}
+\item Library\+: At the library level, we use standard unit-\/test frameworks. In C++, we use \href{http://wiki.ros.org/gtest}{\texttt{ gtest}}. In Python, we use \href{http://wiki.ros.org/unittest}{\texttt{ unittest}}. ~\newline
+
+\item Message\+: At the message level, we use \href{http://wiki.ros.org/rostest}{\texttt{ rostest}} to set up a system of R\+OS nodes, run a test node, then tear down the system.
+\end{DoxyItemize}
+
+R\+OS has established best \href{http://wiki.ros.org/UnitTesting}{\texttt{ practices and policies}} for writing and running tests. ~\newline
+ Auv code is structured in layers, with each layer interacting with the other using {\ttfamily actionlib}. For testing each layer separately we use unit tests nodes which are part of the concerning layer itself. ~\newline
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md5}{}\doxysection{Standardization}\label{md_coding_docs_coding_guidelines_autotoc_md5}
+Code should use R\+OS services, follow guidelines for their use\+: ~\newline
+ use \href{http://wiki.ros.org/rosout}{\texttt{ rosout}} for printing messages ~\newline
+ uses the R\+OS \href{http://wiki.ros.org/Clock}{\texttt{ Clock}} for time-\/based routines
+
+\DoxyHorRuler{0}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md6}{}\doxysection{Large data files}\label{md_coding_docs_coding_guidelines_autotoc_md6}
+Large files (anything over 1MB, really) often don\textquotesingle{}t belong in the auv repositories, especially if they are just used for tests. These large files affect the time that it takes to checkout the repository.
+
+\DoxyHorRuler{0}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md7}{}\doxysection{Naming Convention}\label{md_coding_docs_coding_guidelines_autotoc_md7}
+Please refer to \href{http://wiki.ros.org/CppStyleGuide\#Naming}{\texttt{ R\+OS Cpp\+Style\+Guide}} and \href{http://wiki.ros.org/ROS/Patterns/Conventions\#Naming_ROS_Resources}{\texttt{ R\+OS Conventions}}.
+
+Avoid using any sort of Hungarian notation on names and \char`\"{}\+\_\+ptr\char`\"{} on pointers.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Code Element}} }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Style}} }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Comment}}  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Code Element}} }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Style}} }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Comment}}  }\\\cline{1-3}
+\endhead
+Namespace &under\+\_\+scored &Differentiate from class names  \\\cline{1-3}
+Class name &Camel\+Case &To differentiate from S\+TL types which I\+SO recommends (do not use \char`\"{}\+C\char`\"{} or \char`\"{}\+T\char`\"{} prefixes)  \\\cline{1-3}
+Function name &camel\+Case &Lower case start is almost universal except for .Net world  \\\cline{1-3}
+Parameters/\+Locals &under\+\_\+scored &Vast majority of standards recommends this because \+\_\+ is more readable to C++ crowd (although not much to Java/.Net crowd)  \\\cline{1-3}
+Member variables &under\+\_\+scored\+\_\+with\+\_\+ &The prefix \+\_\+ is heavily discouraged as I\+SO has rules around reserving \+\_\+identifiers, so we recommend suffix instead  \\\cline{1-3}
+Enums and its members &Camel\+Case &Most except very old standards agree with this one  \\\cline{1-3}
+Globals &g\+\_\+under\+\_\+scored &You shouldn\textquotesingle{}t have these in first place!  \\\cline{1-3}
+Constants &U\+P\+P\+E\+R\+\_\+\+C\+A\+SE &Very contentious and we just have to pick one here, unless if is a private constant in class or method, then use naming for Members or Locals  \\\cline{1-3}
+File names &Match case of class name in file &Lot of pro and cons either way but this removes inconsistency in auto generated code (important for R\+OS)  \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md8}{}\doxysubsection{Header Files}\label{md_coding_docs_coding_guidelines_autotoc_md8}
+Use a namespace qualified \#ifdef to protect against multiple inclusion\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#ifndef msr\_airsim\_MyHeader\_hpp}
+\DoxyCodeLine{\#define msr\_airsim\_MyHeader\_hpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{//-\/-\/your code}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#endif}
+\end{DoxyCode}
+
+
+The reason we don\textquotesingle{}t use \#pragma once is because it\textquotesingle{}s not supported if same header file exists at multiple places (which might be possible under R\+OS build system!).\hypertarget{md_coding_docs_coding_guidelines_autotoc_md9}{}\doxysubsection{Bracketing}\label{md_coding_docs_coding_guidelines_autotoc_md9}
+Inside function or method body place curly bracket on same line. Outside that the Namespace, Class and methods levels use separate line. This is called \href{https://en.wikipedia.org/wiki/Indent_style\#K.26R_style}{\texttt{ K\&R style}} and its variants are widely used in C++ vs other styles which are more popular in other languages. Notice that curlies are not required if you have single statement, but complex statements are easier to keep correct with the braces.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int main(int argc, char* argv[])}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{     while (x == y) \{}
+\DoxyCodeLine{        f0();}
+\DoxyCodeLine{        if (cont()) \{}
+\DoxyCodeLine{            f1();}
+\DoxyCodeLine{        \} else \{}
+\DoxyCodeLine{            f2();}
+\DoxyCodeLine{            f3();}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        if (x > 100)}
+\DoxyCodeLine{            break;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+\hypertarget{md_coding_docs_coding_guidelines_autotoc_md10}{}\doxysubsection{Const and References}\label{md_coding_docs_coding_guidelines_autotoc_md10}
+Religiously review all non-\/scalar parameters you declare to be candidate for const and references. If you are coming from languages such as C\#/\+Java/\+Python, the most often mistake you would make is to pass parameters by value instead of {\ttfamily const T\&;} Especially most of the strings, vectors and maps you want to pass as {\ttfamily const T\&;} (if they are readonly) or {\ttfamily T\&} (if they are writable). Also add {\ttfamily const} suffix to methods as much as possible.\hypertarget{md_coding_docs_coding_guidelines_autotoc_md11}{}\doxysubsection{Overriding}\label{md_coding_docs_coding_guidelines_autotoc_md11}
+When overriding virtual method, use override suffix.\hypertarget{md_coding_docs_coding_guidelines_autotoc_md12}{}\doxysubsection{Pointers}\label{md_coding_docs_coding_guidelines_autotoc_md12}
+This is really about memory management. A simulator has much performance cricial code, so we try and avoid overloading the memory manager with lots of calls to new/delete. We also want to avoid too much copying of things on the stack, so we pass things by reference when ever possible. But when the object really needs to live longer than the call stack you often need to allocate that object on the heap, and so you have a pointer. Now, if management of the lifetime of that object is going to be tricky we recommend using \href{https://cppstyle.wordpress.com/c11-smart-pointers/}{\texttt{ C++ 11 smart pointers}}. But smart pointers do have a cost, so don’t use them blindly everywhere. For private code where performance is paramount, raw pointers can be used. Raw pointers are also often needed when interfacing with legacy systems that only accept pointer types, for example, sockets A\+PI. But we try to wrap those legacy interfaces as much as possible and avoid that style of programming from leaking into the larger code base. ~\newline
+
+
+Religiously check if you can use const everywhere, for example, {\ttfamily const float $\ast$ const xP}. Avoid using prefix or suffix to indicate pointer types in variable names, i.\+e. use {\ttfamily my\+\_\+obj} instead of {\ttfamily myobj\+\_\+ptr} except in cases where it might make sense to differentiate variables better, for example, {\ttfamily int mynum = 5; int$\ast$ mynum\+\_\+ptr = mynum;}\hypertarget{md_coding_docs_coding_guidelines_autotoc_md13}{}\doxysubsection{R\+O\+S Naming Convention}\label{md_coding_docs_coding_guidelines_autotoc_md13}
+
+\begin{DoxyItemize}
+\item Topics and nodes should be names keeping in mind the {\ttfamily ros namespace}. For keeping it noob friendly, global names should be assigned to nodes and topics. ~\newline
+
+\item Package folder name should be same as package name. ~\newline
+
+\item Node file name, executable name and ros node name should be same. ~\newline
+
+\item Dynamic Reconfigure cfg files should be related to what it helps configuring. ~\newline
+
+\item Action files should be named after what action or task is done through them. ~\newline
+
+\item Launch files should be named after what state it will launch the nodes in. ~\newline
+
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ 

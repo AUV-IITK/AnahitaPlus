@@ -1,0 +1,50 @@
+\hypertarget{classimage__undistort_1_1BaseCameraParameters}{}\doxysection{image\+\_\+undistort\+::Base\+Camera\+Parameters Class Reference}
+\label{classimage__undistort_1_1BaseCameraParameters}\index{image\_undistort::BaseCameraParameters@{image\_undistort::BaseCameraParameters}}
+Inheritance diagram for image\+\_\+undistort\+::Base\+Camera\+Parameters\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classimage__undistort_1_1BaseCameraParameters}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a88a33425ade97a10aabdae322da2b72b}\label{classimage__undistort_1_1BaseCameraParameters_a88a33425ade97a10aabdae322da2b72b}} 
+{\bfseries Base\+Camera\+Parameters} (const ros\+::\+Node\+Handle \&nh, const std\+::string \&camera\+\_\+namespace, const bool invert\+\_\+T)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a542e183ba91d54f0ec7f7e5aef5b41c4}\label{classimage__undistort_1_1BaseCameraParameters_a542e183ba91d54f0ec7f7e5aef5b41c4}} 
+{\bfseries Base\+Camera\+Parameters} (const sensor\+\_\+msgs\+::\+Camera\+Info \&camera\+\_\+info)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a1da0c8f547d638bd1ca788210fd60618}\label{classimage__undistort_1_1BaseCameraParameters_a1da0c8f547d638bd1ca788210fd60618}} 
+{\bfseries Base\+Camera\+Parameters} (const cv\+::\+Size \&resolution\+\_\+in, const Eigen\+::\+Matrix$<$ double, 4, 4 $>$ \&T\+\_\+in, const Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \&K\+\_\+in)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a9697fe34201dbeedd04cc13050481888}\label{classimage__undistort_1_1BaseCameraParameters_a9697fe34201dbeedd04cc13050481888}} 
+const cv\+::\+Size \& {\bfseries resolution} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a319b23014e690f86f82e8c3c29d9b587}\label{classimage__undistort_1_1BaseCameraParameters_a319b23014e690f86f82e8c3c29d9b587}} 
+const Eigen\+::\+Matrix$<$ double, 4, 4 $>$ \& {\bfseries T} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a3f5a0a253d9db617fa9f83a6be317349}\label{classimage__undistort_1_1BaseCameraParameters_a3f5a0a253d9db617fa9f83a6be317349}} 
+const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix$<$ double, 3, 3 $>$ $>$ {\bfseries R} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a922498c38ea5853135cfc2445171696d}\label{classimage__undistort_1_1BaseCameraParameters_a922498c38ea5853135cfc2445171696d}} 
+const Eigen\+::\+Ref$<$ const Eigen\+::\+Matrix$<$ double, 3, 1 $>$ $>$ {\bfseries p} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a7c063dab97e59ebaed14f20e6bdf3642}\label{classimage__undistort_1_1BaseCameraParameters_a7c063dab97e59ebaed14f20e6bdf3642}} 
+const Eigen\+::\+Matrix$<$ double, 3, 4 $>$ \& {\bfseries P} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a6de1cedb0186ccd043acd91358763f7e}\label{classimage__undistort_1_1BaseCameraParameters_a6de1cedb0186ccd043acd91358763f7e}} 
+const Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \& {\bfseries K} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a6b2ba6bbe947efe13db70d6ab0700d72}\label{classimage__undistort_1_1BaseCameraParameters_a6b2ba6bbe947efe13db70d6ab0700d72}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classimage__undistort_1_1BaseCameraParameters}{Base\+Camera\+Parameters}} \&B) const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1BaseCameraParameters_a0e743b0b242034fbfeddecdabb94594f}\label{classimage__undistort_1_1BaseCameraParameters_a0e743b0b242034fbfeddecdabb94594f}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classimage__undistort_1_1BaseCameraParameters}{Base\+Camera\+Parameters}} \&B) const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/image\+\_\+undistort/include/image\+\_\+undistort/camera\+\_\+parameters.\+h\item 
+vision\+\_\+layer/image\+\_\+undistort/src/camera\+\_\+parameters.\+cpp\end{DoxyCompactItemize}

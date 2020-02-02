@@ -1,0 +1,89 @@
+\hypertarget{classBuoy}{}\doxysection{Buoy Class Reference}
+\label{classBuoy}\index{Buoy@{Buoy}}
+Inheritance diagram for Buoy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBuoy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuoy_aae6a7d935b45ae2d5aa10aa80d46e0d7}\label{classBuoy_aae6a7d935b45ae2d5aa10aa80d46e0d7}} 
+void {\bfseries switch\+Color} (int)
+\item 
+\mbox{\Hypertarget{classBuoy_ae24b8d548c1f922122020c23d53c190b}\label{classBuoy_ae24b8d548c1f922122020c23d53c190b}} 
+void {\bfseries spin\+Thread\+Front} ()
+\item 
+\mbox{\Hypertarget{classBuoy_a787135abf00b8fff3e3cf96ccc9ba0ec}\label{classBuoy_a787135abf00b8fff3e3cf96ccc9ba0ec}} 
+void {\bfseries spin\+Thread} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuoy_a52630f83ade22809208e0050fd189bb0}\label{classBuoy_a52630f83ade22809208e0050fd189bb0}} 
+int {\bfseries current\+\_\+color}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuoy_a7dde14ad16d6eae2612687a41d8a466c}\label{classBuoy_a7dde14ad16d6eae2612687a41d8a466c}} 
+void {\bfseries callback} (vision\+\_\+tasks\+::buoy\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classBuoy_add99f142a60bce53abe8cb6c6e224933}\label{classBuoy_add99f142a60bce53abe8cb6c6e224933}} 
+void {\bfseries image\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBuoy_ad94fe9e5a32dfbffbf5538277b28e809}\label{classBuoy_ad94fe9e5a32dfbffbf5538277b28e809}} 
+ros\+::\+Node\+Handle {\bfseries nh}
+\item 
+\mbox{\Hypertarget{classBuoy_a391e658428c21fa5d7af57cd7a3fc664}\label{classBuoy_a391e658428c21fa5d7af57cd7a3fc664}} 
+image\+\_\+transport\+::\+Publisher {\bfseries blue\+\_\+filtered\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classBuoy_a1f023c4f4e8e92e97babd731d19c5901}\label{classBuoy_a1f023c4f4e8e92e97babd731d19c5901}} 
+image\+\_\+transport\+::\+Subscriber {\bfseries image\+\_\+raw\+\_\+sub}
+\item 
+\mbox{\Hypertarget{classBuoy_ad8a61f22312a2af443d491f6d8a95c88}\label{classBuoy_ad8a61f22312a2af443d491f6d8a95c88}} 
+std\+::string {\bfseries camera\+\_\+frame\+\_\+}
+\item 
+\mbox{\Hypertarget{classBuoy_a832c660d31a540d9fcc17c7f3d8f68d8}\label{classBuoy_a832c660d31a540d9fcc17c7f3d8f68d8}} 
+double {\bfseries clahe\+\_\+clip\+\_\+}
+\item 
+\mbox{\Hypertarget{classBuoy_aa47cb1503c015132f210dfc713749a72}\label{classBuoy_aa47cb1503c015132f210dfc713749a72}} 
+int {\bfseries clahe\+\_\+grid\+\_\+size\+\_\+}
+\item 
+\mbox{\Hypertarget{classBuoy_aca1a7c7645c39831707746a8b9bb6992}\label{classBuoy_aca1a7c7645c39831707746a8b9bb6992}} 
+int {\bfseries clahe\+\_\+bilateral\+\_\+iter\+\_\+}
+\item 
+\mbox{\Hypertarget{classBuoy_a76c480b4d7d16f9ec58a50d99c64a46e}\label{classBuoy_a76c480b4d7d16f9ec58a50d99c64a46e}} 
+int {\bfseries balanced\+\_\+bilateral\+\_\+iter\+\_\+}
+\item 
+\mbox{\Hypertarget{classBuoy_ab6587d9953014573ed5b89aebb989d61}\label{classBuoy_ab6587d9953014573ed5b89aebb989d61}} 
+double {\bfseries denoise\+\_\+h\+\_\+}
+\item 
+\mbox{\Hypertarget{classBuoy_a481fc15e25346fd346a14f2bff84a55f}\label{classBuoy_a481fc15e25346fd346a14f2bff84a55f}} 
+int {\bfseries data\+\_\+low\+\_\+h} \mbox{[}3\mbox{]} = \{0, 12, 0\}
+\item 
+\mbox{\Hypertarget{classBuoy_aabf668782fb78cd57c57935f5556f9a7}\label{classBuoy_aabf668782fb78cd57c57935f5556f9a7}} 
+int {\bfseries data\+\_\+high\+\_\+h} \mbox{[}3\mbox{]} = \{17, 40, 56\}
+\item 
+\mbox{\Hypertarget{classBuoy_a46d4f0a04d9eec9f40086ced3e674679}\label{classBuoy_a46d4f0a04d9eec9f40086ced3e674679}} 
+int {\bfseries data\+\_\+low\+\_\+s} \mbox{[}3\mbox{]} = \{206, 183, 0\}
+\item 
+\mbox{\Hypertarget{classBuoy_a488a83dc51aadd7ffc5f02e08f27728e}\label{classBuoy_a488a83dc51aadd7ffc5f02e08f27728e}} 
+int {\bfseries data\+\_\+high\+\_\+s} \mbox{[}3\mbox{]} = \{255, 255, 255\}
+\item 
+\mbox{\Hypertarget{classBuoy_aea30660a61beb8dbff66ae13d8851bf9}\label{classBuoy_aea30660a61beb8dbff66ae13d8851bf9}} 
+int {\bfseries data\+\_\+low\+\_\+v} \mbox{[}3\mbox{]} = \{30, 3, 2\}
+\item 
+\mbox{\Hypertarget{classBuoy_a8ec5f9ef0ebb0ddf8497d89b99f80b1c}\label{classBuoy_a8ec5f9ef0ebb0ddf8497d89b99f80b1c}} 
+int {\bfseries data\+\_\+high\+\_\+v} \mbox{[}3\mbox{]} = \{255, 255, 82\}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/buoy.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/buoy.\+cpp\end{DoxyCompactItemize}

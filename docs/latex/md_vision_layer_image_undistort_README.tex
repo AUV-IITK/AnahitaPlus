@@ -1,0 +1,209 @@
+image\+\_\+undistort exists to handle all the odd situations image\+\_\+proc doesn\textquotesingle{}t quite cover. Some examples of this are
+\begin{DoxyItemize}
+\item working with images that don\textquotesingle{}t have a camera\+\_\+info topic
+\item undistortion of images using equidistant or other less common camera models
+\item turning a location in a distorted image into a bearing vector
+\end{DoxyItemize}
+
+If you have an image undistortion / stereo imaging problem that the library doesn\textquotesingle{}t cover, create an issue and I\textquotesingle{}ll look at adding it. Note that the automatic image size approach used will fail for cameras with a fov greater than 180 degrees.
+
+This repo contains six related ros nodes-\/
+\begin{DoxyItemize}
+\item {\bfseries{\href{\#image_undistort_node}{\texttt{ image\+\_\+undistort\+\_\+node}}\+:}} Undistorts and changes images intrinsics and resolution.
+\item {\bfseries{\href{\#stereo_info_node}{\texttt{ stereo\+\_\+info\+\_\+node}}\+:}} Calculates the camera information needed for stereo rectification.
+\item {\bfseries{\href{\#stereo_undistort_node}{\texttt{ stereo\+\_\+undistort\+\_\+node}}\+:}} Combines the functionality of the above two nodes to perform stereo image rectification.
+\item {\bfseries{\href{\#depth_node}{\texttt{ depth\+\_\+node}}\+:}} Converts two undistorted images and their camera information into a disparity image and a pointcloud.
+\item {\bfseries{\href{\#dense_stereo_node}{\texttt{ dense\+\_\+stereo\+\_\+node}}\+:}} Performs the full dense stereo estimation (internally this node is just the stereo\+\_\+undistort nodelet and the depth nodelet).
+\item {\bfseries{\href{\#point_to_bearing_node}{\texttt{ point\+\_\+to\+\_\+bearing\+\_\+node}}\+:}} Takes in a 2D image location and transforms it into a bearing vector.
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md93}{}\doxysubsection{Dependencies}\label{md_vision_layer_image_undistort_README_autotoc_md93}
+Image undistort depends on R\+OS, Open\+CV and Eigen. The point to bearing node also depends on N\+Lopt (installed with {\ttfamily apt install libnlopt-\/dev}) and will only be built if it is found.\hypertarget{md_vision_layer_image_undistort_README_autotoc_md94}{}\doxysubsection{Supported Camera and Distortion Models}\label{md_vision_layer_image_undistort_README_autotoc_md94}
+The only supported output is the pinhole camera model with no distortion. Supported input models\+:
+
+
+\begin{DoxyItemize}
+\item Pinhole with no distortion
+\item Pinhole with radial-\/tangential distortion
+\item Pinhole with equidistant distortion
+\item Omnidirectional with no distortion
+\item Omindirectional with rad-\/tan distortion
+\item F\+OV
+\item Unified
+\item Extended Unified
+\item Double Sphere
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md95}{}\doxysection{image\+\_\+undistort\+\_\+node\+:}\label{md_vision_layer_image_undistort_README_autotoc_md95}
+A simple node for undistorting images. Handles plumb bob (aka radial-\/tangential), fov and equidistant distortion models. It can either use standard ros camera\+\_\+info topics or load camera models in a form that is compatible with the camchain.\+yaml files produced by \href{https://github.com/ethz-asl/kalibr}{\texttt{ Kalibr}}. Note this node can also be run as a nodelet named image\+\_\+undistort/\+Image\+Undistort\hypertarget{md_vision_layer_image_undistort_README_autotoc_md96}{}\doxysubsection{The node has several possible use cases\+:}\label{md_vision_layer_image_undistort_README_autotoc_md96}
+
+\begin{DoxyItemize}
+\item {\bfseries{Undistort images.}} The default usage of the node, outputting an undistorted version of an input image.
+\item {\bfseries{Modify the image resolution and intrinsics.}} The node supports projecting from and to any valid projection matrix and resolution.
+\item {\bfseries{Provide a camera\+\_\+info topic for an image.}} In this mode ros params are used to build a camera info message that is published in sync with the image messages. This allows the use of ros nodes that require camera info with devices and bags that do not provide it.
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md97}{}\doxysubsection{Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md97}
+
+\begin{DoxyItemize}
+\item {\bfseries{queue size}} The length of the queues the node uses for topics (default\+: 10).
+\item {\bfseries{input\+\_\+camera\+\_\+info\+\_\+from\+\_\+ros\+\_\+params}} If false the node will subscribe to a camera\+\_\+info ros topic named input/camera\+\_\+info to obtain the input camera parameters. If true the input camera parameters will be loaded from ros parameters. See the parameters format section for further details. (default\+: false).
+\item {\bfseries{output\+\_\+camera\+\_\+info\+\_\+source}} The source to use when obtaining the output camera parameters. The possible case-\/insensitive options are,
+\begin{DoxyItemize}
+\item $\ast$\char`\"{}auto\+\_\+generated\char`\"{}$\ast$ The default value. In this mode \char`\"{}good\char`\"{} output parameters are automatically generated based on the input image. focal length is the average of fx and fy of the input, the center point is in the center of the image, R=I and translation is preserved. Resolution is set to the largest area that contains no empty pixels. The size of the output can also be modified with the {\itshape scale} parameter.
+\item $\ast$\char`\"{}match\+\_\+input\char`\"{}$\ast$ The output projection matrix and resolution, exactly match the inputs.
+\item $\ast$\char`\"{}ros\+\_\+params\char`\"{}$\ast$ The output camera parameters are loaded from ros parameters. See the parameters format section for further details.
+\item $\ast$\char`\"{}camera\+\_\+info\char`\"{}$\ast$ The output parameters are found through subscribing to a camera\+\_\+info ros topic named output/camera\+\_\+info
+\end{DoxyItemize}
+\item {\bfseries{input\+\_\+camera\+\_\+namespace}} If the input camera parameters are loaded from ros parameters this is the namespace that will be searched. This is needed to allow both input and output to be loaded from parameters. (default\+: \char`\"{}input\+\_\+camera\char`\"{})
+\item {\bfseries{output\+\_\+camera\+\_\+namespace}} If the output camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}output\+\_\+camera\char`\"{}).
+\item {\bfseries{process\+\_\+images}} True to output a processed image, false if only a camera\+\_\+info topic should be generated. (default\+: true).
+\item {\bfseries{undistort\+\_\+image}} True to undistort the images, false to keep the distortion. (default\+: true).
+\item {\bfseries{process\+\_\+every\+\_\+nth\+\_\+frame}} Used to temporarily down-\/sample the images, if it is $<$= 1 every frame will be processed. (default\+: 1).
+\item {\bfseries{output\+\_\+image\+\_\+type}} Converts the output image to the specified format, set to the empty string \char`\"{}\char`\"{} to preserve the input type. See \href{http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages}{\texttt{ the cv\+\_\+bridge tutorial}} for possible format strings. (default\+: \char`\"{}\char`\"{}).
+\item {\bfseries{scale}} Only used if {\bfseries{output\+\_\+camera\+\_\+info\+\_\+source}} is set to \char`\"{}auto\+\_\+generated\char`\"{} or \char`\"{}match\+\_\+input\char`\"{}. The output focal length will be multiplied by this value. If \char`\"{}auto\+\_\+generated\char`\"{} is set the image size will also be increased by this factor. (default\+: 1.\+0).
+\item {\bfseries{publish\+\_\+tf}} True to publish the tf between the input and output image. If the undistortion involves changes to the rotation matrix the frame that the image is in will change. This tf gives that change. (default\+: true)
+\item {\bfseries{output\+\_\+frame}} The name of the frame of the output images. (default\+: \char`\"{}output\+\_\+camera\char`\"{})
+\item {\bfseries{rename\+\_\+input\+\_\+frame}} If the input frame should be renamed in the published topics and tf tree. (default\+: false)
+\item {\bfseries{input\+\_\+frame}} Only used if {\bfseries{rename\+\_\+input\+\_\+frame}} is true. The name of the frame of the input images. (default\+: \char`\"{}input\+\_\+camera\char`\"{})
+\item {\bfseries{rename\+\_\+radtan\+\_\+plumb\+\_\+bob}} If true the radial-\/tangential distortion model will be called \char`\"{}plumb\+\_\+bob\char`\"{} in the output camera\+\_\+info, this is needed by some ros image processing nodes. If false it will be called \char`\"{}radtan\char`\"{}. (default\+: false).
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md98}{}\doxysubsection{Input/\+Output Topics}\label{md_vision_layer_image_undistort_README_autotoc_md98}
+Many of these topics are dependent on the parameters set above and may not appear or may be renamed under some settings.
+\begin{DoxyItemize}
+\item {\bfseries{input/image}} input image topic
+\item {\bfseries{input/camera\+\_\+info}} input camera info topic
+\item {\bfseries{output/image}} output image topic
+\item {\bfseries{output/camera\+\_\+info}} output camera info topic
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md99}{}\doxysubsection{Loading Camera Information from R\+O\+S Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md99}
+Camera information can be loaded from R\+OS parameters. These parameters are typically set using $<$rosparam file=\char`\"{}path\+\_\+to\+\_\+yaml\+\_\+file\char`\"{}$>$. The format used by this node is compatible with the camchains generated by \href{https://github.com/ethz-asl/kalibr}{\texttt{ Kalibr}}. The follow steps are used when loading this information.
+
+
+\begin{DoxyEnumerate}
+\item A 3x3 intrinscs matrix named {\bfseries{K}} is searched for. If it is found it is loaded. If it is not found a 1x4 vector named {\bfseries{intrinsics}} is loaded, this contains the parameters (fx, fy, cx, cy). If neither parameters are given the node displays an error and terminates.
+\item A 1x2 vector named {\bfseries{resolution}} is loaded which contains the parameters (width, height). Again, if not given the node displays an error and terminates.
+\item A 4x4 transformation matrix {\bfseries{T}} is searched for. If it is found it is loaded. Otherwise it is searched for under the name {\bfseries{T\+\_\+cn\+\_\+cnm1}} and if found loaded. If neither are found the node continues.
+\item A 4x3 projection matrix {\bfseries{P}} is searched for. If it is found it is loaded. If {\bfseries{P}} was found but {\bfseries{T}} was not, {\bfseries{P}} and {\bfseries{K}} are used to construct {\bfseries{T}}, otherwise {\bfseries{T}} is set to identity. If {\bfseries{P}} was not found it is constructed from {\bfseries{K}} and {\bfseries{T}}.
+\item If an output is being loaded, the loading of parameters is completed. For input cameras the distortion properties are now loaded
+\item A 1xn vector {\bfseries{D}} is loaded. If it is not found or is less than 5 elements long it is padded with zeros.
+\item A string {\bfseries{distortion\+\_\+model}} is loaded and converted to lower-\/case. If it is not found it is set to \char`\"{}radtan\char`\"{}.
+\end{DoxyEnumerate}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md100}{}\doxysection{stereo\+\_\+info\+\_\+node\+:}\label{md_vision_layer_image_undistort_README_autotoc_md100}
+A node that takes in the properties of two cameras and outputs the camera info required to rectify them so that stereo reconstruction can be performed. The rectification is performed such that only x translation is present between the cameras. The focal points are in the image centers, fx=fy and the image resolution is set to be the largest frame that contains no empty pixels. Note this node can also be run as a nodelet named image\+\_\+undistort/\+Stereo\+Info\hypertarget{md_vision_layer_image_undistort_README_autotoc_md101}{}\doxysubsection{Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md101}
+
+\begin{DoxyItemize}
+\item {\bfseries{queue size}} The length of the queues the node uses for topics (default\+: 10).
+\item {\bfseries{input\+\_\+camera\+\_\+info\+\_\+from\+\_\+ros\+\_\+params}} If false the node will subscribe to a camera\+\_\+info ros topic named input/camera\+\_\+info to obtain the input camera parameters. If true the input camera parameters will be loaded from ros parameters. See the parameters format section for further details. (default\+: false).
+\item {\bfseries{first\+\_\+camera\+\_\+namespace}} If the first camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}first\+\_\+camera\char`\"{})
+\item {\bfseries{second\+\_\+camera\+\_\+namespace}} If the second camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}second\+\_\+camera\char`\"{}).
+\item {\bfseries{scale}} Only used if {\bfseries{output\+\_\+camera\+\_\+info\+\_\+source}} is set to \char`\"{}auto\+\_\+generated\char`\"{}. The output focal length will be multiplied by this value. This has the effect of resizing the image by this scale factor. (default\+: 1.\+0). {\bfseries{rename\+\_\+radtan\+\_\+plumb\+\_\+bob}} If true the radial-\/tangential distortion model will be called \char`\"{}plumb\+\_\+bob\char`\"{} in the output camera\+\_\+info, this is needed by some ros image processing nodes. If false it will be called \char`\"{}radtan\char`\"{}. (default\+: false).
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md102}{}\doxysubsection{Input/\+Output Topics}\label{md_vision_layer_image_undistort_README_autotoc_md102}
+Many of these topics are dependent on the parameters set above and may not appear or may be renamed under some settings.
+\begin{DoxyItemize}
+\item {\bfseries{raw/first/image}} first input image topic, only needed if loading camera parameters from ros params (used for timing information)
+\item {\bfseries{raw/second/image}} second input image topic, only needed if loading camera parameters from ros params (used for timing information)
+\item {\bfseries{raw/first/camera\+\_\+info}} first input camera info topic
+\item {\bfseries{raw/second/camera\+\_\+info}} second input camera info topic
+\item {\bfseries{rect/first/camera\+\_\+info}} first output camera info topic
+\item {\bfseries{rect/second/camera\+\_\+info}} second output camera info topic
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md103}{}\doxysection{stereo\+\_\+undistort\+\_\+node\+:}\label{md_vision_layer_image_undistort_README_autotoc_md103}
+A node that takes in the images and properties of two cameras and outputs rectified stereo images with their corresponding camera parameters. The rectification is performed such that only x translation is present between the cameras. The focal points are in the image centers, fx=fy and the image resolution is set to be the largest frame that contains no empty pixels. Note this node can also be run as a nodelet named image\+\_\+undistort/\+Stereo\+Undistort\hypertarget{md_vision_layer_image_undistort_README_autotoc_md104}{}\doxysubsection{Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md104}
+
+\begin{DoxyItemize}
+\item {\bfseries{queue size}} The length of the queues the node uses for topics (default\+: 10).
+\item {\bfseries{input\+\_\+camera\+\_\+info\+\_\+from\+\_\+ros\+\_\+params}} If false the node will subscribe to a camera\+\_\+info ros topic named input/camera\+\_\+info to obtain the input camera parameters. If true the input camera parameters will be loaded from ros parameters. See the parameters format section for further details. (default\+: false).
+\item {\bfseries{first\+\_\+camera\+\_\+namespace}} If the first camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}first\+\_\+camera\char`\"{})
+\item {\bfseries{second\+\_\+camera\+\_\+namespace}} If the second camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}second\+\_\+camera\char`\"{}).
+\item {\bfseries{scale}} Only used if {\bfseries{output\+\_\+camera\+\_\+info\+\_\+source}} is set to \char`\"{}auto\+\_\+generated\char`\"{}. The output focal length will be multiplied by this value. This has the effect of resizing the image by this scale factor. (default\+: 1.\+0).
+\item {\bfseries{process\+\_\+every\+\_\+nth\+\_\+frame}} Used to temporarily down-\/sample the images, if it is $<$= 1 every frame will be processed. (default\+: 1).
+\item {\bfseries{output\+\_\+image\+\_\+type}} Converts the output images to the specified format, set to the empty string \char`\"{}\char`\"{} to preserve the input type. See \href{http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages}{\texttt{ the cv\+\_\+bridge tutorial}} for possible format strings. (default\+: \char`\"{}\char`\"{}).
+\item {\bfseries{scale}} The output focal length will be multiplied by this value. This has the effect of resizing the image by this scale factor. (default\+: 1.\+0).
+\item {\bfseries{T\+\_\+invert}} Only used if loading parameters from ros params. True to invert the given transformations. (default\+: false)
+\item {\bfseries{publish\+\_\+tf}} True to publish the tf between the first input and output image. If the undistortion involves changes to the rotation matrix the frame that the image is in will change. This tf gives that change. (default\+: true)
+\item {\bfseries{output\+\_\+frame}} The name of the frame of the output images. (default\+: \char`\"{}first\+\_\+camera\+\_\+rect\char`\"{})
+\item {\bfseries{rename\+\_\+input\+\_\+frame}} If the input frame should be renamed in the published topics and tf tree. (default\+: false)
+\item {\bfseries{first\+\_\+input\+\_\+frame}} Only used if {\bfseries{rename\+\_\+input\+\_\+frame}} is true. The name of the frame of the first input images. (default\+: \char`\"{}first\+\_\+camera\char`\"{})
+\item {\bfseries{second\+\_\+input\+\_\+frame}} Only used if {\bfseries{rename\+\_\+input\+\_\+frame}} is true. The name of the frame of the second input images. (default\+: \char`\"{}second\+\_\+camera\char`\"{}) {\bfseries{rename\+\_\+radtan\+\_\+plumb\+\_\+bob}} If true the radial-\/tangential distortion model will be called \char`\"{}plumb\+\_\+bob\char`\"{} in the output camera\+\_\+info, this is needed by some ros image processing nodes. If false it will be called \char`\"{}radtan\char`\"{}. (default\+: false).
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md105}{}\doxysubsection{Input/\+Output Topics}\label{md_vision_layer_image_undistort_README_autotoc_md105}
+Many of these topics are dependent on the parameters set above and may not appear or may be renamed under some settings.
+\begin{DoxyItemize}
+\item {\bfseries{raw/first/image}} first input image topic
+\item {\bfseries{raw/second/image}} second input image topic
+\item {\bfseries{raw/first/camera\+\_\+info}} first input camera info topic
+\item {\bfseries{raw/second/camera\+\_\+info}} second input camera info topic
+\item {\bfseries{rect/first/image}} first output image topic
+\item {\bfseries{rect/second/image}} second output image topic
+\item {\bfseries{rect/first/camera\+\_\+info}} first output camera info topic
+\item {\bfseries{rect/second/camera\+\_\+info}} second output camera info topic
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md106}{}\doxysection{depth\+\_\+node\+:}\label{md_vision_layer_image_undistort_README_autotoc_md106}
+A node that takes in the rectified images and properties of two cameras and outputs a disparity image and a pointcloud. The node uses the camera\+\_\+info topics to figure out which camera is the left one and which is the right one. Internally the node makes use of the opencv stereo block matcher to perform the depth estimation. Note this node can also be run as a nodelet named image\+\_\+undistort/\+Depth\hypertarget{md_vision_layer_image_undistort_README_autotoc_md107}{}\doxysubsection{Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md107}
+
+\begin{DoxyItemize}
+\item {\bfseries{queue size}} The length of the queues the node uses for topics. (default\+: 10)
+\item {\bfseries{pre\+\_\+filter\+\_\+size}} The size of the prefilter used in Stereo\+BM. (default\+: 9)
+\item {\bfseries{pre\+\_\+filter\+\_\+cap}} The upper cap on the prefilter used in Stereo\+BM. (default\+: 31)
+\item {\bfseries{sad\+\_\+window\+\_\+size}} The window size used when performing the stereo matching, note the efficientcy of the implementation reduces if this value is greater than 21 (default\+: 21)
+\item {\bfseries{min\+\_\+disparity}} The minimum disparity checked in Stereo\+BM. (default\+: 0)
+\item {\bfseries{num\+\_\+disparities}} The number of disparities checked in Stereo\+BM. (default\+: 64)
+\item {\bfseries{texture\+\_\+threshold}} Minimum texture a patch requires to be matched in Stereo\+BM. (default\+: 10)
+\item {\bfseries{uniqueness\+\_\+ratio}} Minimum margin by which the best matching disparity must \textquotesingle{}win\textquotesingle{} in Stereo\+BM. (default\+: 15)
+\item {\bfseries{speckle\+\_\+range}} Parameter used for removing speckle in Stereo\+BM. (default\+: 0)
+\item {\bfseries{speckle\+\_\+window\+\_\+size}} Window size used for speckle removal in Stereo\+BM. (default\+: 0)
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md108}{}\doxysubsection{Input/\+Output Topics}\label{md_vision_layer_image_undistort_README_autotoc_md108}
+
+\begin{DoxyItemize}
+\item {\bfseries{rect/first/image}} first input image topic
+\item {\bfseries{rect/second/image}} second input image topic
+\item {\bfseries{rect/first/camera\+\_\+info}} first input camera info topic
+\item {\bfseries{rect/second/camera\+\_\+info}} second input camera info topic
+\item {\bfseries{disparity}} output disparity image
+\item {\bfseries{pointcloud}} output pointcloud
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md109}{}\doxysection{dense\+\_\+stereo\+\_\+node\+:}\label{md_vision_layer_image_undistort_README_autotoc_md109}
+A node for producing dense stereo images. Internally this node simply combines 2 nodelets.
+\begin{DoxyItemize}
+\item {\bfseries{image\+\_\+undistort/\+Stereo\+Undistort}} Used to set up the stereo system and rectify the images.
+\item {\bfseries{image\+\_\+undistort/\+Depth}} Generates disparity images and pointclouds from the rectified images.
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md110}{}\doxysubsection{Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md110}
+
+\begin{DoxyItemize}
+\item {\bfseries{queue size}} The length of the queues the node uses for topics (default\+: 10).
+\item {\bfseries{input\+\_\+camera\+\_\+info\+\_\+from\+\_\+ros\+\_\+params}} If false the node will subscribe to a camera\+\_\+info ros topic named input/camera\+\_\+info to obtain the input camera parameters. If true the input camera parameters will be loaded from ros parameters. See the parameters format section for further details. (default\+: false).
+\item {\bfseries{first\+\_\+camera\+\_\+namespace}} If the first camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}first\+\_\+camera\char`\"{})
+\item {\bfseries{second\+\_\+camera\+\_\+namespace}} If the second camera parameters are loaded from ros parameters this is the namespace that will be searched. (default\+: \char`\"{}second\+\_\+camera\char`\"{}).
+\item {\bfseries{scale}} Only used if {\bfseries{output\+\_\+camera\+\_\+info\+\_\+source}} is set to \char`\"{}auto\+\_\+generated\char`\"{}. The output focal length will be multiplied by this value. This has the effect of resizing the image by this scale factor. (default\+: 1.\+0).
+\item {\bfseries{T\+\_\+invert}} Only used if loading parameters from ros params. True to invert the given transformations. (default\+: false)
+\item {\bfseries{process\+\_\+every\+\_\+nth\+\_\+frame}} Used to temporarily down-\/sample the images, if it is $<$= 1 every frame will be processed. (default\+: 1).
+\item {\bfseries{output\+\_\+image\+\_\+type}} Converts the output images to the specified format, set to the empty string \char`\"{}\char`\"{} to preserve the input type. See \href{http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages}{\texttt{ the cv\+\_\+bridge tutorial}} for possible format strings. (default\+: \char`\"{}\char`\"{}).
+\item {\bfseries{scale}} The output focal length will be multiplied by this value. This has the effect of resizing the image by this scale factor. (default\+: 1.\+0).
+\item {\bfseries{publish\+\_\+tf}} True to publish the tf between the first input and output image. If the undistortion involves changes to the transformation matrix the frame that the image is in will change, this occurs during most image rectifications. This tf gives that change. (default\+: true)
+\item {\bfseries{output\+\_\+frame}} The name of the frame of the output images. (default\+: \char`\"{}first\+\_\+camera\+\_\+rect\char`\"{})
+\item {\bfseries{rename\+\_\+input\+\_\+frame}} If the input frame should be renamed in the published topics and tf tree. (default\+: false)
+\item {\bfseries{first\+\_\+input\+\_\+frame}} Only used if {\bfseries{rename\+\_\+input\+\_\+frame}} is true. The name of the frame of the first input images. (default\+: \char`\"{}first\+\_\+camera\char`\"{})
+\item {\bfseries{second\+\_\+input\+\_\+frame}} Only used if {\bfseries{rename\+\_\+input\+\_\+frame}} is true. The name of the frame of the second input images. (default\+: \char`\"{}second\+\_\+camera\char`\"{}) {\bfseries{rename\+\_\+radtan\+\_\+plumb\+\_\+bob}} If true the radial-\/tangential distortion model will be called \char`\"{}plumb\+\_\+bob\char`\"{} in the output camera\+\_\+info, this is needed by some ros image processing nodes. If false it will be called \char`\"{}radtan\char`\"{}. (default\+: false).
+\item {\bfseries{pre\+\_\+filter\+\_\+size}} The size of the prefilter used in Stereo\+BM. (default\+: 9)
+\item {\bfseries{pre\+\_\+filter\+\_\+cap}} The upper cap on the prefilter used in Stereo\+BM. (default\+: 31)
+\item {\bfseries{sad\+\_\+window\+\_\+size}} The window size used when performing the stereo matching, note the efficientcy of the implementation reduces if this value is greater than 21 (default\+: 21)
+\item {\bfseries{min\+\_\+disparity}} The minimum disparity checked in Stereo\+BM. (default\+: 0)
+\item {\bfseries{num\+\_\+disparities}} The number of disparities checked in Stereo\+BM. (default\+: 64)
+\item {\bfseries{texture\+\_\+threshold}} Minimum texture a patch requires to be matched in Stereo\+BM. (default\+: 10)
+\item {\bfseries{uniqueness\+\_\+ratio}} Minimum margin by which the best matching disparity must \textquotesingle{}win\textquotesingle{} in Stereo\+BM. (default\+: 15)
+\item {\bfseries{speckle\+\_\+range}} Parameter used for removing speckle in Stereo\+BM. (default\+: 0)
+\item {\bfseries{speckle\+\_\+window\+\_\+size}} Window size used for speckle removal in Stereo\+BM. (default\+: 0)
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md111}{}\doxysubsection{Input/\+Output Topics}\label{md_vision_layer_image_undistort_README_autotoc_md111}
+Many of these topics are dependent on the parameters set above and may not appear or may be renamed under some settings.
+\begin{DoxyItemize}
+\item {\bfseries{raw/first/image}} first input image topic
+\item {\bfseries{raw/second/image}} second input image topic
+\item {\bfseries{raw/first/camera\+\_\+info}} first input camera info topic
+\item {\bfseries{raw/second/camera\+\_\+info}} second input camera info topic
+\item {\bfseries{rect/first/image}} first output rectified image topic
+\item {\bfseries{rect/second/image}} second output rectified image topic
+\item {\bfseries{rect/first/camera\+\_\+info}} first output camera info topic
+\item {\bfseries{rect/second/camera\+\_\+info}} second output camera info topic
+\item {\bfseries{disparity}} output disparity image topic
+\item {\bfseries{pointcloud}} output pointcloud topic
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md112}{}\doxysection{point\+\_\+to\+\_\+bearing\+\_\+node\+:}\label{md_vision_layer_image_undistort_README_autotoc_md112}
+A node for converting a point in a distorted image to a unit bearing vector.\hypertarget{md_vision_layer_image_undistort_README_autotoc_md113}{}\doxysubsection{Parameters\+:}\label{md_vision_layer_image_undistort_README_autotoc_md113}
+
+\begin{DoxyItemize}
+\item {\bfseries{queue size}} The length of the queues the node uses for topics (default\+: 10).
+\item {\bfseries{input\+\_\+camera\+\_\+info\+\_\+from\+\_\+ros\+\_\+params}} If false the node will subscribe to a camera\+\_\+info ros topic named input/camera\+\_\+info to obtain the input camera parameters. If true the input camera parameters will be loaded from ros parameters. See the parameters format section for further details. (default\+: false).
+\end{DoxyItemize}\hypertarget{md_vision_layer_image_undistort_README_autotoc_md114}{}\doxysubsection{Input/\+Output Topics}\label{md_vision_layer_image_undistort_README_autotoc_md114}
+Many of these topics are dependent on the parameters set above and may not appear or may be renamed under some settings.
+\begin{DoxyItemize}
+\item {\bfseries{input/camera\+\_\+info}} camera info topic
+\item {\bfseries{image\+\_\+point}} input location of the point of interest in the image
+\item {\bfseries{bearing}} unit bearing to point 
+\end{DoxyItemize}

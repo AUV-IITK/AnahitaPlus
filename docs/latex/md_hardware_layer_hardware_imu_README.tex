@@ -1,0 +1,113 @@
+\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md61}{}\doxysection{Overview}\label{md_hardware_layer_hardware_imu_README_autotoc_md61}
+This is a R\+OS package for interfacing with the \href{http://px4.io/}{\texttt{ P\+X4}} hardware or the \href{https://www.spartonnavex.com/product/ahrs-8/}{\texttt{ Sparton A\+H\+R\+S-\/8}} hardware.
+
+For the P\+X4, we are using the in-\/built inertial measurement unit (I\+MU) present in the P\+X4 for the robot. For the Sparton A\+H\+R\+S8, the driver communicates with the sensor using N\+M\+EA protocol and publishes the I\+MU data as R\+OS sensor messages.
+
+The {\ttfamily hardware\+\_\+imu} package has been tested under \href{http://www.ros.org}{\texttt{ R\+OS}} Kinetic and Ubuntu 16.\+04 L\+TS. The source code is released under a B\+SD 3-\/\+Clause license.\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md62}{}\doxysection{Setting up hardware\+\_\+imu}\label{md_hardware_layer_hardware_imu_README_autotoc_md62}
+\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md63}{}\doxysubsection{Dependencies}\label{md_hardware_layer_hardware_imu_README_autotoc_md63}
+
+\begin{DoxyItemize}
+\item \href{http://wiki.ros.org}{\texttt{ Robot Operating System (R\+OS)}} (middleware for robotics),
+\item Following R\+OS Packages\+: \href{http://wiki.ros.org/mavros}{\texttt{ mavros}}, \href{http://wiki.ros.org/mavros_extras}{\texttt{ mavros\+\_\+extras}}
+\end{DoxyItemize}
+
+According to the installation instructions present \href{https://github.com/mavlink/mavros/blob/master/mavros/README.md\#binary-installation-deb}{\texttt{ here}}, run the following commands to install Geographic\+Lib datasets which is required as a mavros dependency\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install\_geographiclib\_datasets.sh}
+\DoxyCodeLine{./install\_geographiclib\_datasets.sh}
+\end{DoxyCode}
+\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md64}{}\doxysubsection{Calibrating the sensor}\label{md_hardware_layer_hardware_imu_README_autotoc_md64}
+Download \href{https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html}{\texttt{ Q\+Ground Control}} and run it with P\+I\+X\+H\+A\+WK attached with your computer. Read the manual \href{https://docs.qgroundcontrol.com/en/SetupView/Sensors.html}{\texttt{ here}} for further instructions.\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md65}{}\doxysubsection{Building the package}\label{md_hardware_layer_hardware_imu_README_autotoc_md65}
+Run the following command from the root of your catkin workspace\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{catkin\_make -\/-\/pkg hardware\_imu}
+\end{DoxyCode}
+\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md66}{}\doxysection{Usage}\label{md_hardware_layer_hardware_imu_README_autotoc_md66}
+To run the {\bfseries{P\+I\+X\+H\+A\+WK I\+MU}}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch hardware\_imu imu\_px4.launch}
+\end{DoxyCode}
+
+
+where the P\+I\+X\+H\+A\+WK is assumed to be connected at the {\ttfamily /dev/tty\+A\+C\+M0} port.
+
+To run the {\bfseries{Sparton A\+H\+R\+S8 I\+MU}}\+:
+
+
+\begin{DoxyEnumerate}
+\item Check the serial port to which the sensor is connected at and change the device path in the \href{launch/ahrs-8.launch}{\texttt{ launch file}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# to verify if device is at /dev/ttyUSB0, run:}
+\DoxyCodeLine{udevadm info -\/a -\/p  \$(udevadm info -\/q path -\/n /dev/ttyUSB0)}
+\end{DoxyCode}
+
+\item Ensure that python cript has executable permission\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{chmod +x sparton\_ahrs8\_driver/scripts/ahrs8\_nmea.py}
+\end{DoxyCode}
+
+\item Run the launch file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch sparton\_ahrs8\_driver ahrs-\/8.launch}
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md67}{}\doxysection{Nodes}\label{md_hardware_layer_hardware_imu_README_autotoc_md67}
+\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md68}{}\doxysubsection{mavros\+\_\+node}\label{md_hardware_layer_hardware_imu_README_autotoc_md68}
+The {\ttfamily mavros\+\_\+node} is the main communication node for the M\+A\+V\+Link communication protocol used in the P\+X4 autopilot. The node belongs to the \href{http://wiki.ros.org/mavros}{\texttt{ mavros}} package.\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md69}{}\doxysubsubsection{Published Topics}\label{md_hardware_layer_hardware_imu_README_autotoc_md69}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily $\sim$imu/data}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html}{\texttt{ sensor\+\_\+msgs/\+Imu}}) Imu data, orientation computed by F\+CU
+\item $\ast$$\ast${\ttfamily $\sim$imu/data\+\_\+raw}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html}{\texttt{ sensor\+\_\+msgs/\+Imu}}) Raw I\+MU data without orientation
+\item $\ast$$\ast${\ttfamily $\sim$imu/mag}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/MagneticField.html}{\texttt{ sensor\+\_\+msgs/\+Magnetic\+Field}}) F\+CU compass data
+\item $\ast$$\ast${\ttfamily $\sim$imu/temperature}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Temperature.html}{\texttt{ sensor\+\_\+msgs/\+Temperature}}) Temperature reported by F\+CU (usually from barometer)
+\item $\ast$$\ast${\ttfamily $\sim$imu/atm\+\_\+pressure}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/FluidPressure.html}{\texttt{ sensor\+\_\+msgs/\+Fluid\+Pressure}}) Air pressure.
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md70}{}\doxysubsection{Parameters}\label{md_hardware_layer_hardware_imu_README_autotoc_md70}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily $\sim$imu/frame\+\_\+id}$\ast$$\ast$ (string, default\+: fcu) Frame ID for this plugin.
+\item $\ast$$\ast${\ttfamily $\sim$imu/linear\+\_\+acceleration\+\_\+stdev}$\ast$$\ast$ (double, default\+: 0.\+0003) Gyro\textquotesingle{}s standard deviation
+\item $\ast$$\ast${\ttfamily $\sim$imu/angular\+\_\+velocity\+\_\+stdev}$\ast$$\ast$ (double, default\+: !dec 0.\+02) Accel\textquotesingle{}s standard deviation
+\item $\ast$$\ast${\ttfamily $\sim$imu/orientation\+\_\+stdev}$\ast$$\ast$ (double, default\+: 1.\+0) Standard deviation for I\+M\+U.\+orientation
+\item $\ast$$\ast${\ttfamily $\sim$imu/magnetic\+\_\+stdev}$\ast$$\ast$ (double, default\+: 0.\+0) Standard deviation for magnetic field message (undefined if\+: 0.\+0)
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md71}{}\doxysubsection{mavros.\+cpp}\label{md_hardware_layer_hardware_imu_README_autotoc_md71}
+This node takes the I\+MU data in quateranion format and convert it into euler angles. We calculate the roll, pitch and yaw using the following formulas\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yaw = atan2 ( 2 * x * y -\/ 2 * w * z, 2 * w * w + 2 * x * x -\/ 1)}
+\DoxyCodeLine{roll = atan2(2 * q2 * q3 -\/ 2 * q0 * q1, 2 * q0 * q0 + 2 * q3 * q3 -\/ 1)}
+\DoxyCodeLine{pitch = -\/asin(2 * q1 * q3 + 2 * q0 * q2)}
+\end{DoxyCode}
+
+
+where {\ttfamily q = (w, x, y, z)} is the quaternion angle.\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md72}{}\doxysubsubsection{Subscribed Topics}\label{md_hardware_layer_hardware_imu_README_autotoc_md72}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily $\sim$/mavros/imu/data}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html}{\texttt{ sensor\+\_\+msgs/\+Imu}}) Imu data, orientation computed by F\+CU
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md73}{}\doxysubsubsection{Published Topics}\label{md_hardware_layer_hardware_imu_README_autotoc_md73}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /mavros/imu/yaw}$\ast$$\ast$ (\href{http://docs.ros.org/lunar/api/std_msgs/html/msg/Float64.html}{\texttt{ std\+\_\+msgs/\+Float64}}) Yaw data computed using quaternion to euler angles transformation $\ast$$\ast${\ttfamily /mavros/imu/pitch}$\ast$$\ast$ (\href{http://docs.ros.org/lunar/api/std_msgs/html/msg/Float64.html}{\texttt{ std\+\_\+msgs/\+Float64}}) Pitch data computed using quaternion to euler angles transformation $\ast$$\ast${\ttfamily /mavros/imu/roll}$\ast$$\ast$ (\href{http://docs.ros.org/lunar/api/std_msgs/html/msg/Float64.html}{\texttt{ std\+\_\+msgs/\+Float64}}) Roll data computed using quaternion to euler angles transformation
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md74}{}\doxysubsection{ahrs8\+\_\+nmea.\+py}\label{md_hardware_layer_hardware_imu_README_autotoc_md74}
+The node communicate with the sensor using the N\+M\+EA protocol and publishes I\+MU data.\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md75}{}\doxysubsubsection{Parameters}\label{md_hardware_layer_hardware_imu_README_autotoc_md75}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily $\sim$frame\+\_\+id}$\ast$$\ast$ (string, default\+: {\ttfamily ahrs8\+\_\+imu}) Frame ID for this plugin
+\item $\ast$$\ast${\ttfamily $\sim$port}$\ast$$\ast$ (string, default\+: {\ttfamily /dev/tty\+U\+S\+B0}) Port at which sensor is connected
+\item $\ast$$\ast${\ttfamily $\sim$baud}$\ast$$\ast$ (double, default\+: {\ttfamily 115200}) Baud rate for communication with the sensor
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md76}{}\doxysubsubsection{Published Topics}\label{md_hardware_layer_hardware_imu_README_autotoc_md76}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily $\sim$imu/data}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html}{\texttt{ sensor\+\_\+msgs/\+Imu}}) I\+MU orientation data, orientation in the {\ttfamily ahrs8\+\_\+imu} frame
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md77}{}\doxysubsection{sparton.\+cpp}\label{md_hardware_layer_hardware_imu_README_autotoc_md77}
+This node takes the I\+MU data in quateranion format and convert it into euler angles. We calculate the roll, pitch and yaw using the above formulas again\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md78}{}\doxysubsubsection{Subscribed Topics}\label{md_hardware_layer_hardware_imu_README_autotoc_md78}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily $\sim$/sparton/imu/data}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Imu.html}{\texttt{ sensor\+\_\+msgs/\+Imu}}) Imu data, orientation computed by F\+CU
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md79}{}\doxysubsubsection{Published Topics}\label{md_hardware_layer_hardware_imu_README_autotoc_md79}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily /sparton/imu/yaw}$\ast$$\ast$ (\href{http://docs.ros.org/lunar/api/std_msgs/html/msg/Float64.html}{\texttt{ std\+\_\+msgs/\+Float64}}) Yaw data computed using quaternion to euler angles transformation $\ast$$\ast${\ttfamily /sparton/imu/pitch}$\ast$$\ast$ (\href{http://docs.ros.org/lunar/api/std_msgs/html/msg/Float64.html}{\texttt{ std\+\_\+msgs/\+Float64}}) Pitch data computed using quaternion to euler angles transformation $\ast$$\ast${\ttfamily /sparton/imu/roll}$\ast$$\ast$ (\href{http://docs.ros.org/lunar/api/std_msgs/html/msg/Float64.html}{\texttt{ std\+\_\+msgs/\+Float64}}) Roll data computed using quaternion to euler angles transformation ~\newline
+
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_imu_README_autotoc_md80}{}\doxysection{Bugs \& Feature Requests}\label{md_hardware_layer_hardware_imu_README_autotoc_md80}
+Please report bugs and request features using the \href{https://github.com/AUV-IITK/fourtran/issues}{\texttt{ Issue Tracker}}. 

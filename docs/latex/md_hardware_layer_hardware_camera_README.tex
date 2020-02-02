@@ -1,0 +1,61 @@
+\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md44}{}\doxysection{Overview}\label{md_hardware_layer_hardware_camera_README_autotoc_md44}
+This is a R\+OS package for getting feed from the camera using \href{http://wiki.ros.org/usb_cam}{\texttt{ usb\+\_\+cam}} and publishing it as a \href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\texttt{ sensor\+\_\+msgs/\+Image}} to the other layers.
+
+The {\ttfamily hardware\+\_\+camera} package has been tested under \href{http://www.ros.org}{\texttt{ R\+OS}} Kinetic and Ubuntu 16.\+04 L\+TS. The source code is released under a B\+SD 3-\/\+Clause license.
+
+The hardware used are as follows\+:
+\begin{DoxyItemize}
+\item Front-\/facing Camera\+: \href{https://www.logitech.com/en-in/product/c930e-webcam}{\texttt{ Logitech C930e}}
+\item Bottom-\/facing Camera\+: \href{https://www.logitech.com/en-in/product/c930e-webcam}{\texttt{ Logitech C930e}}
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md45}{}\doxysection{Setting up hardware\+\_\+camera}\label{md_hardware_layer_hardware_camera_README_autotoc_md45}
+\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md46}{}\doxysubsection{Dependencies}\label{md_hardware_layer_hardware_camera_README_autotoc_md46}
+
+\begin{DoxyItemize}
+\item \href{http://wiki.ros.org}{\texttt{ Robot Operating System (R\+OS)}} (middleware for robotics),
+\item Following R\+OS Packages\+: \href{http://wiki.ros.org/usb_cam}{\texttt{ usb\+\_\+cam}}
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md47}{}\doxysubsection{Preparing the Serial Port via udev rules}\label{md_hardware_layer_hardware_camera_README_autotoc_md47}
+The udev rules for the cameras connected to the robot are present in the \mbox{[}/utils/udev\mbox{]} directory. To copy them to your system, run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws/src/auv2018/utils}
+\DoxyCodeLine{sudo bash clone\_udev.sh}
+\end{DoxyCode}
+
+
+Camera will then be connected to the ports with id {\ttfamily /dev/front\+\_\+cam} and {\ttfamily /dev/bottom\+\_\+cam}.\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md48}{}\doxysubsection{Building Camera code}\label{md_hardware_layer_hardware_camera_README_autotoc_md48}
+Run the following command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd \string~/catkin\_ws}
+\DoxyCodeLine{catkin\_make -\/-\/pkg hardware\_camera}
+\end{DoxyCode}
+\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md49}{}\doxysection{Usage}\label{md_hardware_layer_hardware_camera_README_autotoc_md49}
+To initialize the cmaera nodes, run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch hardware\_camera camera\_logitech.launch}
+\end{DoxyCode}
+\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md50}{}\doxysection{Nodes}\label{md_hardware_layer_hardware_camera_README_autotoc_md50}
+\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md51}{}\doxysubsection{front\+\_\+camera}\label{md_hardware_layer_hardware_camera_README_autotoc_md51}
+The {\ttfamily usb\+\_\+cam\+\_\+node} interfaces with standard U\+SB cameras (e.\+g. the Logitech Quickcam) using libusb\+\_\+cam and publishes images as {\ttfamily sensor\+\_\+msgs\+::\+Image}. The node belongs to the \href{http://wiki.ros.org/usb_cam}{\texttt{ usb\+\_\+cam}} package.\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md52}{}\doxysubsubsection{Published Topics}\label{md_hardware_layer_hardware_camera_README_autotoc_md52}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily hardware\+\_\+camera/front\+\_\+cam/image\+\_\+raw}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\texttt{ sensor\+\_\+msgs/\+Image}})
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md53}{}\doxysubsubsection{Parameters}\label{md_hardware_layer_hardware_camera_README_autotoc_md53}
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$image\+\_\+width} (integer, default\+: 1280) Image width
+\item {\ttfamily $\sim$image\+\_\+height} (integer, default\+: 720) Image height
+\item {\ttfamily $\sim$framerate} (integer, default\+: 30) The required framerate
+\item {\ttfamily $\sim$camera\+\_\+info\+\_\+url} (string, default\+: ) An url to the camera calibration file that will be read by the \href{http://wiki.ros.org/CameraInfoManager}{\texttt{ Camera\+Info\+Manager}} class
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md54}{}\doxysubsection{bottom\+\_\+camera}\label{md_hardware_layer_hardware_camera_README_autotoc_md54}
+The {\ttfamily usb\+\_\+cam\+\_\+node} interfaces with standard U\+SB cameras (e.\+g. the Logitech Quickcam) using libusb\+\_\+cam and publishes images as {\ttfamily sensor\+\_\+msgs\+::\+Image}. The node belongs to the \href{http://wiki.ros.org/usb_cam}{\texttt{ usb\+\_\+cam}} package.\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md55}{}\doxysubsubsection{Published Topics}\label{md_hardware_layer_hardware_camera_README_autotoc_md55}
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily bottom\+\_\+camera/image\+\_\+raw}$\ast$$\ast$ (\href{http://docs.ros.org/api/sensor_msgs/html/msg/Image.html}{\texttt{ sensor\+\_\+msgs/\+Image}})
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md56}{}\doxysubsubsection{Parameters}\label{md_hardware_layer_hardware_camera_README_autotoc_md56}
+
+\begin{DoxyItemize}
+\item {\ttfamily $\sim$image\+\_\+width} (integer, default\+: 1280) Image width
+\item {\ttfamily $\sim$image\+\_\+height} (integer, default\+: 720) Image height
+\item {\ttfamily $\sim$framerate} (integer, default\+: 30) The required framerate
+\item {\ttfamily $\sim$camera\+\_\+info\+\_\+url} (string, default\+: ) An url to the camera calibration file that will be read by the \href{http://wiki.ros.org/CameraInfoManager}{\texttt{ Camera\+Info\+Manager}} class.
+\end{DoxyItemize}\hypertarget{md_hardware_layer_hardware_camera_README_autotoc_md57}{}\doxysection{Bugs \& Feature Requests}\label{md_hardware_layer_hardware_camera_README_autotoc_md57}
+Please report bugs and request features using the \href{https://github.com/AUV-IITK/auv2018/issues}{\texttt{ Issue Tracker}}. 

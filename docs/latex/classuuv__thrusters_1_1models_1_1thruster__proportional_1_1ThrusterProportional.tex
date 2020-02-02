@@ -1,0 +1,63 @@
+\hypertarget{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional}{}\doxysection{uuv\+\_\+thrusters.\+models.\+thruster\+\_\+proportional.\+Thruster\+Proportional Class Reference}
+\label{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional}\index{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional@{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional}}
+Inheritance diagram for uuv\+\_\+thrusters.\+models.\+thruster\+\_\+proportional.\+Thruster\+Proportional\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_a71d97aae671034fc2e4587cfbe455d00}\label{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_a71d97aae671034fc2e4587cfbe455d00}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, $\ast$args, $\ast$$\ast$kwargs)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_ac6dbd251b6c6e043a2158e755ecc2ed7}{get\+\_\+command\+\_\+value}} (self, thrust)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_a8ce50c4afd1fbd05d4fb700385cd69b0}{get\+\_\+thrust\+\_\+value}} (self, command)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_ab3da0e36e405e748dbddccb82855361e}\label{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_ab3da0e36e405e748dbddccb82855361e}} 
+string {\bfseries L\+A\+B\+EL} = \textquotesingle{}proportional\textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This model corresponds to the linear relation between a function
+abs(command)*command of the command input (usually the command angular
+velocity) to the thrust force. A constant gain has to be provided.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_ac6dbd251b6c6e043a2158e755ecc2ed7}\label{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_ac6dbd251b6c6e043a2158e755ecc2ed7}} 
+\index{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional@{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional}!get\_command\_value@{get\_command\_value}}
+\index{get\_command\_value@{get\_command\_value}!uuv\_thrusters.models.thruster\_proportional.ThrusterProportional@{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional}}
+\doxysubsubsection{\texorpdfstring{get\_command\_value()}{get\_command\_value()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster\+\_\+proportional.\+Thruster\+Proportional.\+get\+\_\+command\+\_\+value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{thrust }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Convert desired thrust force to input command according to this
+function. Overwrite this method to implement custom models.\end{DoxyVerb}
+ 
+
+Reimplemented from \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a822a77083f976afe5b370555e2cd5f0f}{uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster}}.
+
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_a8ce50c4afd1fbd05d4fb700385cd69b0}\label{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_a8ce50c4afd1fbd05d4fb700385cd69b0}} 
+\index{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional@{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional}!get\_thrust\_value@{get\_thrust\_value}}
+\index{get\_thrust\_value@{get\_thrust\_value}!uuv\_thrusters.models.thruster\_proportional.ThrusterProportional@{uuv\_thrusters.models.thruster\_proportional.ThrusterProportional}}
+\doxysubsubsection{\texorpdfstring{get\_thrust\_value()}{get\_thrust\_value()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster\+\_\+proportional.\+Thruster\+Proportional.\+get\+\_\+thrust\+\_\+value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{command }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Computes the thrust force for the given command.\end{DoxyVerb}
+ 
+
+Reimplemented from \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a8ac586d53fe484de470043b23bd9eded}{uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+control\+\_\+layer/uuv\+\_\+thruster\+\_\+manager/src/uuv\+\_\+thrusters/models/thruster\+\_\+proportional.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,106 @@
+\hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster}{}\doxysection{uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster Class Reference}
+\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster}\index{uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}}
+Inheritance diagram for uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.198953cm]{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a5d472c0b1187de31ecbecade71fb77e9}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, index, topic, pos, orientation, axis=D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+X\+IS)
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a606b5281acdce060a4d448059e3d2755}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a606b5281acdce060a4d448059e3d2755}} 
+def {\bfseries tam\+\_\+column} (self)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a822a77083f976afe5b370555e2cd5f0f}{get\+\_\+command\+\_\+value}} (self, thrust)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a8ac586d53fe484de470043b23bd9eded}{get\+\_\+thrust\+\_\+value}} (self, command)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a82e413f504f341cbee6b200906045b30}{get\+\_\+curve}} (self, min\+\_\+value, max\+\_\+value, n\+\_\+points)
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_acfa4ed030080803c78ee8cffaadabb84}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_acfa4ed030080803c78ee8cffaadabb84}} 
+def {\bfseries publish\+\_\+command} (self, thrust)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a3b4909072029030b2529104ff9698f0b}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a3b4909072029030b2529104ff9698f0b}} 
+def {\bfseries create\+\_\+thruster} (model\+\_\+name, $\ast$args, $\ast$$\ast$kwargs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_ac7ec40c1c035a1fc052d2a549c24e6e8}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_ac7ec40c1c035a1fc052d2a549c24e6e8}} 
+string {\bfseries L\+A\+B\+EL} = \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a3cca2e266275373ca6c33c4ed1488bcc}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a3cca2e266275373ca6c33c4ed1488bcc}} 
+{\bfseries D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+X\+IS} = numpy.\+array(\mbox{[}1, 0, 0, 0\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Abstract function to all the thruster models avaialble. The instance
+of a thruster model must use the factory method.\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a5d472c0b1187de31ecbecade71fb77e9}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a5d472c0b1187de31ecbecade71fb77e9}} 
+\index{uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{index,  }\item[{}]{topic,  }\item[{}]{pos,  }\item[{}]{orientation,  }\item[{}]{axis = {\ttfamily DEFAULT\+\_\+AXIS} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Thruster class constructor.
+
+Parameters
+----------
+index: int
+    Thruster's index.
+topic: str
+    Name of the thruster's command topic.
+pos: numpy.array
+    3D position of the thruster with relation to the reference frame.
+orientation: numpy.array
+    Quaternion with the orientation of the thruster with relation to
+    the reference frame.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a822a77083f976afe5b370555e2cd5f0f}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a822a77083f976afe5b370555e2cd5f0f}} 
+\index{uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}!get\_command\_value@{get\_command\_value}}
+\index{get\_command\_value@{get\_command\_value}!uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}}
+\doxysubsubsection{\texorpdfstring{get\_command\_value()}{get\_command\_value()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster.\+get\+\_\+command\+\_\+value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{thrust }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Convert desired thrust force to input command according to this
+function. Overwrite this method to implement custom models.\end{DoxyVerb}
+ 
+
+Reimplemented in \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a85c0c229aa03b521ecc0431114e721f7}{uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom}}, and \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_ac6dbd251b6c6e043a2158e755ecc2ed7}{uuv\+\_\+thrusters.\+models.\+thruster\+\_\+proportional.\+Thruster\+Proportional}}.
+
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a82e413f504f341cbee6b200906045b30}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a82e413f504f341cbee6b200906045b30}} 
+\index{uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}!get\_curve@{get\_curve}}
+\index{get\_curve@{get\_curve}!uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}}
+\doxysubsubsection{\texorpdfstring{get\_curve()}{get\_curve()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster.\+get\+\_\+curve (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{min\+\_\+value,  }\item[{}]{max\+\_\+value,  }\item[{}]{n\+\_\+points }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Sample the conversion curve and return the values.\end{DoxyVerb}
+ \mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a8ac586d53fe484de470043b23bd9eded}\label{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a8ac586d53fe484de470043b23bd9eded}} 
+\index{uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}!get\_thrust\_value@{get\_thrust\_value}}
+\index{get\_thrust\_value@{get\_thrust\_value}!uuv\_thrusters.models.thruster.Thruster@{uuv\_thrusters.models.thruster.Thruster}}
+\doxysubsubsection{\texorpdfstring{get\_thrust\_value()}{get\_thrust\_value()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster.\+get\+\_\+thrust\+\_\+value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{command }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Computes the thrust force for the given command.\end{DoxyVerb}
+ 
+
+Reimplemented in \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_ab745b92cb62dc58b4e68d7789aeb57d9}{uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom}}, and \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__proportional_1_1ThrusterProportional_a8ce50c4afd1fbd05d4fb700385cd69b0}{uuv\+\_\+thrusters.\+models.\+thruster\+\_\+proportional.\+Thruster\+Proportional}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+control\+\_\+layer/uuv\+\_\+thruster\+\_\+manager/src/uuv\+\_\+thrusters/models/thruster.\+py\end{DoxyCompactItemize}

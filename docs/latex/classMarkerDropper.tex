@@ -1,0 +1,156 @@
+\hypertarget{classMarkerDropper}{}\doxysection{Marker\+Dropper Class Reference}
+\label{classMarkerDropper}\index{MarkerDropper@{MarkerDropper}}
+Inheritance diagram for Marker\+Dropper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMarkerDropper}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a60c7e60403cdcbd33d50c9bae3309b65}\label{classMarkerDropper_a60c7e60403cdcbd33d50c9bae3309b65}} 
+virtual void {\bfseries load\+Params} () override
+\item 
+\mbox{\Hypertarget{classMarkerDropper_abb62612d590e6ea50503d489cb1b41aa}\label{classMarkerDropper_abb62612d590e6ea50503d489cb1b41aa}} 
+virtual void {\bfseries spin\+Thread\+Bottom} () override
+\item 
+\mbox{\Hypertarget{classMarkerDropper_aa9bf73390dc56ebe4827a6c27167fe9b}\label{classMarkerDropper_aa9bf73390dc56ebe4827a6c27167fe9b}} 
+void {\bfseries pre\+Process} (cv\+::\+Mat \&temp\+\_\+src)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_aff48227552a1737e8dd8591b61293233}\label{classMarkerDropper_aff48227552a1737e8dd8591b61293233}} 
+cv\+::\+Point {\bfseries find\+Center} ()
+\item 
+\mbox{\Hypertarget{classMarkerDropper_ab2707be25d4882e94838ec4a9ff2aba8}\label{classMarkerDropper_ab2707be25d4882e94838ec4a9ff2aba8}} 
+void {\bfseries spin\+Thread\+Bottom} ()
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a1b9b487b4fc201977a35e35bdd083667}\label{classMarkerDropper_a1b9b487b4fc201977a35e35bdd083667}} 
+void {\bfseries spin\+Thread\+Front} ()
+\item 
+\mbox{\Hypertarget{classMarkerDropper_ab2707be25d4882e94838ec4a9ff2aba8}\label{classMarkerDropper_ab2707be25d4882e94838ec4a9ff2aba8}} 
+void {\bfseries spin\+Thread\+Bottom} ()
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a1b9b487b4fc201977a35e35bdd083667}\label{classMarkerDropper_a1b9b487b4fc201977a35e35bdd083667}} 
+void {\bfseries spin\+Thread\+Front} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a596c0798e6b5baf6afb72d0191cfa12c}\label{classMarkerDropper_a596c0798e6b5baf6afb72d0191cfa12c}} 
+cv\+::\+Mat {\bfseries image\+\_\+marked}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_acdf8f8e4b2d8fde47651b3814f20d47d}\label{classMarkerDropper_acdf8f8e4b2d8fde47651b3814f20d47d}} 
+void {\bfseries front\+Callback} (vision\+\_\+tasks\+::marker\+Dropper\+Front\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_acbc9da12d06e0bdb7d659982d814c959}\label{classMarkerDropper_acbc9da12d06e0bdb7d659982d814c959}} 
+void {\bfseries bottom\+Callback} (vision\+\_\+tasks\+::marker\+Dropper\+Bottom\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a65a611716c6e3f35510534e4c07080ef}\label{classMarkerDropper_a65a611716c6e3f35510534e4c07080ef}} 
+void {\bfseries image\+Front\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_af1d127a6a637b618cc71d42447a9e8c2}\label{classMarkerDropper_af1d127a6a637b618cc71d42447a9e8c2}} 
+void {\bfseries image\+Bottom\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_acdf8f8e4b2d8fde47651b3814f20d47d}\label{classMarkerDropper_acdf8f8e4b2d8fde47651b3814f20d47d}} 
+void {\bfseries front\+Callback} (vision\+\_\+tasks\+::marker\+Dropper\+Front\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_acbc9da12d06e0bdb7d659982d814c959}\label{classMarkerDropper_acbc9da12d06e0bdb7d659982d814c959}} 
+void {\bfseries bottom\+Callback} (vision\+\_\+tasks\+::marker\+Dropper\+Bottom\+Range\+Config \&config, double level)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a65a611716c6e3f35510534e4c07080ef}\label{classMarkerDropper_a65a611716c6e3f35510534e4c07080ef}} 
+void {\bfseries image\+Front\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\item 
+\mbox{\Hypertarget{classMarkerDropper_af1d127a6a637b618cc71d42447a9e8c2}\label{classMarkerDropper_af1d127a6a637b618cc71d42447a9e8c2}} 
+void {\bfseries image\+Bottom\+Callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a46f35c9468e60bbf6b0804daee3b501b}\label{classMarkerDropper_a46f35c9468e60bbf6b0804daee3b501b}} 
+image\+\_\+transport\+::\+Publisher {\bfseries bottom\+\_\+blue\+\_\+filtered\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_af48c1237b7c61106f7e86c947ef7e0e8}\label{classMarkerDropper_af48c1237b7c61106f7e86c947ef7e0e8}} 
+image\+\_\+transport\+::\+Publisher {\bfseries front\+\_\+blue\+\_\+filtered\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a4a5cd2eee6cda56ce177632b446a21cc}\label{classMarkerDropper_a4a5cd2eee6cda56ce177632b446a21cc}} 
+image\+\_\+transport\+::\+Subscriber {\bfseries front\+\_\+image\+\_\+raw\+\_\+sub}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_ab05e2f71e55e15d2d40bec83aec09e5c}\label{classMarkerDropper_ab05e2f71e55e15d2d40bec83aec09e5c}} 
+image\+\_\+transport\+::\+Subscriber {\bfseries bottom\+\_\+image\+\_\+raw\+\_\+sub}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a4bda362c08b94bc38433f430c8dce643}\label{classMarkerDropper_a4bda362c08b94bc38433f430c8dce643}} 
+ros\+::\+Publisher {\bfseries detection\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a12e2db834779b18197b7c5d541f5f566}\label{classMarkerDropper_a12e2db834779b18197b7c5d541f5f566}} 
+std\+::string {\bfseries camera\+\_\+frame\+\_\+}
+\item 
+\mbox{\Hypertarget{classMarkerDropper_aa98a4125b058fcf57bbed17ee12678e2}\label{classMarkerDropper_aa98a4125b058fcf57bbed17ee12678e2}} 
+double {\bfseries front\+\_\+clahe\+\_\+clip\+\_\+} = 4.\+0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a23c3cd5e393d5fca8d76f7eaf596804d}\label{classMarkerDropper_a23c3cd5e393d5fca8d76f7eaf596804d}} 
+int {\bfseries front\+\_\+clahe\+\_\+grid\+\_\+size\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a69a9bd6730222d56dee1707c2e5dd599}\label{classMarkerDropper_a69a9bd6730222d56dee1707c2e5dd599}} 
+int {\bfseries front\+\_\+clahe\+\_\+bilateral\+\_\+iter\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a2c7cf4b4b24406a7d684f276fe02b763}\label{classMarkerDropper_a2c7cf4b4b24406a7d684f276fe02b763}} 
+int {\bfseries front\+\_\+balanced\+\_\+bilateral\+\_\+iter\+\_\+} = 4
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a576351ceb624124a9f177e4aa10e72b0}\label{classMarkerDropper_a576351ceb624124a9f177e4aa10e72b0}} 
+double {\bfseries front\+\_\+denoise\+\_\+h\+\_\+} = 10.\+0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a97e708ac1dc23f14efe48c64e3eb0496}\label{classMarkerDropper_a97e708ac1dc23f14efe48c64e3eb0496}} 
+int {\bfseries front\+\_\+canny\+\_\+threshold\+\_\+low\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_ada1f7cb1f635913c6b9612fa890526af}\label{classMarkerDropper_ada1f7cb1f635913c6b9612fa890526af}} 
+int {\bfseries front\+\_\+canny\+\_\+threshold\+\_\+high\+\_\+} = 1000
+\item 
+\mbox{\Hypertarget{classMarkerDropper_aa3d54dfdca7a35d676e0036f085bf14f}\label{classMarkerDropper_aa3d54dfdca7a35d676e0036f085bf14f}} 
+int {\bfseries front\+\_\+canny\+\_\+kernel\+\_\+size\+\_\+} = 3
+\item 
+\mbox{\Hypertarget{classMarkerDropper_abca1ba7eace809915a9c674cc9134a28}\label{classMarkerDropper_abca1ba7eace809915a9c674cc9134a28}} 
+int {\bfseries front\+\_\+hough\+\_\+threshold\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a96fb9649f9d3c5d94e99705ec8c70f52}\label{classMarkerDropper_a96fb9649f9d3c5d94e99705ec8c70f52}} 
+int {\bfseries front\+\_\+hough\+\_\+minline\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_aba7342ce88e06358356298b4fd4c797f}\label{classMarkerDropper_aba7342ce88e06358356298b4fd4c797f}} 
+int {\bfseries front\+\_\+hough\+\_\+maxgap\+\_\+} = 0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a5cce65c39a401bd6d966d3449c990960}\label{classMarkerDropper_a5cce65c39a401bd6d966d3449c990960}} 
+double {\bfseries front\+\_\+hough\+\_\+angle\+\_\+tolerance\+\_\+} = 0.\+0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a01d2f9bee667f199b5bc2e8f55ef0ca9}\label{classMarkerDropper_a01d2f9bee667f199b5bc2e8f55ef0ca9}} 
+double {\bfseries front\+\_\+gate\+\_\+distance\+\_\+tolerance\+\_\+} = 50.\+0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a5c2afc4167d551e1854fcad96398703f}\label{classMarkerDropper_a5c2afc4167d551e1854fcad96398703f}} 
+double {\bfseries front\+\_\+gate\+\_\+angle\+\_\+tolerance\+\_\+} = 0.\+0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_ab1f4f4ed6a0691eaaf24e1f0bb8c20ed}\label{classMarkerDropper_ab1f4f4ed6a0691eaaf24e1f0bb8c20ed}} 
+double {\bfseries bottom\+\_\+clahe\+\_\+clip\+\_\+} = 4.\+0
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a97f2c6dd6b1cffa4ac7ee3a03c42edd0}\label{classMarkerDropper_a97f2c6dd6b1cffa4ac7ee3a03c42edd0}} 
+int {\bfseries bottom\+\_\+clahe\+\_\+grid\+\_\+size\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a1b87c6207ae2f9b5be1252c80f6a2f29}\label{classMarkerDropper_a1b87c6207ae2f9b5be1252c80f6a2f29}} 
+int {\bfseries bottom\+\_\+clahe\+\_\+bilateral\+\_\+iter\+\_\+} = 8
+\item 
+\mbox{\Hypertarget{classMarkerDropper_a8ec68edd01310878f1313c6d5c26ae12}\label{classMarkerDropper_a8ec68edd01310878f1313c6d5c26ae12}} 
+int {\bfseries bottom\+\_\+balanced\+\_\+bilateral\+\_\+iter\+\_\+} = 4
+\item 
+\mbox{\Hypertarget{classMarkerDropper_ab73c9b6e3cc690545ab81a47595ccc89}\label{classMarkerDropper_ab73c9b6e3cc690545ab81a47595ccc89}} 
+double {\bfseries bottom\+\_\+denoise\+\_\+h\+\_\+} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/marker\+\_\+dropper.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/marker\+Dropper.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/include/marker\+Dropper\+\_\+niot.\+h\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/marker\+\_\+dropper.\+cpp\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/marker\+Dropper.\+cpp\item 
+vision\+\_\+layer/vision\+\_\+tasks/src/marker\+Dropper\+\_\+niot.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,50 @@
+\hypertarget{namespacemaster}{}\doxysection{master Namespace Reference}
+\label{namespacemaster}\index{master@{master}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemaster_a7a8ae7cd762cf89f7907b1e9951f5abb}\label{namespacemaster_a7a8ae7cd762cf89f7907b1e9951f5abb}} 
+def {\bfseries callback} (msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemaster_a0ab7cdc9e0ce04abf59a0eeb18ee4bc3}\label{namespacemaster_a0ab7cdc9e0ce04abf59a0eeb18ee4bc3}} 
+string {\bfseries pwm\+\_\+str} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacemaster_a33c3a3395e1745868c63d706552609a2}\label{namespacemaster_a33c3a3395e1745868c63d706552609a2}} 
+{\bfseries depth\+\_\+publisher} = rospy.\+Publisher(\char`\"{}/anahita/depth\char`\"{}, Float32, queue\+\_\+size=10)
+\item 
+\mbox{\Hypertarget{namespacemaster_aab23de3cf621870c588f67983f27d831}\label{namespacemaster_aab23de3cf621870c588f67983f27d831}} 
+{\bfseries bat\+\_\+voltage\+\_\+pub} = rospy.\+Publisher(\char`\"{}/anahita/battery\+\_\+voltage\char`\"{}, Float32, queue\+\_\+size=10)
+\item 
+\mbox{\Hypertarget{namespacemaster_a03876cb4c3d719a83b33dd998aab36a6}\label{namespacemaster_a03876cb4c3d719a83b33dd998aab36a6}} 
+{\bfseries serial\+\_\+port\+\_\+id} = rospy.\+get\+\_\+param(\char`\"{}$\sim$serial\+\_\+port\+\_\+id\char`\"{}, \char`\"{}/dev/tty\+A\+C\+M0\char`\"{})
+\item 
+\mbox{\Hypertarget{namespacemaster_a6f9f52463ff5987b763ed390481b1587}\label{namespacemaster_a6f9f52463ff5987b763ed390481b1587}} 
+{\bfseries baud\+\_\+rate} = rospy.\+get\+\_\+param(\char`\"{}$\sim$baud\+\_\+rate\char`\"{}, 115200)
+\item 
+\mbox{\Hypertarget{namespacemaster_a3b33c1185ad8cf93a60c7aea4d10777a}\label{namespacemaster_a3b33c1185ad8cf93a60c7aea4d10777a}} 
+{\bfseries depth\+\_\+msg} = Float32()
+\item 
+\mbox{\Hypertarget{namespacemaster_acfa1a7d15989a14c44e56430b5e67c84}\label{namespacemaster_acfa1a7d15989a14c44e56430b5e67c84}} 
+{\bfseries bat\+\_\+voltage\+\_\+msg} = Float32()
+\item 
+\mbox{\Hypertarget{namespacemaster_a2cdfc1ed79ca0720798ac606944c1bc7}\label{namespacemaster_a2cdfc1ed79ca0720798ac606944c1bc7}} 
+{\bfseries serial\+\_\+connection} = serial.\+Serial(\char`\"{}/dev/tty\+A\+C\+M0\char`\"{}, 115200, timeout=5)
+\item 
+\mbox{\Hypertarget{namespacemaster_ab1e9905abf4a550f9a5245a25227ffbb}\label{namespacemaster_ab1e9905abf4a550f9a5245a25227ffbb}} 
+string {\bfseries pwm\+\_\+msg} = pwm\+\_\+str.\+encode(\textquotesingle{}utf-\/8\textquotesingle{})
+\item 
+\mbox{\Hypertarget{namespacemaster_a60638b994e5b3b32e188deddd460bee5}\label{namespacemaster_a60638b994e5b3b32e188deddd460bee5}} 
+{\bfseries msg} = serial\+\_\+connection.\+read(serial\+\_\+connection.\+in\+Waiting())
+\item 
+\mbox{\Hypertarget{namespacemaster_afa402184fd7c5a06c5cea3a4c0204e09}\label{namespacemaster_afa402184fd7c5a06c5cea3a4c0204e09}} 
+{\bfseries data} = list(map(float,\mbox{[}x.\+strip() for x in msg.\+split(\textquotesingle{},\textquotesingle{})\mbox{]}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Handles Arduino messages and publishes them to ROS topics
+\end{DoxyVerb}
+ 

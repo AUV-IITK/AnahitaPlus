@@ -1,0 +1,38 @@
+\hypertarget{classnavigation_1_1NavigationNode}{}\doxysection{navigation\+::Navigation\+Node Class Reference}
+\label{classnavigation_1_1NavigationNode}\index{navigation::NavigationNode@{navigation::NavigationNode}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_abccc1132cbda197d50c3e77318b54ef5}\label{classnavigation_1_1NavigationNode_abccc1132cbda197d50c3e77318b54ef5}} 
+{\bfseries Navigation\+Node} (const ros\+::\+Node\+Handle\+Ptr \&nh)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_acfb226912b0b116ef2754286901f303e}\label{classnavigation_1_1NavigationNode_acfb226912b0b116ef2754286901f303e}} 
+void {\bfseries Spin} ()
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_af56f532c42808bca67db4fe71c7c7d2c}\label{classnavigation_1_1NavigationNode_af56f532c42808bca67db4fe71c7c7d2c}} 
+void {\bfseries Process\+Cartesian\+Pose} ()
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_a005d7dbd2eb1895f38992971a863edff}\label{classnavigation_1_1NavigationNode_a005d7dbd2eb1895f38992971a863edff}} 
+void {\bfseries Publish\+Data} (ros\+::\+Time \&current\+\_\+time)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_ac52546f98124cdc13de5ab8930572e61}\label{classnavigation_1_1NavigationNode_ac52546f98124cdc13de5ab8930572e61}} 
+void {\bfseries Broadcast\+Transform} (Eigen\+::\+Vector3d \&position, Eigen\+::\+Quaterniond \&quaternion, ros\+::\+Time \&current\+\_\+time)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_a1f8a76dd3fbda6df554b144515dd08cd}\label{classnavigation_1_1NavigationNode_a1f8a76dd3fbda6df554b144515dd08cd}} 
+bool {\bfseries Set\+Depth\+Offset\+Callback} (odom\+\_\+dvl\+\_\+imu\+::\+Set\+Depth\+Offset\+::\+Request \&rqst, odom\+\_\+dvl\+\_\+imu\+::\+Set\+Depth\+Offset\+::\+Response \&response)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_aaefa2ce87f44e8b06462a8ebaae2bb25}\label{classnavigation_1_1NavigationNode_aaefa2ce87f44e8b06462a8ebaae2bb25}} 
+bool {\bfseries Set\+World\+X\+Y\+Offset\+Callback} (odom\+\_\+dvl\+\_\+imu\+::\+Set\+World\+X\+Y\+Offset\+::\+Request \&rqst, odom\+\_\+dvl\+\_\+imu\+::\+Set\+World\+X\+Y\+Offset\+::\+Response \&response)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_a1b38cdb0bbb2e1661baea64022d8aeb9}\label{classnavigation_1_1NavigationNode_a1b38cdb0bbb2e1661baea64022d8aeb9}} 
+void {\bfseries Fill\+Pose\+Msg} (Eigen\+::\+Vector3d \&position, Eigen\+::\+Quaterniond \&angle, nav\+\_\+msgs\+::\+Odometry \&msg)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1NavigationNode_a42d3e7b88af64af00c794938c1f76439}\label{classnavigation_1_1NavigationNode_a42d3e7b88af64af00c794938c1f76439}} 
+void {\bfseries Fill\+Twist\+Msg} (Eigen\+::\+Vector3d \&linear\+\_\+velocity, Eigen\+::\+Vector3d \&angular\+\_\+velocity, nav\+\_\+msgs\+::\+Odometry \&msg)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+navigation\+\_\+layer/odom\+\_\+dvl\+\_\+imu/include/nav\+\_\+main.\+h\item 
+navigation\+\_\+layer/odom\+\_\+dvl\+\_\+imu/src/nav\+\_\+main.\+cpp\end{DoxyCompactItemize}

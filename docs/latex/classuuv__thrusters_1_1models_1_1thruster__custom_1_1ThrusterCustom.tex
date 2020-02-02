@@ -1,0 +1,78 @@
+\hypertarget{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom}{}\doxysection{uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom Class Reference}
+\label{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom}\index{uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}}
+Inheritance diagram for uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a1a5847a4ffe4b2137ddde38b3779974b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, $\ast$args, $\ast$$\ast$kwargs)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a85c0c229aa03b521ecc0431114e721f7}{get\+\_\+command\+\_\+value}} (self, thrust)
+\item 
+def \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_ab745b92cb62dc58b4e68d7789aeb57d9}{get\+\_\+thrust\+\_\+value}} (self, command)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_adbeb7e20a1f91e54ca6ed180f2ddbf0a}\label{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_adbeb7e20a1f91e54ca6ed180f2ddbf0a}} 
+string {\bfseries L\+A\+B\+EL} = \textquotesingle{}custom\textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Class describing a custom conversion curve between the command input,
+usually the angular velocity, and the correspondent output thrust force.
+Here the inverse of the conversion function can be computed so that the
+command for the desired thrust force is retrieved.
+The input vector corresponds to sampled values for the command input, and
+the output vector corresponds to the sampled values for the correspondent
+thrust forces.
+This information is usually available in the datasheet of the thruster's
+manufacturer.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a1a5847a4ffe4b2137ddde38b3779974b}\label{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a1a5847a4ffe4b2137ddde38b3779974b}} 
+\index{uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{$\ast$}]{args,  }\item[{$\ast$$\ast$}]{kwargs }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Class constructor.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a85c0c229aa03b521ecc0431114e721f7}\label{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_a85c0c229aa03b521ecc0431114e721f7}} 
+\index{uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}!get\_command\_value@{get\_command\_value}}
+\index{get\_command\_value@{get\_command\_value}!uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}}
+\doxysubsubsection{\texorpdfstring{get\_command\_value()}{get\_command\_value()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom.\+get\+\_\+command\+\_\+value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{thrust }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Convert desired thrust force to input command according to this
+function. Overwrite this method to implement custom models.\end{DoxyVerb}
+ 
+
+Reimplemented from \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a822a77083f976afe5b370555e2cd5f0f}{uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster}}.
+
+\mbox{\Hypertarget{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_ab745b92cb62dc58b4e68d7789aeb57d9}\label{classuuv__thrusters_1_1models_1_1thruster__custom_1_1ThrusterCustom_ab745b92cb62dc58b4e68d7789aeb57d9}} 
+\index{uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}!get\_thrust\_value@{get\_thrust\_value}}
+\index{get\_thrust\_value@{get\_thrust\_value}!uuv\_thrusters.models.thruster\_custom.ThrusterCustom@{uuv\_thrusters.models.thruster\_custom.ThrusterCustom}}
+\doxysubsubsection{\texorpdfstring{get\_thrust\_value()}{get\_thrust\_value()}}
+{\footnotesize\ttfamily def uuv\+\_\+thrusters.\+models.\+thruster\+\_\+custom.\+Thruster\+Custom.\+get\+\_\+thrust\+\_\+value (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{command }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Computes the thrust force for the given command.\end{DoxyVerb}
+ 
+
+Reimplemented from \mbox{\hyperlink{classuuv__thrusters_1_1models_1_1thruster_1_1Thruster_a8ac586d53fe484de470043b23bd9eded}{uuv\+\_\+thrusters.\+models.\+thruster.\+Thruster}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+control\+\_\+layer/uuv\+\_\+thruster\+\_\+manager/src/uuv\+\_\+thrusters/models/thruster\+\_\+custom.\+py\end{DoxyCompactItemize}

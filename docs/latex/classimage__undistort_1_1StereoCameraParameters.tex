@@ -1,0 +1,38 @@
+\hypertarget{classimage__undistort_1_1StereoCameraParameters}{}\doxysection{image\+\_\+undistort\+::Stereo\+Camera\+Parameters Class Reference}
+\label{classimage__undistort_1_1StereoCameraParameters}\index{image\_undistort::StereoCameraParameters@{image\_undistort::StereoCameraParameters}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_a22876c8f89132297fe41d2e99b35f231}\label{classimage__undistort_1_1StereoCameraParameters_a22876c8f89132297fe41d2e99b35f231}} 
+{\bfseries Stereo\+Camera\+Parameters} (const double scale=1.\+0)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_a010ab6f2db2ef20fc9d3d420c4c27c0c}\label{classimage__undistort_1_1StereoCameraParameters_a010ab6f2db2ef20fc9d3d420c4c27c0c}} 
+bool {\bfseries set\+Input\+Camera\+Parameters} (const ros\+::\+Node\+Handle \&nh, const std\+::string \&camera\+\_\+namespace, const Camera\+Side \&side, const bool invert\+\_\+T)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_a444a557b5868e2cf61dbe1deea99ae4f}\label{classimage__undistort_1_1StereoCameraParameters_a444a557b5868e2cf61dbe1deea99ae4f}} 
+bool {\bfseries set\+Input\+Camera\+Parameters} (const sensor\+\_\+msgs\+::\+Camera\+Info \&camera\+\_\+info, const Camera\+Side \&side)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_ac14d07d342d4dae4668711b00360643b}\label{classimage__undistort_1_1StereoCameraParameters_ac14d07d342d4dae4668711b00360643b}} 
+bool {\bfseries set\+Input\+Camera\+Parameters} (const cv\+::\+Size \&resolution, const Eigen\+::\+Matrix$<$ double, 4, 4 $>$ \&T, const Eigen\+::\+Matrix$<$ double, 3, 3 $>$ \&K, const std\+::vector$<$ double $>$ \&D, const Distortion\+Model \&distortion\+\_\+model, const Camera\+Side \&side)
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_a65100054bd0ce1297488a639e1632388}\label{classimage__undistort_1_1StereoCameraParameters_a65100054bd0ce1297488a639e1632388}} 
+void {\bfseries generate\+Camera\+Info\+Message} (const Camera\+Side \&side, const Camera\+IO \&io, sensor\+\_\+msgs\+::\+Camera\+Info $\ast$camera\+\_\+info) const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_affa22daa2fa2b4e3a21db48742b2657e}\label{classimage__undistort_1_1StereoCameraParameters_affa22daa2fa2b4e3a21db48742b2657e}} 
+const \mbox{\hyperlink{classimage__undistort_1_1CameraParametersPair}{Camera\+Parameters\+Pair}} \& {\bfseries get\+First} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_a41f953558ea5dba26aaa702d85e2c561}\label{classimage__undistort_1_1StereoCameraParameters_a41f953558ea5dba26aaa702d85e2c561}} 
+const \mbox{\hyperlink{classimage__undistort_1_1CameraParametersPair}{Camera\+Parameters\+Pair}} \& {\bfseries get\+Second} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_ab877d6cd7f0d29ed7cab8cf7467a7a01}\label{classimage__undistort_1_1StereoCameraParameters_ab877d6cd7f0d29ed7cab8cf7467a7a01}} 
+bool {\bfseries valid} () const
+\item 
+\mbox{\Hypertarget{classimage__undistort_1_1StereoCameraParameters_afc84c670ced12a5714bcf788b700d69d}\label{classimage__undistort_1_1StereoCameraParameters_afc84c670ced12a5714bcf788b700d69d}} 
+bool {\bfseries valid} (const Camera\+Side \&side, const Camera\+IO \&io) const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+vision\+\_\+layer/image\+\_\+undistort/include/image\+\_\+undistort/camera\+\_\+parameters.\+h\item 
+vision\+\_\+layer/image\+\_\+undistort/src/camera\+\_\+parameters.\+cpp\end{DoxyCompactItemize}

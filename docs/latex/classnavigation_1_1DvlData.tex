@@ -1,0 +1,74 @@
+\hypertarget{classnavigation_1_1DvlData}{}\doxysection{navigation\+::Dvl\+Data Class Reference}
+\label{classnavigation_1_1DvlData}\index{navigation::DvlData@{navigation::DvlData}}
+Inheritance diagram for navigation\+::Dvl\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnavigation_1_1DvlData}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_ac24d2ec36fda2e666c6c1d99ea3b8f63}\label{classnavigation_1_1DvlData_ac24d2ec36fda2e666c6c1d99ea3b8f63}} 
+enum {\bfseries Integration\+Method\+Type} \{ {\bfseries Std\+Method} = 0, 
+{\bfseries R\+K\+Method}, 
+{\bfseries Default\+Method}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a0869dc4d839aed3b0362e084f1f4f637}\label{classnavigation_1_1DvlData_a0869dc4d839aed3b0362e084f1f4f637}} 
+{\bfseries Dvl\+Data} (Integration\+Method\+Type integration\+Method\+Type=R\+K\+Method)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a3de3242a0cbea12329b09e266e900477}\label{classnavigation_1_1DvlData_a3de3242a0cbea12329b09e266e900477}} 
+void {\bfseries Dvl\+Twist\+Callback} (geometry\+\_\+msgs\+::\+Twist\+With\+Covariance\+Stamped msg)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_ad8941460c960aadc7d995e2be367c8c8}\label{classnavigation_1_1DvlData_ad8941460c960aadc7d995e2be367c8c8}} 
+void {\bfseries Dvl\+Pressure\+Callback} (std\+\_\+msgs\+::\+Float32 msg)
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_adfcb95f8a4319806643b7c6e8e2c4a4a}\label{classnavigation_1_1DvlData_adfcb95f8a4319806643b7c6e8e2c4a4a}} 
+Eigen\+::\+Vector3d {\bfseries Get\+Position\+X\+YZ} ()
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a39bab39003b8916544557a2ee6f20209}\label{classnavigation_1_1DvlData_a39bab39003b8916544557a2ee6f20209}} 
+Eigen\+::\+Vector3d {\bfseries Get\+Velocity\+X\+YZ} ()
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a0fcf5be8a4f3393265351fffb810081b}\label{classnavigation_1_1DvlData_a0fcf5be8a4f3393265351fffb810081b}} 
+double {\bfseries Get\+Position\+Z\+From\+Pressure} ()
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a54d3559339019627a33636157e369551}\label{classnavigation_1_1DvlData_a54d3559339019627a33636157e369551}} 
+std\+\_\+msgs\+::\+Float32 {\bfseries Get\+Pressure} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a2f08082395e159bb9e15a67c55f194dd}\label{classnavigation_1_1DvlData_a2f08082395e159bb9e15a67c55f194dd}} 
+const double {\bfseries B\+A\+R\+\_\+\+T\+O\+\_\+\+M\+E\+T\+E\+R\+\_\+\+O\+F\+\_\+\+W\+A\+T\+ER} = 10.\+1972
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a249ba705a7eecd0e3cfa38c3ac0aaecf}\label{classnavigation_1_1DvlData_a249ba705a7eecd0e3cfa38c3ac0aaecf}} 
+std\+::vector$<$ double $>$ {\bfseries x\+\_\+vel}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a8e410bd105300614ceafe3a68c730c38}\label{classnavigation_1_1DvlData_a8e410bd105300614ceafe3a68c730c38}} 
+std\+::vector$<$ double $>$ {\bfseries y\+\_\+vel}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a30ad7a24b1d21eda7751fb9b39b70bcf}\label{classnavigation_1_1DvlData_a30ad7a24b1d21eda7751fb9b39b70bcf}} 
+std\+::vector$<$ double $>$ {\bfseries z\+\_\+vel}
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a489d885d8b0604f091e95829a7850c5f}\label{classnavigation_1_1DvlData_a489d885d8b0604f091e95829a7850c5f}} 
+int {\bfseries x\+\_\+count} = 0
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a5a4255a5ec33cb262f9b8f40d491b98a}\label{classnavigation_1_1DvlData_a5a4255a5ec33cb262f9b8f40d491b98a}} 
+int {\bfseries y\+\_\+count} = 0
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a0a4e7896e814db0a042529d8a16b50d3}\label{classnavigation_1_1DvlData_a0a4e7896e814db0a042529d8a16b50d3}} 
+int {\bfseries z\+\_\+count} = 0
+\item 
+\mbox{\Hypertarget{classnavigation_1_1DvlData_a4dd27495416fe948b07c4137574e0fed}\label{classnavigation_1_1DvlData_a4dd27495416fe948b07c4137574e0fed}} 
+int {\bfseries vel\+\_\+count} = 0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+navigation\+\_\+layer/odom\+\_\+dvl\+\_\+imu/include/dvl\+\_\+data.\+h\item 
+navigation\+\_\+layer/odom\+\_\+dvl\+\_\+imu/src/dvl\+\_\+data.\+cpp\end{DoxyCompactItemize}
